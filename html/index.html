@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+	  <title>京东小金库</title>
+	  <script src="../js/jquery-1.4.2.js"></script>
+	  <script>
+	    $(document).ready(function(){
+		   $("#CardImg").click(function(){
+		     $("#MyBody,#PocketMon").css({"background-color":"#A9A9A9"});
+			 $("#PocketMon").css({"border-color":"#A9A9A9"});
+			 $(".MyDiv").show();
+			 $("#TheFork").show();
+		   })
+		   $("#MyDiv1").click(function(){
+		     var text = "<span  class='text'>请使用京东联名卡办理此业务。</span>"
+		     $("#PocketMon").html(text);
+			 $("#ChangeValue1").text("622908 ****** *1271*");
+			 $("#ChangeValue2").text("测试一号")
+			 PublicMet()
+		   })
+		   $("#MyDiv2").click(function(){
+		     var text = "<span  style='position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;'>零用钱余额</span>";
+			 text = text + "<span  style='position:absolute;right:15px;font-family:Microsoft JhengHei;font-size:14px;'>100.00</span>";
+			 $("#ChangeValue1").text("622908 ****** *3787*");
+			 $("#ChangeValue2").text("京东")
+			 $("#PocketMon").html(text);
+			 PublicMet()
+		   })
+		   $("#MyDiv3").click(function(){
+		     var text = "<span  style='position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;'>零用钱余额</span>";
+			 text = text + "<span  style='position:absolute;right:15px;font-family:Microsoft JhengHei;font-size:14px;'>100.00</span>";
+			 $("#ChangeValue1").text("622908 ****** *6666*");
+			 $("#ChangeValue2").text("前端卡号")
+			 $("#PocketMon").html(text);
+			 PublicMet()
+		   })
+		   $("#Ransom").click(function(){
+		     var text = $("#PocketMon").html();
+			 var keyword=/请使用京东联名卡办理此业务/;
+			 if(keyword.test(text))
+			  {
+			   alert("请先办理京东业务！")
+			  }
+			 else
+			  {
+			  window.location.href = "shuhui.html"
+			  }
+		   })
+		   $("#TheFork").click(function(){
+		     PublicMet()
+		   })
+		   
+		  function PublicMet()
+		   {
+		    $("#MyBody").css({"background-color":"#F0F8FF","opacity":"1"});
+			$("#PocketMon").css({"background-color":"#fff","border-color":"#e5e5e5"});
+			$(".MyDiv").hide();
+			$("#TheFork").hide();
+		   }
+		   
+		})
+		
+	  </script>
+	  <style type="text/css">
+	    .FontStyle{font-family:Microsoft JhengHei;color:#ffffff;}
+		.FontStyle_1{font-family:Microsoft JhengHei;}
+		.body{background-color:#F0F8FF;}
+		.text{font-size:17px;font-weight:500;letter-spacing:-2px;color:#333333;font-family:黑体;position:absolute;left:15px}
+		.BlankDiv1{width:100%;height:15px;}
+      </style>
+	</head>
+	 <body class="body" id="MyBody">
+	   <div style="background-color:#3b76d8;width:100%;height:44px;position:absolute;top:0px;left:0px;line-height:44px;text-align:center;"  >
+	       <span style="font-size:19px;color:#ffffff;letter-spacing:-2px;" class="FontStyle">京东小金库</span>
+	   <div>
+	   <div style="width:100%;height:7px;"></div>
+	   <div style="width:100%;height:90px;" align="center">
+	     <img src="../img/kqh.png" style="width:50%;height:90px;" id="CardImg" />
+		 <p style="font-size:12px;top:42px;left:415px;position:absolute;" class="FontStyle">借记卡</p>
+		 <p style="font-size:15px;top:38px;left:460px;position:absolute;" class="FontStyle" id="ChangeValue1">622908 ****** *3787*</p>
+		 <p style="font-size:14px;left:415px;top:68px;position:absolute;" class="FontStyle" id="ChangeValue2">京东</p>
+		 <p style="font-size:17px;right:420px;top:65px;position:absolute;" class="FontStyle">1.00</p>
+		 <p style="font-size:13px;right:415px;top:93px;position:absolute;" class="FontStyle">人民币活期余额</p>
+	   </div>
+	   <div class="BlankDiv1"></div>
+	   <div style="width:100%;background-color:#ffffff;height:45px;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;" id="PocketMon">
+	      <span  style="position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;">零用钱余额</span>
+		  <span  style="position:absolute;right:15px;font-family:Microsoft JhengHei;font-size:14px;">100.00</span>
+	   </div>
+	   <div class="BlankDiv1"></div>
+	   <div style="width:100%;height:22px;" align="center" id="MyRansom">
+	      <div style="width:128px;height:21px;line-height:22px;text-align:center;background-color:#fff;border: 1px solid #3b76d8;border-radius:10px;cursor:pointer" id="Ransom" >
+		     <span style="font-size:14px;color:#3b76d8;" class="FontStyle" >赎回</span>
+		  </div>
+	   </div>
+	   
+	   <div style="width:88%;height:69px;background-color:#ffffff;position:fixed;left:6%;border: 1px;border-radius:10px;top:205px;display:none;" class="MyDiv" id="MyDiv1">
+	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >借记卡</span>
+		   <span class="FontStyle_1" style="position:absolute;left:60px;;font-size:12px;height:30px;top:-2px;" >622908 ****** *1271*</span>
+		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >测试一号</span>
+	   </div> 
+	   <div style="width:88%;height:69px;background-color:#ffffff;position:fixed;left:6%;border: 1px;border-radius:10px;top:295px;display:none;" class="MyDiv" id="MyDiv2">
+	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >借记卡</span>
+		   <span class="FontStyle_1" style="position:absolute;left:60px;;font-size:12px;height:30px;top:-2px;" >622908 ****** *3787*</span>
+		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >京东</span>
+	   </div> 
+	    <div style="width:88%;height:69px;background-color:#ffffff;position:fixed;left:6%;border: 1px;border-radius:10px;top:385px;display:none;" class="MyDiv" id="MyDiv3">
+	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >借记卡</span>
+		   <span class="FontStyle_1" style="position:absolute;left:60px;;font-size:12px;height:30px;top:-2px;" >622908 ****** *6666*</span>
+		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >前端卡号</span>
+	   </div> 
+	   <img src="../img/thefork.png"  style="position:fixed;top:165px;right:120px;display:none;" id="TheFork"/>
+	    <div style="width:100%;height:50px;background-color:#ffffff;position:fixed;left:0px;bottom:0px;background-color:#3b76d8;">
+	       <span  style="font-size:15px;top:-10px;letter-spacing:-1px;font-family:黑体;color:#fff;" >兴业银行版权所有</span>
+	    </div> 
+	 <body>
+  </html>
