@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset=utf-8 />
+	  <title>精灵信使设置</title>
+	  <link rel="icon" href="../../img/26.jpg" />
+	  <script src="../../js/jquery-1.7.2.min.js"></script>
+	   <script src="../js/jlxs_set.js"></script>
+	  <link href="../css/jlxs_set.css" rel="Stylesheet" type="text/css">
+	</head>
+	 <body class="body" id="MyBody">
+	   <div class="HeadDiv"  >
+             <img src="../../img/back_button.png" style="width:21px;height:21px;position: absolute;top:10px;left:35px;cursor:pointer;" 
+              onClick="javascript:history.back();return false;"/>
+	       <span style="font-size:19px;color:#ffffff;letter-spacing:-2px;" class="FontStyle">精灵信使设置</span>
+             <span style="font-size:16px;color:#ffffff;position: absolute;right:35px;cursor:pointer;" class="FontStyle">退出</span>
+	   <div>
+	   <div class="OutDiv" >
+	     <div class="PhoneDiv" style="margin-top: 30px;">
+            <span class="PhoneNum">手机号码</span>
+            <input placeholder="请输入" class="PhoneInput" id="PhoneInput" onfocus="ClearHold('PhoneInput')" onblur="ShowHold('PhoneInput')"/>
+	     </div>
+	     <div style="width:70%;margin-left:15%;">
+             <ul style="padding:0;">
+             	<li  class="DhtzLi">
+             		<span  class="WordDhtz">动户通知</span>
+             		<img name="SwitchOff" class="Switch" src="../../img/switch_on.png" id="SwitchDhtz" />
+             		<hr style="height:1px;background-color:#e5e5e5;border:none;position:relative;bottom:7px;" class="LiDisplay"/>
+             	</li>
+             	<li style="width:100%;height:60px;line-height:60px;background-color:#fff;" class="LiDisplay">
+             		<span  class="LimitMon">限额</span>
+             		<span class="limitNum">100.00</span>
+             		<img src="../../img/change.png" class="PanImg"/>
+             	</li>
+             	<li style="width:100%;height:35px;line-height:50px;" class="LiDisplay">
+                   <span class="LimitSpan">限额不能小于100</span>
+                </li>
+                <li style="width:100%;height:15px;line-height:50px;"></li>
+                <li  class="DhtzLi">
+             		<span  class="Wordyrcxtz" style="right: 336px;">余额超限通知</span>
+             		<img name="SwitchOff" class="Switch"  style="left:350px;" src="../../img/switch_off.png" id="SwitchYecxtz" onclick="Switch('SwitchYecxtz','FreeMonLi')" />
+             	</li>
+             	<li style="width:100%;height:120px;line-height:60px;background-color:#fff;display:none;" class="FreeMonLi">
+             		<table  style="width:100%;height:120px;" cellspacing="0" cellpadding="0">
+	         			<tr >
+	         			   <td style="border-top:solid 1px #e5e5e5;">
+	         			   	 <span class="LimitUpSpan">上限</span>
+	         			   	 <input placeholder="上下限必须大于0" id="InputUp" class="FontStyle_1" onfocus="ClearHold('InputUp')" onblur="ShowUpHold('InputUp')"></input>
+	         			   </td>
+	         			</tr>
+	         			<tr>
+	         				<td style="border-top:solid 1px #e5e5e5;">
+	         			   	 <span class="LimitUpSpan">上限</span>
+	         			   	 <input placeholder="上限应大于下限" id="InputDown" class="FontStyle_1" onfocus="ClearHold('InputDown')" onblur="ShowUpHold('InputDown')"></input>
+	         			   </td>
+	         			</tr>
+             		</table>
+             	</li>
+             	<li style="width:100%;height:15px;"></li>
+             	 <li  class="DhtzLi">
+             		<span class="Wordyrcxtz" style="right: 355px;">余额通知</span>
+             		<img  class="Switch"  style="left:365px;" src="../../img/switch_off.png" id="SwitchYetz" onclick="Switch('SwitchYetz','')" />
+             	</li>
+             	<li style="width:100%;height:15px;"></li>
+             	<li  class="DhtzLi">
+             		<span class="Wordyrcxtz" style="right: 325px;">基金净值短信通知</span>
+             		<img  class="Switch"  style="left:334px;" src="../../img/switch_off.png" id="fundjztz" onclick="Switch('fundjztz','checkSet')" />
+             		<hr style="height:1px;background-color:#e5e5e5;border:none;position:relative;bottom:7px;display:none;" class="checkSet"/>
+             	</li>
+             	<li class="DhtzLi checkSet" style="display:none;">
+             		<span class="Wordyrcxtz" style="right: 365px;">查看设置</span>
+             		<img  class="ArrowRight"  style="left:375px;" src="../../img/list_enter.png" id="fundjztz" />
+             	</li>
+             	<li style="width:100%;height:15px;"></li>
+             	<li  class="DhtzLi">
+             		<span class="Wordyrcxtz" style="right: 310px;">基金净值超限短信通知</span>
+             		<img  class="Switch"  style="left:318px;" src="../../img/switch_off.png" id="fundjzcxtz" onclick="Switch('fundjzcxtz','checkSetFundcx')" />
+             		<hr style="height:1px;background-color:#e5e5e5;border:none;position:relative;bottom:7px;display:none;" class="checkSetFundcx"/>
+             	</li>
+             	<li class="DhtzLi checkSetFundcx" style="display:none;">
+             		<span class="Wordyrcxtz" style="right: 365px;">查看设置</span>
+             		<img  class="ArrowRight"  style="left:375px;" src="../../img/list_enter.png" id="fundjztz" />
+             	</li>
+             	<li style="width:100%;height:15px;"></li>
+             	<li  class="DhtzLi">
+             		<span class="Wordyrcxtz" style="right: 320px;">贵金属行情监测通知</span>
+             		<img  class="Switch"  style="left:327px;" src="../../img/switch_off.png" id="gjshqjctz" onclick="Switch('gjshqjctz','checkSetGuijs')" />
+             		<hr style="height:1px;background-color:#e5e5e5;border:none;position:relative;bottom:7px;display:none;" class="checkSetGuijs"/>
+             	</li>
+             	<li class="DhtzLi checkSetGuijs" style="display:none;">
+             		<span class="Wordyrcxtz" style="right: 365px;">查看设置</span>
+             		<img  class="ArrowRight"  style="left:375px;" src="../../img/list_enter.png" id="fundjztz" />
+             	</li>
+             </ul>
+	     </div>
+	      <ul style="padding:0;margin:0">
+            <li style="width:100%;height:15px;"></li>
+            <li class="NextStep" onclick="ToBackOut()" >
+               <span class="FontStyle" style="font-size:20px;font-weight:500px;" >下一步</span>
+            </li>
+	      	<li style="width:100%;height:100px;"></li>
+	    	<li style="width:100%;height:50px;line-height:50px;background-color:#3b76d8;">
+	    		<span class="FontStyle">兴业银行版权所有</span>
+            </li>
+	     </ul>
+	   </div>
+	 <body>
+  </html>

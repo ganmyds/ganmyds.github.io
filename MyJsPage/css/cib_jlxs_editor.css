@@ -1,0 +1,19 @@
+.FontStyle{font-family:Microsoft JhengHei;color:#ffffff;}
+.FontStyle_1{font-family:Microsoft JhengHei;}
+.body{background-color:#F0F8FF;margin:0;padding:0;}
+.OutDiv{position:absolute;width:100%;height:700px;}
+.SpanStyle{color:#fff;position:absolute;font-size:13px;}
+.HeadDiv{background-color:#3b76d8;width:100%;height:44px;position:absolute;top:0px;left:0px;line-height:44px;text-align:
+center;}
+.CardImg{width:50%;height:90px;position:absolute;left:25%;top:0px;}
+.AddPhoneDiv{width:100%;height:40px;background-color:#3b76d8;position:absolute;top:100px;cursor:pointer}
+.AddPhoneImg{position:absolute;top:10px;width:22px;hright:22px;left:47%;}
+.BottomLine1{width:80%;height:80px;background-color:#fff;top:40px;position:absolute;left:8%;line-height:80px;border-bottom:1px solid #e5e5e5;border-top:1px solid #e5e5e5;}
+.BottomLine2{width:80%;height:80px;background-color:#fff;top:122px;position:absolute;left:8%;line-height:80px;border-bottom:1px solid #e5e5e5;}
+.PanImg{position:absolute;width:20px;height:20px;right:50px;top:32px;cursor:pointer}
+.TailDiv{width:100%;height:50px;background-color:#ffffff;position:fixed;left:0px;bottom:0px;background-color:#3b76d8;}
+.TailWord{font-size:15px;top:-10px;letter-spacing:-1px;font-family:黑体;color:#fff;}
+.ChangeDiv{width:35%;height: 80px;border: 0;position: absolute;right: 0;display:none;}
+.Change{width:30%;height: 80px;background-color: #458bff;color: #fff;font-size: 19px;border: 0;position: absolute;left: 50%;cursor:pointer}
+.Backout{width:20%;height: 80px;background-color: #10c7af;color: #fff;font-size: 19px;border: 0;position: absolute;left: 80%;cursor:pointer}
+.ChangeWord{right:120px;color:#333333;font-size:16px;width: 50%;left: 0;height: 80px;}

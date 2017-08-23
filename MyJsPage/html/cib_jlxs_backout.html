@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset=utf-8 />
+	  <title>精灵信使设置</title>
+	  <link rel="icon" href="../../img/26.jpg" />
+	  <script src="../../js/jquery-1.7.2.min.js"></script>
+	   <script src="../js/cib_jlxs_backout.js"></script>
+	  <link href="../css/cib_jlxs_backout.css" rel="Stylesheet" type="text/css">
+	</head>
+	 <body class="body" id="MyBody">
+	   <div class="HeadDiv"  >
+	   	   <img src="../../img/back_button.png" style="width:21px;height:21px;position: absolute;top:10px;left:35px;cursor:pointer;" onClick="javascript:history.back();return false;"/>
+	       <span style="font-size:19px;color:#ffffff;letter-spacing:-2px;" class="FontStyle">精灵信使设置</span>
+	       <span style="font-size:16px;color:#ffffff;position: absolute;right:35px;cursor:pointer;" class="FontStyle">退出</span>
+	   <div>
+	   <div class="OutDiv" >
+	      <div style="width:100%;height:115px;position:absolute;top:0;">
+	      	 <img src="../../img/xk.png" style="width:72%;height:50px;top:15px;left:14%;position:absolute;" />
+	      	 <span style="position:absolute;top:20px;left:18%;" class="FontStyle">陈小二</span>
+	      	 <span style="position:absolute;top:20px;right:18%;" class="FontStyle">622908 ****** *1234*</span>
+	      	 <span style="position:absolute;top:67px;left:15%;" class="FontStyle_1">您正在撤销精灵信使功能：</span>
+	      </div>
+	      <div class="PhoneDiv">
+	      	 <span style="position:absolute;left:18px;font-size:16px;" class="FontStyle_1">手机号码</span>
+	      	 <span style="position:absolute;right:60px;font-size:16px;" class="FontStyle_1">13812345678</span>
+	      </div>
+	      <div class="CodeDiv">
+	      	 <span style="position:absolute;left:18px;font-size:16px;" class="FontStyle_1">短信认证码</span>
+	      	 <input type="text" placeholder="请输入6位短信认证码" class="CodeInput" onfocus="ClearHold('CodeInput')" onblur="ShowHold('CodeInput')" id="CodeInput"></input>
+             <div class="TestCodeDiv" id="CodeDiv">
+             	<span style="font-size:13px;color:#3b76d8;" class="FontStyle_1" onclick="GetCode()" id="CodeSpan">获取认证码</span>
+             </div>
+	      </div>
+	       <div style="position:absolute;top:238px;width:72%;left:14%;height:50px;">
+	      	<span id="CodeSenCond" style="position:absolute;right:30px;"></span>
+	      </div>
+	      <div class="CodeDiv" style="top:287px;">
+	      	<span style="position:absolute;left:18px;font-size:16px;" class="FontStyle_1">取款密码</span>
+	      	<input id="InputPsw" class="InputPsw" placeholder="请输入" onfocus="ClearHold('InputPsw')" onblur="ShowHold('InputPsw')" ></input>
+	      </div>
+	      <div class="NextStep"onclick="ToSet()" >
+	      	<span class="FontStyle" style="font-size:20px;font-weight:500px;">确认撤销</span>
+	      </div>
+	   </div>
+	    <div class="TailDiv">
+	       <span class="TailWord">兴业银行版权所有</span>
+	    </div>
+	 <body>
+  </html>

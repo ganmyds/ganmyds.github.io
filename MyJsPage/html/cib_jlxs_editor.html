@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset=utf-8 />
+	  <title>精灵信使设置</title>
+	  <link rel="icon" href="../../img/26.jpg" />
+	  <script src="../../js/jquery-1.7.2.min.js"></script>
+	   <script src="../js/cib_jlxs_editor.js"></script>
+	  <link href="../css/cib_jlxs_editor.css" rel="Stylesheet" type="text/css">
+	</head>
+	 <body class="body" id="MyBody">
+	   <div class="HeadDiv"  >
+	   	   <img src="../../img/back_button.png" style="width:21px;height:21px;position: absolute;top:10px;left:35px;cursor:pointer;" onClick="javascript:history.back();return false;"/>
+	       <span style="font-size:19px;color:#ffffff;letter-spacing:-2px;" class="FontStyle">精灵信使设置</span>
+	       <span style="font-size:16px;color:#ffffff;position: absolute;right:35px;cursor:pointer;" class="FontStyle">退出</span>
+	   <div>
+	   <div style="width:100%;height:8px;"></div>
+	   <div class="OutDiv" >
+	     <div style="position:absolute;top:0px;width:100%;" >
+	        <img src="../../img/kqh.png" class="CardImg" id="CardImg" />
+  		    <span class="SpanStyle FontStyle_1" style="top:0px;left:415px;">借记卡</span>
+  		    <span class="SpanStyle FontStyle_1" style="top:0px;left:465px;font-size:15px;">622908 ****** *3787*</span>
+  		    <span class="SpanStyle FontStyle_1" style="top:30px;left:415px;font-size:14px;">京东</span>
+  		    <span class="SpanStyle FontStyle_1" style="top:30px;right:422px;font-size:17px;">1.00</span>
+  		    <span class="SpanStyle FontStyle_1" style="top:55px;right:417px;font-size:13px;">人民币活期余额</span>
+  		    <div class="AddPhoneDiv" align="center" onclick="SearchSet()">
+  		    <img src="../../img/AddImg.png" class="AddPhoneImg" />
+  			  <span class="SpanStyle FontStyle_1" style="top:0px;font-size:17px;left:49%;">新增手机号</span>
+		    </div>
+		  </div>
+		 <div style="position:absolute;width:100%;top:150px;">
+		   <span class="SpanStyle FontStyle_1" style="top:0px;font-size:17px;left:8%;color:#333333;" >已设置的精灵信使手机号</span>
+		   <div class="BottomLine1">
+		      <span class="SpanStyle FontStyle_1"  style="left:15px;color:#333333;font-size:16px;" >手机号码</span>
+			    <span class="SpanStyle FontStyle_1" id="PhoneNum1" style="right:120px;color:#333333;font-size:16px;" >13812345678</span>
+			    <img src="../../img/change.png" class="PanImg" id="PanImg" onclick="ShowChangeDiv('ChangeDiv1','PhoneNum1')" />
+			    <div class="ChangeDiv" id="ChangeDiv1">
+			      <span class="SpanStyle FontStyle_1 ChangeWord" onclick="HiddenChangeDiv('ChangeDiv1')" style="cursor:pointer" >13812345678</span>
+			      <button class="Change" onclick="SearchSet()">查询/修改</button>
+			      <button class="Backout">撤销</button>
+			    </div>
+		   </div>
+		   <div class="BottomLine2">
+		      <span class="SpanStyle FontStyle_1" style="left:15px;color:#333333;font-size:16px;" >手机号码</span>
+  			  <span class="SpanStyle FontStyle_1" id="PhoneNum2" style="right:120px;color:#333333;font-size:16px;" >13317135036</span>
+  			  <img src="../../img/change.png" class="PanImg" id="PanImg1" onclick="ShowChangeDiv('ChangeDiv2','PhoneNum2')"  />
+  			  <div class="ChangeDiv" id="ChangeDiv2">
+			      <span class="SpanStyle FontStyle_1 ChangeWord" style="cursor:pointer" onclick="HiddenChangeDiv('ChangeDiv2')">13317135036</span>
+			      <button class="Change" onclick="SearchSet()">查询/修改</button>
+			      <button class="Backout">撤销</button>
+			  </div>
+		   </div>
+		 </div>
+	   </div>
+	    <div class="TailDiv">
+	       <span class="TailWord" >兴业银行版权所有</span>
+	    </div>
+	 <body>
+  </html>

@@ -1,0 +1,16 @@
+.body{background-color:#F0F8FF;margin:0;padding:0;}
+.HeadDiv{background-color:#3b76d8;width:100%;height:44px;position:absolute;top:0px;left:0px;line-height:44px;text-align:center;}
+.FontStyle{font-family:Microsoft JhengHei;color:#ffffff;}
+.FontStyle_1{font-family:Microsoft JhengHei;}
+li{list-style-type: none;}
+.ShowCard{width:100%;height:70px;padding: 0;}
+.CardImg{width:70%;height:55px;position: relative;top:15px;left:15%;}
+.TailDiv{width:100%;height:50px;background-color:#ffffff;position:fixed;left:0px;bottom:0px;background-color:#3b76d8;}
+.TailWord{font-size:15px;top:-10px;letter-spacing:-1px;font-family:黑体;color:#fff;}
+.OutDiv{position:absolute;width:100%;height:700px;}
+.PhoneDiv{width:72%;height:60px;position:absolute;top:115px;line-height:60px;background-color: #fff;border-top: 1px solid #e5e5e5;left:14%; }
+.CodeDiv{width:72%;height:60px;position:absolute;top:176px;line-height:60px;background-color: #fff;border-top: 1px solid #e5e5e5;left:14%;border-bottom:1px solid #e5e5e5;}
+.CodeInput{position:absolute;height:58px;width:510px;left:33%;text-align: right;border:none;font-size: 16px;}
+.TestCodeDiv{width:72px;height:24px;position:absolute;text-align:center;border:2px solid #3b76d8;right:30px;line-height:24px;top:16px;border-radius:4px;cursor:pointer;}
+.InputPsw{position:absolute;height:58px;border:none;right:30px;width:300px;text-align:right;font-size:16px;}
+.NextStep{position:absolute;top:379px;width:72%;height:50px;line-height:50px;background-color:#3b76d8;cursor:pointer;margin-left:14%;border: 1px solid #3b76d8;border-radius:3px;}

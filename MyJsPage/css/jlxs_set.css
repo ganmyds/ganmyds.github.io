@@ -1,0 +1,23 @@
+
+.body{background-color:#F0F8FF;margin:0;padding:0;}
+.HeadDiv{background-color:#3b76d8;width:100%;height:44px;position:absolute;top:0px;left:0px;line-height:44px;text-align:center;}
+.FontStyle{font-family:Microsoft JhengHei;color:#ffffff;}
+.TailDiv{width:100%;height:50px;background-color:#ffffff;position:fixed;left:0px;bottom:0px;background-color:#3b76d8;}
+.TailWord{font-size:15px;top:-10px;letter-spacing:-1px;font-family:黑体;color:#fff;}
+.OutDiv{position:absolute;width:100%;}
+.PhoneDiv{width: 70%;height: 60px;background-color: #fff;margin-left: 15%;line-height: 60px;}
+.PhoneNum{margin-left: 0%;font-family:Microsoft JhengHei;font-size: 16px;color: #333333;}
+.PhoneInput{text-align: right;font-size: 16px;color: #333333;height: 50px;width: 73%;cursor:auto;border: 0;margin-left: 5%;}
+.Switch{position: relative;width:50px;height: 28px;cursor: pointer;left:370px;top:9px;}
+li{list-style-type: none;}
+.WordDhtz{position: relative;right:345px;}
+.LimitMon{position: relative;right: 348px;}
+.limitNum{position: relative;left: 366px;}
+.PanImg{width:20px;height:20px;left:380px;position: relative;top:3px;}
+.LimitSpan{position: relative;left: 366px;color:#808080;}
+.DhtzLi{width:100%;height:60px;line-height:60px;background-color:#fff;}
+.Wordyrcxtz{position: relative;}
+.LimitUpSpan{margin-right: 530px;margin-left: 15px;}
+#InputUp,#InputDown{width:270px;height:57px;text-align: right;font-size: 16px;border: 0;}
+.ArrowRight{position: relative;width:30px;height: 30px;cursor: pointer;left:370px;top:9px;}
+.NextStep{width:70%;height:50px;line-height:50px;background-color:#3b76d8;cursor:pointer;margin-left:15%;border: 1px solid #3b76d8;border-radius:3px;}
