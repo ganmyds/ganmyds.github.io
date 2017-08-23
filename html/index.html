@@ -1,7 +1,8 @@
 <!DOCTYPE html>
   <html>
     <head>
-	  <title>¾©¶«Ğ¡½ğ¿â</title>
+	  <meta charset="UTF-8">
+	  <title>äº¬ä¸œå°é‡‘åº“</title>
 	  <script src="../js/jquery-1.4.2.js"></script>
 	  <script>
 	    $(document).ready(function(){
@@ -12,34 +13,34 @@
 			 $("#TheFork").show();
 		   })
 		   $("#MyDiv1").click(function(){
-		     var text = "<span  class='text'>ÇëÊ¹ÓÃ¾©¶«ÁªÃû¿¨°ìÀí´ËÒµÎñ¡£</span>"
+		     var text = "<span  class='text'>è¯·ä½¿ç”¨äº¬ä¸œè”åå¡åŠç†æ­¤ä¸šåŠ¡ã€‚</span>"
 		     $("#PocketMon").html(text);
 			 $("#ChangeValue1").text("622908 ****** *1271*");
-			 $("#ChangeValue2").text("²âÊÔÒ»ºÅ")
+			 $("#ChangeValue2").text("æµ‹è¯•ä¸€å·")
 			 PublicMet()
 		   })
 		   $("#MyDiv2").click(function(){
-		     var text = "<span  style='position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;'>ÁãÓÃÇ®Óà¶î</span>";
+		     var text = "<span  style='position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;'>é›¶ç”¨é’±ä½™é¢</span>";
 			 text = text + "<span  style='position:absolute;right:15px;font-family:Microsoft JhengHei;font-size:14px;'>100.00</span>";
 			 $("#ChangeValue1").text("622908 ****** *3787*");
-			 $("#ChangeValue2").text("¾©¶«")
+			 $("#ChangeValue2").text("äº¬ä¸œ")
 			 $("#PocketMon").html(text);
 			 PublicMet()
 		   })
 		   $("#MyDiv3").click(function(){
-		     var text = "<span  style='position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;'>ÁãÓÃÇ®Óà¶î</span>";
+		     var text = "<span  style='position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;'>é›¶ç”¨é’±ä½™é¢</span>";
 			 text = text + "<span  style='position:absolute;right:15px;font-family:Microsoft JhengHei;font-size:14px;'>100.00</span>";
 			 $("#ChangeValue1").text("622908 ****** *6666*");
-			 $("#ChangeValue2").text("Ç°¶Ë¿¨ºÅ")
+			 $("#ChangeValue2").text("å‰ç«¯å¡å·")
 			 $("#PocketMon").html(text);
 			 PublicMet()
 		   })
 		   $("#Ransom").click(function(){
 		     var text = $("#PocketMon").html();
-			 var keyword=/ÇëÊ¹ÓÃ¾©¶«ÁªÃû¿¨°ìÀí´ËÒµÎñ/;
+			 var keyword=/è¯·ä½¿ç”¨äº¬ä¸œè”åå¡åŠç†æ­¤ä¸šåŠ¡/;
 			 if(keyword.test(text))
 			  {
-			   alert("ÇëÏÈ°ìÀí¾©¶«ÒµÎñ£¡")
+			   alert("è¯·å…ˆåŠç†äº¬ä¸œä¸šåŠ¡ï¼")
 			  }
 			 else
 			  {
@@ -65,53 +66,53 @@
 	    .FontStyle{font-family:Microsoft JhengHei;color:#ffffff;}
 		.FontStyle_1{font-family:Microsoft JhengHei;}
 		.body{background-color:#F0F8FF;}
-		.text{font-size:17px;font-weight:500;letter-spacing:-2px;color:#333333;font-family:ºÚÌå;position:absolute;left:15px}
+		.text{font-size:17px;font-weight:500;letter-spacing:-2px;color:#333333;font-family:é»‘ä½“;position:absolute;left:15px}
 		.BlankDiv1{width:100%;height:15px;}
       </style>
 	</head>
 	 <body class="body" id="MyBody">
 	   <div style="background-color:#3b76d8;width:100%;height:44px;position:absolute;top:0px;left:0px;line-height:44px;text-align:center;"  >
-	       <span style="font-size:19px;color:#ffffff;letter-spacing:-2px;" class="FontStyle">¾©¶«Ğ¡½ğ¿â</span>
+	       <span style="font-size:19px;color:#ffffff;letter-spacing:-2px;" class="FontStyle">äº¬ä¸œå°é‡‘åº“</span>
 	   <div>
 	   <div style="width:100%;height:7px;"></div>
 	   <div style="width:100%;height:90px;" align="center">
 	     <img src="../img/kqh.png" style="width:50%;height:90px;" id="CardImg" />
-		 <p style="font-size:12px;top:42px;left:415px;position:absolute;" class="FontStyle">½è¼Ç¿¨</p>
+		 <p style="font-size:12px;top:42px;left:415px;position:absolute;" class="FontStyle">å€Ÿè®°å¡</p>
 		 <p style="font-size:15px;top:38px;left:460px;position:absolute;" class="FontStyle" id="ChangeValue1">622908 ****** *3787*</p>
-		 <p style="font-size:14px;left:415px;top:68px;position:absolute;" class="FontStyle" id="ChangeValue2">¾©¶«</p>
+		 <p style="font-size:14px;left:415px;top:68px;position:absolute;" class="FontStyle" id="ChangeValue2">äº¬ä¸œ</p>
 		 <p style="font-size:17px;right:420px;top:65px;position:absolute;" class="FontStyle">1.00</p>
-		 <p style="font-size:13px;right:415px;top:93px;position:absolute;" class="FontStyle">ÈËÃñ±Ò»îÆÚÓà¶î</p>
+		 <p style="font-size:13px;right:415px;top:93px;position:absolute;" class="FontStyle">äººæ°‘å¸æ´»æœŸä½™é¢</p>
 	   </div>
 	   <div class="BlankDiv1"></div>
 	   <div style="width:100%;background-color:#ffffff;height:45px;border-top:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;" id="PocketMon">
-	      <span  style="position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;">ÁãÓÃÇ®Óà¶î</span>
+	      <span  style="position:absolute;left:15px;font-family:Microsoft JhengHei;font-size:14px;">é›¶ç”¨é’±ä½™é¢</span>
 		  <span  style="position:absolute;right:15px;font-family:Microsoft JhengHei;font-size:14px;">100.00</span>
 	   </div>
 	   <div class="BlankDiv1"></div>
 	   <div style="width:100%;height:22px;" align="center" id="MyRansom">
 	      <div style="width:128px;height:21px;line-height:22px;text-align:center;background-color:#fff;border: 1px solid #3b76d8;border-radius:10px;cursor:pointer" id="Ransom" >
-		     <span style="font-size:14px;color:#3b76d8;" class="FontStyle" >Êê»Ø</span>
+		     <span style="font-size:14px;color:#3b76d8;" class="FontStyle" >èµå›</span>
 		  </div>
 	   </div>
 	   
 	   <div style="width:88%;height:69px;background-color:#ffffff;position:fixed;left:6%;border: 1px;border-radius:10px;top:205px;display:none;" class="MyDiv" id="MyDiv1">
-	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >½è¼Ç¿¨</span>
+	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >å€Ÿè®°å¡</span>
 		   <span class="FontStyle_1" style="position:absolute;left:60px;;font-size:12px;height:30px;top:-2px;" >622908 ****** *1271*</span>
-		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >²âÊÔÒ»ºÅ</span>
+		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >æµ‹è¯•ä¸€å·</span>
 	   </div> 
 	   <div style="width:88%;height:69px;background-color:#ffffff;position:fixed;left:6%;border: 1px;border-radius:10px;top:295px;display:none;" class="MyDiv" id="MyDiv2">
-	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >½è¼Ç¿¨</span>
+	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >å€Ÿè®°å¡</span>
 		   <span class="FontStyle_1" style="position:absolute;left:60px;;font-size:12px;height:30px;top:-2px;" >622908 ****** *3787*</span>
-		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >¾©¶«</span>
+		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >äº¬ä¸œ</span>
 	   </div> 
 	    <div style="width:88%;height:69px;background-color:#ffffff;position:fixed;left:6%;border: 1px;border-radius:10px;top:385px;display:none;" class="MyDiv" id="MyDiv3">
-	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >½è¼Ç¿¨</span>
+	       <span class="FontStyle_1" style="position:absolute;left:15px;;font-size:12px;height:30px;top:-2px;" >å€Ÿè®°å¡</span>
 		   <span class="FontStyle_1" style="position:absolute;left:60px;;font-size:12px;height:30px;top:-2px;" >622908 ****** *6666*</span>
-		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >Ç°¶Ë¿¨ºÅ</span>
+		   <span class="FontStyle_1" style="position:absolute;top:26px;left:15px;;font-size:17px;height:30px;font-weight:500;" >å‰ç«¯å¡å·</span>
 	   </div> 
 	   <img src="../img/thefork.png"  style="position:fixed;top:165px;right:120px;display:none;" id="TheFork"/>
 	    <div style="width:100%;height:50px;background-color:#ffffff;position:fixed;left:0px;bottom:0px;background-color:#3b76d8;">
-	       <span  style="font-size:15px;top:-10px;letter-spacing:-1px;font-family:ºÚÌå;color:#fff;" >ĞËÒµÒøĞĞ°æÈ¨ËùÓĞ</span>
+	       <span  style="font-size:15px;top:-10px;letter-spacing:-1px;font-family:é»‘ä½“;color:#fff;" >å…´ä¸šé“¶è¡Œç‰ˆæƒæ‰€æœ‰</span>
 	    </div> 
 	 <body>
   </html>
