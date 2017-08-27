@@ -1,0 +1,96 @@
+body{
+  background-color: #454545;
+  line-height: 1.7;
+}
+a,body{
+	color: #eee;
+}
+a{
+	text-decoration: none;
+}
+
+.side-bar .item:hover{
+	color: #eee;
+}
+
+.side-bar{
+  float: left;
+  width: 22%;
+  position: fixed;
+  margin-left: 10px;
+}
+.side-bar .intro{
+	font-size: 21px;
+	font-weight: 100;
+	display: block;
+}
+.side-bar > *{
+	padding: 10px 15px;
+}
+.side-bar .item,
+.side-bar .no-item{
+	display: block;
+	padding-bottom: 10px;
+	color: #888;
+	-webkit-transition: color 200ms;
+	-o-transition: color 200ms;
+	transition: color 200ms;
+}
+.main{
+  float: right;
+  width: 78%;
+  color: #454545;
+}
+.header .logo{
+	line-height: 1;
+	padding: 10px 10px;
+	font-size: 30px;
+	display: inline-block;
+	border: 5px solid #eee;
+	margin-bottom: 10px;
+	background: url(../img/logo1.jpg);
+	padding: 100px 68px;
+}
+.nav a{
+	font-weight: 700;
+}
+.article-list, .article{
+	margin-right: 30%;
+	background-color: #fff;
+    padding:20px 30px;
+}
+.article-list .item .title ,
+.article .title{
+	font-size: 22px;
+	font-weight: 700;
+	color: #454545;
+}
+
+.article-list .item .status ,
+.article .status{
+	font-size: 13px;
+	color: #ccc;
+}
+
+.article-list .item > * ,
+.article > *{
+	margin: 10px 0;
+	padding: : 20px 0;
+
+}
+
+.article-list .item .content{
+	padding-bottom: 15px;
+	cursor: pointer;
+}
+
+#menu-toggle,#menu-checkbox{
+	display: none
+}
+
+.side-bar .contact{
+	margin-top: 40px;
+}
+.side-bar .no-item{
+	color: rgba(0,0,0,);
+}

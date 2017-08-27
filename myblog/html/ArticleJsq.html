@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="../img/myicon.jpg" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/mobile.css">
+  <link rel="stylesheet" type="text/css" href="../css/ArticleJsq.css">
+  <script type="text/javascript" src="../js/ArticleJsq.js"></script>
+  <script src="../js/jquery-1.7.2.min.js"></script>
+  <title>MyBlog</title>
+</head>
+<body>
+    <div class="side-bar">
+     <label for="menu-checkbox" id="menu-toggle">菜单</label>
+     <input type="checkbox" id="menu-checkbox">
+     <div class="header">
+      <a href="https://github.com/ganmyds" class="logo"></a>
+      <a class="intro" href="index.html" title="去ganmyds的主页">ganmyds</a>
+     </div>
+     <div class="nav">
+      <a href="#" class="item" id="item">关于我</a>
+      <a href="#" class="item">联系我</a>
+      <a href="#" class="item">捐赠我</a>
+     </div>
+     <div class="tag-list">
+      <a href="https://www.zhihu.com/people/xiao-xiao-cheng-xu-yuan-29/activities" 
+      class="item" title="去他知乎主页"># 知乎</a>
+      <span class="no-item"># 微博</span>
+     </div>
+  </div>
+  <div class="main">
+	   <div class="article">
+	 	    <h1 class="title">javascript短信认证码功能展示(前端)</h1>
+	 	    <div class="status">发布于: 2015-8-27 | 阅读：3500 | 标签： js 计时器</div>
+	 	    <div class="content">
+		      通过使用 JavaScript，我们有能力做到在一个设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。我们称之为计时事件，在 JavaScritp 中使用计时事件是很容易的，关键是要会用这两个js方法：setTimeout()和
+          clearTimeout()，setTimeout()函数用于未来执行,clearTimeout()函数用于清除setTimeout()函数，例如：
+          t=setTimeout("a()",100);过来100毫秒会执行a函数，下面是我自己做的控件：
+	 	    </div>
+        <div class="CodeDiv">
+           <input type="text" placeholder="请输入" onfocus="ClearHold('CodeInput')" onblur="ShowHold('CodeInput')" id="CodeInput">
+           </input>
+            <div class="TestCodeDiv" id="CodeDiv" onclick="GetCode()" >
+              获取认证码
+            </div>
+        </div>
+        <div id="CodeSenCond"></div>
+        <div class="content">
+           接下来看我的代码，以下是html代码：
+           <img src="../img/jsq.jpg" class="JsqImg">
+        </div>
+        <div class="content">
+           上面是方法的定义，现在看关键的javascript代码,
+           思路主要分为3点：<br/>
+            <p> 1、方法外变量的定义：<br/>
+                剩余秒数 RemainTime=61;<br/>
+                回显变量 RemainWord<br/>
+                计时器变量 t<br/>
+                ps:设计是每运行一论将RemainTime=RemainTime-1回显;<br/>
+            </p>
+            <p>
+             2、方法的定义：<br/>
+                主要有三个方法：<br/>
+                (1)、点击获取验证码触发方法GetCode()<br/>
+                (2)、计时器方法t=setTimeout()<br/>
+                (3)、计时器运行过程函数tartTime()<br/>
+                按照代码顺序，首先是tartTime():<br/>
+                t=setTimeout("StartTime()",900);<br>每隔900ms执行
+                会每隔900ms执行StartTime()函数<br>
+                RemainTime=RemainTime-1;<br>
+                将RemainTime的值减1<br>
+                RemainWord="短信已发送("+RemainTime+"秒)";<br>
+                $("#CodeSenCond").text(RemainWord);<br>
+                用jquery回显到id为CodeSenCond的div里。
+             </p>
+             <p>
+             3、关于结束计时器，我们可以做一个if判断，当
+                RemainTime<=0的是关闭计时器，并且把样式回复原样
+                关键方法clearTimeout(t)，这里要注意这个方法只是关闭
+                计时器，不能结束循环，我们要再最后面加上return才能完全断开
+                方法<br>
+                ps：在return前要把RemainTime的值恢复到61，不然点击获取验证码没有效果。
+             </p>
+             <br><br><br>
+        </div>
+     </div>
+  </div>
+</body>
+</html>

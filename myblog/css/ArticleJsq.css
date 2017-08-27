@@ -1,0 +1,28 @@
+#CodeInput{
+	text-align: right;
+	padding-right: 10px;
+	width: 40%;
+}
+.TestCodeDiv{
+	display: inline;
+	margin-left: 10px;
+	font-size:13px;
+	color:#3b76d8;
+	text-align:center;
+	border:2px solid #3b76d8;
+	border-radius:4px;
+	cursor:pointer;
+	padding: 0 10px;
+}
+
+#CodeSenCond{
+	text-align: center;
+	padding-bottom: : 5px;
+}
+.CodeDiv{
+	text-align: center;
+}
+.JsqImg{
+	width: 100%;
+	display: block;
+}
