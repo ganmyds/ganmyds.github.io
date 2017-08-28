@@ -1,4 +1,4 @@
-var RemainTime=61;
+var RemainTime=16;
 var RemainWord;
 var t;
 function ClearHold(id)
@@ -30,7 +30,7 @@ function ShowHold(id)
       $("#CodeSenCond").css("color","red")
   	  $("#CodeSenCond").text("短信认证码已超时失效，请重新获取。");
       $("#CodeDiv").css({"border":"2px solid #3b76d8","color":"#3b76d8","pointer-events":"auto"})
-  	  RemainTime=61;
+  	  RemainTime=16;
   	  return;
   	}
   	t=setTimeout("StartTime()",900);

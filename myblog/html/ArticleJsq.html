@@ -57,7 +57,7 @@
            上面是方法的定义，现在看关键的javascript代码,
            思路主要分为3点：<br/>
             <p> 1、方法外变量的定义：<br/>
-                剩余秒数 RemainTime=61;<br/>
+                剩余秒数 RemainTime=16;<br/>
                 回显变量 RemainWord<br/>
                 计时器变量 t<br/>
                 ps:设计是每运行一论将RemainTime=RemainTime-1回显;<br/>
@@ -83,7 +83,7 @@
                 关键方法clearTimeout(t)，这里要注意这个方法只是关闭
                 计时器，不能结束循环，我们要再最后面加上return才能完全断开
                 方法<br>
-                ps：在return前要把RemainTime的值恢复到61，不然点击获取验证码没有效果。
+                ps：在return前要把RemainTime的值恢复到16，不然点击获取验证码没有效果。
              </p>
              <br><br><br>
         </div>
