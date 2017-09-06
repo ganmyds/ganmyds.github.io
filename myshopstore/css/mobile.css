@@ -69,7 +69,9 @@
 }
 .cat-promote .origiprice .oprice{
 	font-size: 20px;
-	margin-left: 35px;
+}
+.cat-promote .origiprice .fh{
+    margin-left: 32px;
 }
 .cat-promote .preprice{
 	width: 40%;
