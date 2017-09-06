@@ -48,6 +48,7 @@ img{
 .col-4,
 .col-5,
 .col-6,
+.col-6-5,
 .col-7,
 .col-8,
 .col-9{
@@ -85,7 +86,9 @@ img{
 .col-6{
 	width: 60%
 }
-
+.col-6-5{
+  width: 65%;
+}
 .col-7{
 	width: 70%
 }
@@ -252,13 +255,18 @@ img{
     margin-top: 22px;
     text-decoration: line-through;
     display: inline-block;
-    font-size: 12px;
+    font-size: 13px;
 }
 .cat-promote .card-title:hover{
 	color: #d24452;
 }
 .cat-promote .selled span{
-	font-size: 12px;
-	margin-top: 22px;
+	font-size: 15px;
+	margin-top: 5px;
 	display: inline-block;
+}
+.cat-promote .selled,
+.cat-promote .preprice,
+.cat-promote .origiprice{
+	text-align: center;
 }

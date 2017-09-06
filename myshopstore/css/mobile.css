@@ -64,20 +64,17 @@
 	padding: 10px 0;
 	font-size: 12px;
 }
-.cat-promote .origiprice{
-	width: 100%;
-}
 .cat-promote .origiprice .oprice{
-	font-size: 20px;
+	font-size: 21px;
 }
-.cat-promote .origiprice .fh{
-    margin-left: 32px;
-}
-.cat-promote .preprice{
-	width: 40%;
-}
+.cat-promote .preprice,
+.cat-promote .origiprice,
 .cat-promote .selled{
-	width: 60%;
+	width: 100%;
+	text-align: center;
+}
+.cat-promote .selled span{
+	margin-left: 0;
 }
 .cat-promote .preprice span,
 .cat-promote .selled span{
