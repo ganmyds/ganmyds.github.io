@@ -10,7 +10,7 @@ body{
 	font-size: 14px;
 	color: #444;
 	background: #f9f9f9;
-	line-height: 1.7;
+	line-height: 1.5;
 }
 a{
   text-decoration: none;
@@ -269,4 +269,12 @@ img{
 .cat-promote .preprice,
 .cat-promote .origiprice{
 	text-align: center;
+}
+.abbr {
+ width: 98%;
+ overflow:hidden;
+ text-overflow:ellipsis;
+ cursor: auto;
+ color: #999999;
+ text-decoration: none;
 }
