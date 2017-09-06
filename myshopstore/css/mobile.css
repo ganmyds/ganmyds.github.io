@@ -18,7 +18,7 @@
 .header .logo{
 	width: 100%;
 	text-align: center;
-	font-size: 25px;
+	font-size: 26px;
 	font-weight: 600;
 	letter-spacing: 0;
 }
@@ -57,7 +57,7 @@
 	margin-top: 10px;
 }
 .top-nav .item{
-	padding: 6px 5px;
+	padding: 3px 5px;
 }
 .footer{
 	margin: 20px 0;
