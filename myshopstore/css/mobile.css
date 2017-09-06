@@ -1,0 +1,67 @@
+.main-promote .info,
+.main-promote .col-6 .sub-promote,
+.header .cart{
+	display: none;
+}
+.main-promote .col-6{
+	width: 90%;margin-left: 5%;margin-top: 10px;
+}
+.main-promote .cart{
+	width: 92%;
+	margin-left:4%;
+}
+.main-promote .cart .item{
+	display: inline-block;
+	width: 13%;
+	padding: 15px 0;
+}
+.header .logo{
+	width: 100%;
+	text-align: center;
+	font-size: 25px;
+	font-weight: 600;
+	letter-spacing: 0;
+}
+.header .search-bar{
+	width: 90%;
+	margin-left: 5%;
+	font-size: 12px;
+	margin-top: 10px;
+}
+.header .cart a{
+	width: 60%;
+	float: left;
+	margin-left: 20%;
+	margin-top: 10px;
+}
+.cat-promote .item{
+	width: 45%;
+	margin-left: 10px;
+    padding: 3px;
+}
+.container .cat-promote{
+	margin-left: 10px;
+}
+.cat-promote .card{
+	height: 150px;
+	border-radius: 2px;
+	margin-top: 10px;
+}
+.cat-promote .title:before{
+	height: 22px;
+	width: 4px;
+	margin-right: 7px;
+}
+.cat-promote .title{
+	font-size: 15px;
+	margin-top: 10px;
+}
+.top-nav .item{
+	padding: 6px 5px;
+}
+.footer{
+	margin: 20px 0;
+	padding: 10px 0;
+	font-size: 12px;
+}
+

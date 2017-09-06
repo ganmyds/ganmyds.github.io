@@ -42,6 +42,7 @@ img{
 
 .col-1,
 .col-2,
+.col-2-5,
 .col-3,
 .col-4,
 .col-5,
@@ -62,7 +63,9 @@ img{
 .col-2{
 	width: 20%
 }
-
+.col-2-5{
+  width: 25%;
+}
 .col-3{
 	width: 30%
 }
@@ -178,6 +181,12 @@ img{
 }
 .main-promote .info > *{
 	margin-bottom: 10px;
+}
+.main-promote .info .autm button{
+	width: 40%;
+	background-color: #fff;
+	border: 2px solid #dd182b;
+	color: #dd182b;
 }
 .main-promote .info .avatar{
 	width: 50px;
