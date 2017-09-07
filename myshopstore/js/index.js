@@ -1,7 +1,7 @@
  $(document).ready(function(){
     $('.slider').slick({
     autoplay: true,
-    autoplaySpeed: 2800,
+    autoplaySpeed: 3000,
     arrows: false,
    })
 
