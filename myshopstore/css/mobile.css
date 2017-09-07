@@ -73,13 +73,7 @@
 	width: 100%;
 	text-align: center;
 }
-.cat-promote .selled span{
-	margin-left: 0;
-}
-.cat-promote .preprice span,
-.cat-promote .selled span{
-	margin-top: 0px;
-}
+
 .cat-promote .card-title{
 	font-size: 12px;
 }

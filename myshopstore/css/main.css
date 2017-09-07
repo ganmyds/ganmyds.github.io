@@ -46,6 +46,7 @@ img{
 .col-3,
 .col-3-5,
 .col-4,
+.col-4-5,
 .col-5,
 .col-6,
 .col-6-5,
@@ -78,7 +79,9 @@ img{
 .col-4{
 	width: 40%
 }
-
+.col-4-5{
+  width: 45%;
+}
 .col-5{
 	width: 50%
 }
@@ -252,7 +255,6 @@ img{
 	font-size: 29px;
 }
 .cat-promote .preprice span{
-    margin-top: 18px;
     text-decoration: line-through;
     display: inline-block;
     font-size: 13px;
@@ -261,12 +263,9 @@ img{
 	color: #d24452;
 }
 .cat-promote .selled span{
-	font-size: 15px;
-	margin-top: 5px;
-	display: inline-block;
+	font-size: 13px;
 }
-.cat-promote .selled,
-.cat-promote .preprice,
+
 .cat-promote .origiprice{
 	text-align: center;
 }
