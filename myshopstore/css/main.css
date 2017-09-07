@@ -10,7 +10,7 @@ body{
 	font-size: 14px;
 	color: #444;
 	background: #f9f9f9;
-	line-height: 1.5;
+	line-height: 1.7;
 }
 a{
   text-decoration: none;
@@ -276,4 +276,9 @@ img{
  cursor: auto;
  color: #999999;
  text-decoration: none;
+}
+.cat-promote .preprice,
+.cat-promote .origiprice,
+.cat-promote .selled{
+	line-height: 1.4;
 }
