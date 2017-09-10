@@ -1,0 +1,121 @@
+
+img{
+  display: block;
+  max-width: 100%;
+}
+.clearf:before,
+.clearf:after{
+    content: "";
+    clear: both;
+    display: block;
+}
+.col-1,
+.col-2,
+.col-2-5,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9{
+    position: relative;
+    float: left;
+    min-height: 1px;
+}
+
+.col-1{
+    width: 10%;
+}
+
+.col-2{
+    width: 20%;
+}
+
+.col-2-5{
+    width: 25%;
+}
+
+.col-3{
+    width: 30%;
+}
+
+.col-4{
+    width: 40%;
+}
+
+.col-5{
+    width: 50%;
+}
+
+.col-6{
+    width: 60%;
+}
+
+.col-7{
+    width: 70%;
+}
+
+.col-8{
+    width: 80%;
+}
+
+.col-9{
+    width: 90%;
+}
+
+.pink,
+.white,
+.orange{
+    padding: 12px 12px;
+}
+
+.pink{
+    background-color: pink;
+    margin: 10px 20px;
+}
+
+.white{
+    background-color: #fff;
+}
+
+.orange{
+    background-color: #ff6521;
+}
+.lightblue{
+    background-color: #3dcad1;
+}
+
+.smablue{
+    background-color: #78a4db;
+}
+.purple{
+    background-color: #d978db;
+}
+.yellow{
+    background-color: #edf481;
+}
+.lightred{
+    background-color: #dc5244;
+}
+.smalgreen{
+    background-color: #6df1a1;
+}
+.smayellow{
+    background-color: #f0f1a9;
+}
+
+.draw{
+    cursor: pointer;
+}
+
+.result{
+    padding: 5px 0;
+    width: 84%;
+    margin-left: 8%;
+    text-align: center;
+    background-color: #3c9fbf;
+    color: #fff;
+    font-size: 20px;
+}
+

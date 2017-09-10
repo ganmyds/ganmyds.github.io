@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="../img/myicon.jpg" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../css/Articlecjp.css">
+  <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/mobile.css">
+  <script type="text/javascript" src="../js/Articlecjp.js"></script>
+  <script src="../js/jquery-1.7.2.min.js"></script>
+  <title>MyBlog</title>
+</head>
+<body>
+    <div class="side-bar">
+     <label for="menu-checkbox" id="menu-toggle">菜单</label>
+     <input type="checkbox" id="menu-checkbox">
+     <div class="header">
+      <a href="https://github.com/ganmyds" class="logo"></a>
+      <a class="intro" href="index.html" title="去ganmyds的主页">ganmyds</a>
+     </div>
+     <div class="nav">
+      <a href="#" class="item" id="item">关于我</a>
+      <a href="#" class="item">联系我</a>
+      <a href="#" class="item">捐赠我</a>
+     </div>
+     <div class="tag-list">
+      <a href="https://www.zhihu.com/people/xiao-xiao-cheng-xu-yuan-29/activities" 
+      class="item" title="去他知乎主页"># 知乎</a>
+      <span class="no-item"># 微博</span>
+     </div>
+  </div>
+  <div class="main">
+       <div class="article">
+            <h1 class="title">javascript抽奖功能功能展示(前端)</h1>
+            <div class="status">发布于: 2015-8-27 | 阅读：3500 | 标签： js 计时器</div>
+            <div class="content">
+              使用javascript，我们可以通过各种函数的组合模拟出生活中的各自事件，比如抽奖，下面是我的控件:
+            </div>
+        <div class="pink">
+           <div class="white">
+               <div class="orange clearf">
+                  <div id="lottery">
+                      <div class="col-2-5 smablue" id="index0"><img src="../img/3.png"></div>
+                      <div class="col-2-5 purple" id="index1"><img src="../img/2.png"></div>
+                      <div class="col-2-5 lightblue" id="index2"><img src="../img/4.png"></div>
+                      <div class="col-2-5 yellow" id="index3"><img src="../img/3.png"></div>
+
+                      <div class="col-2-5">
+                           <div class="smayellow" id="index11"><img src="../img/7.png"></div>
+                           <div class="smalgreen" id="index10"><img src="../img/1.png"></div>
+                      </div>
+                      <div class="col-5 draw" onclick="draw()">
+                           <img src="../img/start.png">
+                      </div>
+                      <div class="col-2-5">
+                           <div class="smalgreen" id="index4"><img src="../img/5.png"></div>
+                           <div class="smayellow" id="index5"><img src="../img/6.png"></div>
+                      </div>
+                      
+                      <div class="col-2-5 yellow" id="index9"><img src="../img/3.png"></div>
+                      <div class="col-2-5 lightblue" id="index8"><img src="../img/6.png"></div>
+                      <div class="col-2-5 purple" id="index7"><img src="../img/7.png"></div>
+                      <div class="col-2-5 smablue" id="index6"><img src="../img/3.png"></div>
+                  </div>
+               </div>
+           </div>
+       </div>
+       <div class="result">看看你可以抽到什么</div>
+        <div class="content">
+           这个抽奖盘看起来很酷炫，其实其实做起来也很简单,
+           主要是看你的css布局怎么样了,<br/>
+           我先来讲讲在布局方面怎么实现这个样式：<br/>
+           思路主要分为2点：<br/>
+            <p> 
+                1、div的拆分<br/>
+                这是我在学习bootstrap的时候学习到的一种布局思维，bootstrap里面将宽度分为12个部分，每个部分占有1/12,
+                我这里将宽度分为10个部分，分别是col-1表示1/10,col-2表示2/10....以此类推到col-9，这样做真的很方便，
+                一次做好可以多次利用<br/>
+                2、div的嵌套：<br/>
+                我的思路是在将整个抽奖盘作为一个大div里面嵌套3行小div,为什么是三行呢，这是因为中间有一个开始抽奖的div，我将中间那行div分为3个部分，左右各25%，中间50%，然后上下两行div分为4个部分，这样每一个中奖格子都是一个div了,这样做有一个好处，那就是可以给div编号，我们可以给每个div一个独有的id,方便知道用户最后抽到的奖品。
+                <br/>
+            </p>
+            <p>
+             接下来是js方面：<br/>
+                我们将转盘看作一个对象，他有如下这些属性，速度、红灯的位置、红灯所讲过的格子数等等<br/>
+                接下来是抽奖过程抽奖简单分为四个阶段<br/>
+                (1)、用户点击<br/>
+                (2)、加速阶段<br/>
+                (3)、减速阶段<br/>
+                (4)、获取结果<br/>
+                红灯的移动其实可以分为两个过程<br/>
+                (1)、前一个格子红色背景的消失<br/>
+                (2)、后一个格子背景颜色变红<br/>
+                还是我们的老朋友，首先是setTimeout()<br/>
+                lottery.timer=setTimeout("roll()",lottery.speed);将上面这个过程不断重复下去<br>
+                用户点击后马上进入加速阶段，这个时间里面lottery.speed不断减小，由于我讲lottery.speed当成函数执行间隔
+                所以间隔越来越短，抽奖盘看起来就越来越快了。<br/>
+                减速阶段进入的条件是抽奖盘红灯讲过的格子数，我设计的是讲过25个格子就进入减速阶段了，然后每过5个格子
+                速度就进一步减慢，我设计最少要讲过40个格子，最后的得奖格子数是40加一个0到9之间的整数<br/>
+                然后是获取结果，获取最后一个格子的id就可以知道了
+             </p>
+             <p>
+               ps:发现一个Bug,这个系统如果用户不断点击就一直停不下来，改进：在格子转动的时间内给开始抽奖的格子添加
+               不可点击的样式，事件结束后恢复可点击。
+             </p>
+             <br><br><br>
+        </div>
+     </div>
+  </div>
+</body>
+</html>

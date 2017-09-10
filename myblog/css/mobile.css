@@ -4,8 +4,9 @@
 }
 .side-bar{
 	position: relative;
-	width: 100%;
+	width: 20%;
 	float: none;
+	margin-left: 0;
 }
 .main{
 	width: 100%;
@@ -45,4 +46,14 @@
 #CodeInput{
 	padding: 0 50px;
 	width: 100%;
+}
+
+.pink,
+.white,
+.orange{
+    padding: 8px;
+}
+.result{
+	font-size: 13px;
+	padding: 1px 0;
 }
