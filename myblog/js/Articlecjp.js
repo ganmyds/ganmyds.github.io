@@ -53,7 +53,7 @@ function readresult(){
     if(lottery.index==0||lottery.index==3||lottery.index==6||lottery.index==9){
       result = "很遗憾，你没有抽到奖品！";
     }else if(lottery.index==1){
-      result = "你真是太幸运了,居然抽到了ipad!";
+      result = "你真是太幸运了,居然抽到了ipad！";
     }else if(lottery.index==2||lottery.index==4){
       result = "恭喜你抽到了精美运动鞋";
     }else if(lottery.index==5||lottery.index==8){
@@ -61,7 +61,7 @@ function readresult(){
     }else if(lottery.index==7||lottery.index==11){
       result = "你很幸运哦，抽到了iphone！";
     }else{
-      result = "恭喜你抽到了精美耳机一副!";
+      result = "恭喜你抽到了精美耳机一副！";
     }
     $(".result").text(result);
 }
