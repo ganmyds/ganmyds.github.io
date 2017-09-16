@@ -32,7 +32,7 @@
                     var html = "<div class='blue'>用户名:" + name + "</div >" +
                         "<div class='blue'> 注册时间： " + creattime + " </div>" +
                         "<div class='blue'>邮箱: " + email + "</div>" +
-                        "<div class='blue'>关注了" + followers + "个人</div>";
+                        "<div class='blue'>有" + followers + "个人关注了他</div>";
                     result.html(html);
                 },
                 error: function(data) {
@@ -98,7 +98,6 @@ var form = $("#search");
 var result = $("#result");
 form.on("submit", function(e) {
 e.preventDefault();
-var username = $("input#username").val();
 $.ajax({
 url: "https://api.github.com/users/" + 
 username,
