@@ -5,3 +5,7 @@ function ToArticleJsq(){
 function ToArticlecjp(){
     window.location.href="Articlecjp.html";
 }
+
+function ToArticleajax(){
+    window.location.href="Article-ajax.html";
+}
