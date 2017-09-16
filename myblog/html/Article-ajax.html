@@ -72,18 +72,28 @@
             <div class="content">
                 <p>
                     &nbsp;&nbsp;&nbsp;h5页面里面我们经常会用到异步请求，比方说input搜索框，用户输入信息去请求接口，搜索结果部分会刷新， 但是其他地方不会重新加载，这就是异步请求。
-                    <br/> &nbsp;&nbsp; 异步请求不会一次将数据全部加载，当我们需要的时候在去发请求加载数据, 下面还是我的控件，可以输入github用户名请求一些其他数据:
+                    <br/> &nbsp;&nbsp; 异步请求不会一次将数据全部加载，只有当我们需要的时候在去发请求加载数据, ，可以极大的提高页面加载速度，优化用户体验。<br>
+                    下面看我的控件，可以输入github用户名搜索数据:
                 </p>
             </div>
-            <br>
             <form id="search">
                 <input type="text" id="username" />
                 <button type="submit">搜索</button>
             </form>
             <div id="result"></div>
             <div class="content">
+                 <p>
+                  下面我来解说一下这个过程，可以分为5步：<br>
+                   1、通过jquery获取form和result,将值赋给变量form和result。<br>
+                   2、jquery提交事件的使用，这里注意在form表单提交会默认刷新页面，我们要阻止这个默认事件，使用
+                   e.preventDefault()这个方法阻止。<br>
+                   3、使用ajax方法：$.ajax(object),这个方法的参数是一个对象，对象里面可以有很多参数，我使用了
+                     4个参数，分别是请求url,method方法，成功执行的事件和请求失败执行的事件<br>
+                   4、从返回数据获取我们想要的数据，并且赋值给变量<br>
+                   5、通过jquery的html()方法把变量方法页面里面.
+                </p>
                 <p>下面是js里面的ajax代码：</p>
-                <pre>
+                <pre style="font-size: 15px;">
 var form = $("#search");
 var result = $("#result");
 form.on("submit", function(e) {
@@ -104,16 +114,6 @@ var email = data.email ||
 }}
 })
                 </pre>
-                <p>
-                  下面我来解说一下这个过程，可以分为5步：<br>
-                   1、通过jquery获取form和result,将值赋给变量form和result。<br>
-                   2、jquery提交事件的使用，这里注意在form表单提交会默认刷新页面，我们要阻止这个默认事件，使用
-                   e.preventDefault()这个方法阻止。<br>
-                   3、使用ajax方法：$.ajax(object),这个方法的参数是一个对象，对象里面可以有很多参数，我使用了
-                     4个参数，分别是请求url,method方法，成功执行的事件和请求失败执行的事件<br>
-                   4、从返回数据获取我们想要的数据，并且赋值给变量<br>
-                   5、通过jquery的html()方法把变量方法页面里面.
-                </p>
                 <br>
                 <br>
                 <br>

@@ -9,3 +9,4 @@ function ToArticlecjp(){
 function ToArticleajax(){
     window.location.href="Article-ajax.html";
 }
+
