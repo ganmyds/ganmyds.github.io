@@ -1,0 +1,73 @@
+.scroll-totop{
+    right: 15px;
+    bottom: 80px;
+}
+
+.content .mobile,
+.content .right-nav{
+    display: none;
+}
+
+.content .news-list{
+    width: 94%;
+    margin-left: 3%;
+}
+
+.logo ~ a{
+    display: none;
+}
+
+.hidden{
+    display: none;
+}
+
+.mobileshow{
+    width: 63%;
+    margin-left: 2px;
+    padding-top: 10px;
+}
+
+.mobileleft{
+    width: 35%;
+    padding: 10px 10px 0 10px;
+
+}
+
+.mobileshow a{
+    margin-left: 5px;
+}
+
+.mobilelo{
+    width: 78%;
+    margin-left: 11%;
+}
+
+.content .titleword{
+    font-size: 30px;
+}
+
+.content .titledec{
+    font-size: 18px;
+}
+
+.content .check-bar button{
+    font-size: 12px;
+}
+
+.mobileb{
+    width: 94%;
+    margin-left: 3%;
+}
+
+.container .col-7 .title{
+    padding-right: 0;
+}
+
+.content .new-body img{
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.content .col-7 .new-title{
+    font-size: 30px;
+}

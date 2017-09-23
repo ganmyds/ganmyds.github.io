@@ -11,6 +11,7 @@ body{
 	color: #444;
 	background: #f9f9f9;
 	line-height: 1.7;
+    font-family: Avenir, Helvetica, Hiragino Sans GB, Microsoft JHengHei, Microsoft Sans Serif, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
 }
 a{
   text-decoration: none;
@@ -281,4 +282,25 @@ img{
 .cat-promote .origiprice,
 .cat-promote .selled{
 	line-height: 1.4;
+}
+
+.scroll-totop {
+    display: none;
+    position: fixed;
+    padding: 22px 7px 10px;
+    background: url(../img/arrow_up.png) center 26% no-repeat;
+    background-size: 40%;
+    right: 25px;
+    bottom: 90px;
+    font-size: 10px;
+    color: #ea0c3c;
+    background-color: rgba(0,0,0,.1);
+    border-radius: 2px;
+}
+
+.scroll-totop:hover {
+    text-decoration: none;
+    background-image: url(../img/arrow_up1.png);
+    background-color: #ea0c3c;
+    color: #fff;
 }
