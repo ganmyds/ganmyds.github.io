@@ -93,3 +93,7 @@
 .content .news-list .col-4 img{
     margin-top: 5px;
 }
+
+.news-list .title{
+    font-size: 15px;
+}
