@@ -84,6 +84,8 @@
 
 .new-status{
     padding-left: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .content .check-bar button{
