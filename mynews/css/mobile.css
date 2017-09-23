@@ -89,3 +89,7 @@
 .content .check-bar button{
     padding: 10px 0;
 }
+
+.content .news-list .col-4 img{
+    margin-top: 5px;
+}
