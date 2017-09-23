@@ -75,10 +75,15 @@
 .content .col-7 .new-title{
     font-size: 28px;
     margin: 10px 0;
+    padding-left: 2px;
 }
 
 .footer{
     margin-top: 10px;
+}
+
+.new-status{
+    padding-left: 5px;
 }
 
 .content .check-bar button{
