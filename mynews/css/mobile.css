@@ -80,3 +80,7 @@
 .footer{
     margin-top: 10px;
 }
+
+.content .check-bar button{
+    padding: 10px 0;
+}
