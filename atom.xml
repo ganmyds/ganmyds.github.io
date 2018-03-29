@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-03-29T09:19:11.619Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2018/03/29/article01/"/>
+    <id>http://yoursite.com/2018/03/29/article01/</id>
+    <published>2018-03-29T08:07:24.000Z</published>
+    <updated>2018-03-29T09:19:11.619Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;linux上面安装配置mysql&quot;&gt;&lt;a href=&quot;#linux上面安装配置mysql&quot; class=&quot;headerlink&quot; title=&quot;linux上面安装配置mysql&quot;&gt;&lt;/a&gt;linux上面安装配置mysql&lt;/h2&gt;&lt;p&gt;一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
