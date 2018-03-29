@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="linux上面安装配置mysql一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/article01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="linux上面安装配置mysql一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img01.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img04.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img04.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img03.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img02.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img06.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img07.png">
+<meta property="og:updated_time" content="2018-03-29T09:19:11.619Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="linux上面安装配置mysql一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：">
+<meta name="twitter:image" content="http://yoursite.com/2018/03/29/article01/img/img01.png">
+  
+    <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="../../../../css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="../../../../index.html" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="../../../../index.html">Home</a>
+        
+          <a class="main-nav-link" href="../../../../archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-article01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="" class="article-date">
+  <time datetime="2018-03-29T08:07:24.000Z" itemprop="datePublished">2018-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="linux上面安装配置mysql"><a href="#linux上面安装配置mysql" class="headerlink" title="linux上面安装配置mysql"></a>linux上面安装配置mysql</h2><p>一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：<a id="more"></a></p>
+<ul>
+<li><ol>
+<li>免费</li>
+<li>跨平台</li>
+<li>轻量级</li>
+<li>支持多并发</li>
+</ol>
+</li>
+</ul>
+<p>mysql只有在linux运行环境下才能充分发挥其威力，在linux环境下搭建mysql就变得非常有意义了，下面我为大家详细介绍linux下mysql的搭建</p>
+<p>1、下载mysql安装文件，有两个文件，分别是mysql-connector-java-5.1.6-bin.jar和mysql-standard-4.0.26-pc-  linux-gnu-i686.tar.gz，点击。。。下载，将两个安装文件拷贝到/home下,切换到root，输入命令：==su root==</p>
+<p>2、解压安装文件:</p>
+<p><code>tar -zxvf</code> mysql-standard-4.0.26-pc-linux-gnu-i686.tar.gz</p>
+<p>解压缩后我们会得到一个目录如图</p>
+<p><img src="img\img01.png" alt="mg0"></p>
+<p>3、创建一个文件夹mysql专门用于存放mysql文件,输入命令 :</p>
+<p>​     ==mkdir mysql==</p>
+<p>4、将目录mysql-standard-4.0.26-pc-linux-gnu-i686移动到mysql里面，输入命令:</p>
+<p>​    ==mv mysql-standard-4.0.26-pc-linux-gnu-i686 mysql==</p>
+<p>5、创建一个组mysql,注意这个命令要root权限才能使用，专门创建mysql组是为了方便以后管理mysql下面   的各个用户，输入命令:</p>
+<p>​     ==groupadd mysql==</p>
+<p>6、创建mysql用户放入mysql组，输入命令:</p>
+<p>​    ==useradd -g mysql mysql==</p>
+<p>7、进入mysql目录，输入命令 ==cd mysql== </p>
+<p>8、初始化mysql数据库，输入命令：</p>
+<p>​    ==scripts/mysql_install_db  –user=mysql== 如图就是初始化成功：</p>
+<p><img src="img\img04.png" alt="mg0"></p>
+<p>9、将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
+<p>  ==chown -R root:mysql .== </p>
+<p>10、将数据文件夹用户改为mysql,输入命令：==chown -R mysql data==,我们检查一下是否成功改动，输入</p>
+<p>   命令: ==ls -l== ,结果如图就是所示：</p>
+<p><img src="img\img04.png" alt="mg0"></p>
+<p>11、后台运行mysql,输入命令： </p>
+<p>  ==bin/mysqld_safe  –user=mysql &amp;== ,结果如图所示：</p>
+<p><img src="img\img03.png" alt="mg0"></p>
+<p>12、看看我们的mysql是否正常运行，输入命令==netstat -anp | moe==，看看3306端口是否存在，如图：</p>
+<p><img src="img\img02.png" alt="mg0"></p>
+<p>13、进入bin目录,输入命令:==cd bin==</p>
+<p>14、运行mysql,输入命令：==mysql -u root -p== ，Enter password是要你输入密码，目前没有密码直接按enter即可，如图:</p>
+<p>​              <img src="img\img06.png" alt="mg0"> </p>
+<p>现在mysql已经成功的安装到我们的linux下面了。到这里基本完成了，如果你想让以后的工作更方便，看看下面的内容。</p>
+<hr>
+<p>现在我们打开mysql非常麻烦，需要进入/home/mysql/bin目录下执行，为了减少麻烦，我们可以将这个路径配置到环境变量里面，输入命令 ==cd /root== , ==vi  .bash_profile== ,改动如图</p>
+<p><img src="img\img07.png" alt="mg0"></p>
+<p>然后我们登出让配置文件生效，输入命令==logout== ，重新登录，现在你就可以在任意路径上运行mysql了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/29/article01/" data-id="cjfcb351c0000scic6g8jtuud" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
