@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="linux上面安装配置mysql一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img01.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img04.png">
+<meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img05.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img04.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img03.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img02.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img06.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img07.png">
-<meta property="og:updated_time" content="2018-03-29T11:24:27.444Z">
+<meta property="og:updated_time" content="2018-03-29T11:41:09.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="linux上面安装配置mysql一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：">
@@ -62,7 +62,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -103,7 +103,7 @@
 <p><img src="img\img01.png" alt="mg0"></p>
 <p>3、创建一个文件夹mysql专门用于存放mysql文件,输入命令 :</p>
 <p>​     mkdir mysql</p>
-<p>4、将目录mysql-standard-4.0.26-pc-linux-gnu-i686移动到mysql里面，输入命令:</p>
+<p>4、将目录mysql-standard-4.0.26-pc-linux-gnu-i686下的文件移动到mysql里面，输入命令:</p>
 <p>​    mv mysql-standard-4.0.26-pc-linux-gnu-i686 mysql</p>
 <p>5、创建一个组mysql,注意这个命令要root权限才能使用，专门创建mysql组是为了方便以后管理mysql下面   的各个用户，输入命令:</p>
 <p>​     groupadd mysql</p>
@@ -112,7 +112,7 @@
 <p>7、进入mysql目录，输入命令 cd mysql</p>
 <p>8、初始化mysql数据库，输入命令：</p>
 <p>​    scripts/mysql_install_db  –user=mysql 如图就是初始化成功：</p>
-<p><img src="img\img04.png" alt="mg0"></p>
+<p><img src="img\img05.png" alt="mg0"></p>
 <p>9、将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
 <p>  chown -R root:mysql .</p>
 <p>10、将数据文件夹用户改为mysql,输入命令：chown -R mysql data,我们检查一下是否成功改动，输入</p>
@@ -138,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/29/article01/" data-id="cjfcdgv5l000080icx3y65zjk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/29/article01/" data-id="cjfcdgv5l000080icx3y65zjk" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -162,7 +162,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/03/">March 2018</a></li></ul>
     </div>
@@ -172,7 +172,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
