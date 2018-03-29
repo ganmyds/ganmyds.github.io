@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img02.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img06.png">
 <meta property="og:image" content="http://yoursite.com/2018/03/29/article01/img/img07.png">
-<meta property="og:updated_time" content="2018-03-29T11:41:09.921Z">
+<meta property="og:updated_time" content="2018-03-29T12:13:56.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
 <meta name="twitter:description" content="linux上面安装配置mysql一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：">
@@ -116,7 +116,7 @@
 <p>9、将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
 <p>  chown -R root:mysql .</p>
 <p>10、将数据文件夹用户改为mysql,输入命令：chown -R mysql data,我们检查一下是否成功改动，输入</p>
-<p>   命令: ls -l ,结果如图就是所示：</p>
+<p>   命令: ls -l ,结果如图所示：</p>
 <p><img src="img\img04.png" alt="mg0"></p>
 <p>11、后台运行mysql,输入命令： </p>
 <p>  bin/mysqld_safe   –user=mysql &amp; ,结果如图所示：</p>
@@ -124,7 +124,9 @@
 <p>12、看看我们的mysql是否正常运行，输入命令netstat -anp | moe，看看3306端口是否存在，如图：</p>
 <p><img src="img\img02.png" alt="mg0"></p>
 <p>13、进入bin目录,输入命令:cd bin</p>
-<p>14、运行mysql,输入命令：mysql -u root -p，Enter password是要你输入密码，目前没有密码直接按enter即可，如图:</p>
+<p>14、运行mysql,输入命令：</p>
+<p>​     mysql -u root -p，</p>
+<p>Enter password是要你输入密码，目前没有密码直接按enter即可，如图:</p>
 <p>​              <img src="img\img06.png" alt="mg0"> </p>
 <p>现在mysql已经成功的安装到我们的linux下面了。到这里基本完成了，如果你想让以后的工作更方便，看看下面的内容。</p>
 <hr>
@@ -133,7 +135,7 @@
 <p>​    vi  .bash_profile </p>
 <p>改动如图</p>
 <p><img src="img\img07.png" alt="mg0"></p>
-<p>然后我们登出让配置文件生效，输入命令logout ，重新登录，现在你就可以在任意路径上运行mysql了</p>
+<p>然后我们登出让配置文件生效，输入命令logout ，重新登录，现在你就可以在任意路径上运行mysql了。</p>
 
       
     </div>
