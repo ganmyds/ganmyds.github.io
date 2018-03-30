@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-29T12:13:56.415Z</updated>
+  <updated>2018-03-30T12:27:21.144Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,18 +17,48 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://yoursite.com/2018/03/29/article01/"/>
-    <id>http://yoursite.com/2018/03/29/article01/</id>
-    <published>2018-03-29T08:07:24.000Z</published>
-    <updated>2018-03-29T12:13:56.415Z</updated>
+    <title>linux上面安装配置mysql</title>
+    <link href="http://yoursite.com/2018/03/29/linux%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEmysql/"/>
+    <id>http://yoursite.com/2018/03/29/linux上面安装配置mysql/</id>
+    <published>2018-03-29T11:05:00.000Z</published>
+    <updated>2018-03-30T12:27:21.144Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;linux上面安装配置mysql&quot;&gt;&lt;a href=&quot;#linux上面安装配置mysql&quot; class=&quot;headerlink&quot; title=&quot;linux上面安装配置mysql&quot;&gt;&lt;/a&gt;linux上面安装配置mysql&lt;/h2&gt;&lt;p&gt;一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：
+      linux上搭建mysql流程
     
     </summary>
     
+      <category term="甘明阳" scheme="http://yoursite.com/categories/%E7%94%98%E6%98%8E%E9%98%B3/"/>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux和windows之间传输文件</title>
+    <link href="http://yoursite.com/2018/03/28/linux%E5%92%8Cwindow%E4%B9%8B%E9%97%B4%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/03/28/linux和window之间传输文件/</id>
+    <published>2018-03-28T04:05:00.000Z</published>
+    <updated>2018-03-30T12:09:00.041Z</updated>
+    
+    <summary type="html">
+    
+      通过SSH服务实现linux和windows之间便捷的连接
+    
+    </summary>
+    
+      <category term="甘明阳" scheme="http://yoursite.com/categories/%E7%94%98%E6%98%8E%E9%98%B3/"/>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="windows" scheme="http://yoursite.com/tags/windows/"/>
+    
+      <category term="SSH" scheme="http://yoursite.com/tags/SSH/"/>
     
   </entry>
   
