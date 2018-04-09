@@ -14,18 +14,18 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="linux上搭建mysql流程">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_1.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_5.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_4.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_3.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_2.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_6.png">
-<meta property="og:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_7.png">
-<meta property="og:updated_time" content="2018-03-30T12:52:20.462Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png">
+<meta property="og:updated_time" content="2018-04-09T08:52:31.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux上面安装配置mysql">
 <meta name="twitter:description" content="linux上搭建mysql流程">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/29/linux上面安装配置mysql/img/ganmingyang/linux_1.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png">
   
     <link rel="alternate" href="../../../../atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -63,7 +63,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="../../../../atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -116,7 +116,7 @@
 <p>2、解压安装文件:</p>
 <p>tar -zxvf  mysql-standard-4.0.26-pc-linux-gnu-i686.tar.gz</p>
 <p>解压缩后我们会得到一个目录如图</p>
-<p><img src="img\ganmingyang\linux_1.png" alt="mg0"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png" alt="mg0"></p>
 <p>3、创建一个文件夹mysql专门用于存放mysql文件,输入命令 :</p>
 <p>​     mkdir mysql</p>
 <p>4、将目录mysql-standard-4.0.26-pc-linux-gnu-i686下的文件移动到mysql里面，输入命令:</p>
@@ -128,35 +128,35 @@
 <p>7、进入mysql目录，输入命令 cd mysql</p>
 <p>8、初始化mysql数据库，输入命令：</p>
 <p>​    scripts/mysql_install_db  –user=mysql 如图就是初始化成功：</p>
-<p><img src="img\ganmingyang\linux_5.png" alt="mg0"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_5.png" alt="mg0"></p>
 <p>9、将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
 <p>  chown -R root:mysql .</p>
 <p>10、将数据文件夹用户改为mysql,输入命令：chown -R mysql data,我们检查一下是否成功改动，输入</p>
 <p>   命令: ls -l ,结果如图所示：</p>
-<p><img src="img\ganmingyang\linux_4.png" alt="mg0"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_4.png" alt="mg0"></p>
 <p>11、后台运行mysql,输入命令： </p>
 <p>  bin/mysqld_safe   –user=mysql &amp; ,结果如图所示：</p>
-<p><img src="img\ganmingyang\linux_3.png" alt="mg0"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_3.png" alt="mg0"></p>
 <p>12、看看我们的mysql是否正常运行，输入命令netstat -anp | moe，看看3306端口是否存在，如图：</p>
-<p><img src="img\ganmingyang\linux_2.png" alt="mg0"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png" alt="mg0"></p>
 <p>13、进入bin目录,输入命令:cd bin</p>
 <p>14、运行mysql,输入命令：</p>
 <p>​     mysql -u root -p，</p>
 <p>Enter password是要你输入密码，目前没有密码直接按enter即可，如图:</p>
-<p>​              <img src="img\ganmingyang\linux_6.png" alt="mg0"> </p>
+<p>​              <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png" alt="mg0"> </p>
 <p>现在mysql已经成功的安装到我们的linux下面了。到这里基本完成了，如果你想让以后的工作更方便，看看下面的内容。</p>
 <hr>
 <p>现在我们打开mysql非常麻烦，需要进入/home/mysql/bin目录下执行，为了减少麻烦，我们可以将这个路径配置到环境变量里面，输入命令 </p>
 <p>​    cd /root </p>
 <p>​    vi  .bash_profile </p>
 <p>改动如图</p>
-<p><img src="img\ganmingyang\linux_7.png" alt="mg0"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png" alt="mg0"></p>
 <p>然后我们登出让配置文件生效，输入命令logout ，重新登录，现在你就可以在任意路径上运行mysql了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/29/linux上面安装配置mysql/" data-id="cjfdy74110000toic70mur9w3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/29/linux上面安装配置mysql/" data-id="cjfdy74110000toic70mur9w3" class="article-share-link">Teilen</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../tags/mysql/">mysql</a></li></ul>
@@ -168,7 +168,7 @@
 <nav id="article-nav">
   
     <a href="../../../04/09/erlang项目流程查看技巧/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
           erlang项目流程查看技巧
@@ -178,7 +178,7 @@
   
   
     <a href="../../28/article02/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Älter</strong>
       <div class="article-nav-title">linux和windows之间传输文件</div>
     </a>
   
@@ -193,7 +193,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Kategorien</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="../../../../categories/甘明阳/">甘明阳</a></li></ul>
     </div>
@@ -222,7 +222,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="../../../../archives/2018/03/">March 2018</a></li></ul>
     </div>
@@ -232,7 +232,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
