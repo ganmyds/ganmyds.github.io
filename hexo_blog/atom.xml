@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-03-30T12:52:20.462Z</updated>
+  <updated>2018-04-09T08:10:38.325Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>erlang项目流程查看技巧</title>
+    <link href="http://yoursite.com/2018/04/09/erlang%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B%E6%9F%A5%E7%9C%8B%E6%8A%80%E5%B7%A7/"/>
+    <id>http://yoursite.com/2018/04/09/erlang项目流程查看技巧/</id>
+    <published>2018-04-09T04:05:00.000Z</published>
+    <updated>2018-04-09T08:10:38.325Z</updated>
+    
+    <summary type="html">
+    
+      一点关于erlang的感悟
+    
+    </summary>
+    
+      <category term="甘明阳" scheme="http://yoursite.com/categories/%E7%94%98%E6%98%8E%E9%98%B3/"/>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="windows" scheme="http://yoursite.com/tags/windows/"/>
+    
+      <category term="SSH" scheme="http://yoursite.com/tags/SSH/"/>
+    
+  </entry>
   
   <entry>
     <title>linux上面安装配置mysql</title>
