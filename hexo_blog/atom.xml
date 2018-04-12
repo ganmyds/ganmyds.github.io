@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>小小程序员</title>
   
-  
-  <link href="/atom.xml" rel="self"/>
+  <subtitle>记录学习的技能和遇到的问题</subtitle>
+  <link href="/hexo_blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
   <updated>2018-04-09T08:10:38.325Z</updated>
