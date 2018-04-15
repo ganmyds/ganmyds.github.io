@@ -6,7 +6,7 @@
   <link href="/hexo_blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-15T10:20:10.878Z</updated>
+  <updated>2018-04-15T13:13:27.544Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Navicate for Mysql的破解</title>
+    <link href="http://yoursite.com/2018/04/15/article03/"/>
+    <id>http://yoursite.com/2018/04/15/article03/</id>
+    <published>2018-04-15T12:05:00.000Z</published>
+    <updated>2018-04-15T13:13:27.544Z</updated>
+    
+    <summary type="html">
+    
+      navcate从安装到使用一套讲解
+    
+    </summary>
+    
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
+    
+    
+      <category term="mysql，windows" scheme="http://yoursite.com/tags/mysql%EF%BC%8Cwindows/"/>
+    
+  </entry>
   
   <entry>
     <title>巧妙解决hexo博客使用的图片的处理</title>
