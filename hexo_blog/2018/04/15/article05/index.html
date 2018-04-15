@@ -68,12 +68,10 @@
 
 
 
-  <meta name="keywords" content="linux,windows,SSH," />
+  <meta name="keywords" content="hexo,github," />
 
 
 
-
-  
 
 
   <link rel="alternate" href="../../../../atom.xml" title="小小程序员" type="application/atom+xml" />
@@ -83,24 +81,24 @@
 
 
 
-<meta name="description" content="一点关于erlang的感悟">
-<meta name="keywords" content="linux,windows,SSH">
+<meta name="description" content="处理hexo博客图片提交的麻烦">
+<meta name="keywords" content="hexo,github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="erlang项目流程查看技巧">
-<meta property="og:url" content="http://yoursite.com/2018/04/09/erlang项目流程查看技巧/index.html">
+<meta property="og:title" content="巧妙解决hexo博客使用的图片的处理">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/article05/index.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="一点关于erlang的感悟">
+<meta property="og:description" content="处理hexo博客图片提交的麻烦">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_01.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_03.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_02.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_04.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_05.png">
-<meta property="og:updated_time" content="2018-04-09T08:10:38.325Z">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_01.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_02.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_03.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_04.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_05.png?raw=true">
+<meta property="og:updated_time" content="2018-04-15T10:20:10.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="erlang项目流程查看技巧">
-<meta name="twitter:description" content="一点关于erlang的感悟">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_01.png">
+<meta name="twitter:title" content="巧妙解决hexo博客使用的图片的处理">
+<meta name="twitter:description" content="处理hexo博客图片提交的麻烦">
+<meta name="twitter:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_01.png?raw=true">
 
 
 
@@ -130,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/09/erlang项目流程查看技巧/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/article05/"/>
 
 
 
 
 
-  <title>erlang项目流程查看技巧 | 小小程序员</title>
+  <title>巧妙解决hexo博客使用的图片的处理 | 小小程序员</title>
   
 
 
@@ -260,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">erlang项目流程查看技巧</h1>
+          <h1 class="post-title" itemprop="name headline">巧妙解决hexo博客使用的图片的处理</h1>
         
 
         <div class="post-meta">
@@ -272,8 +270,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-09T12:05:00+08:00">
-                2018-04-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T16:05:00+08:00">
+                2018-04-15
               </time>
             
 
@@ -295,8 +293,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/甘明阳/" itemprop="url" rel="index">
-                    <span itemprop="name">甘明阳</span>
+                  <a href="../../../../categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -319,7 +317,7 @@
 
           
               <div class="post-description">
-                  一点关于erlang的感悟
+                  处理hexo博客图片提交的麻烦
               </div>
           
 
@@ -336,26 +334,31 @@
       
 
       
-        <p>在公司用过erlang一段时间，主要是用erlang来加密传输数据的，现在把我关于erlang的一点感悟写出来，现在erlanng项目基本框架都是用rebar生成的，所以大部分erlang项目都用一些类似的特点。<a id="more"></a></p>
-<p>一般都有几个基本的的文件夹，如图：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_01.png" alt="52323974345"></p>
-<p>先说说相关文件夹的作用：</p>
-<p>1、bin主要是存放数据库的，因为公司项目主要是做手机银行后台的，具体内容我不能说，我们主要使用的数据库是mnesia,用于存放项目的相关数据。</p>
-<p>2、config文件夹是用来存放配置文件的，比方说连接的ip地址</p>
-<p>3、include文件夹是用来存放头文件的</p>
-<p>4、ebin文件夹主要是放beam文件的，beam文件是erlang编译后生成的文件</p>
-<p>5、log是存放报文的，分析问题的时候经常会使用报文</p>
-<p>6、script文件夹是存放脚步文件的</p>
-<p>7、用得最多的是src文件夹，我们写的erlang代码一般是放在里面</p>
-<p>然后说先erlang项目的入口，向java和c都有main入口，erlang也有自己的入口，是一个后缀名为.app的文件，还是以网上比较出名的erlang项目远古封神来看，是用sublime text3找到server.app，这里面可以提供很多项目的相关信息，如图：<img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_03.png" alt="rlang_0"></p>
-<p>主要看mod对应的值yg_server_app,然后我们搜索yg_server_app.erl，这是我们的启动模块</p>
-<p>在这里面有一个函数start就是我们的入口，如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_02.png" alt="rlang_0"></p>
-<p>这个模块引用了两个头文件，common.hrl和record.hrl,这两个文件主要是存放一些我们经常会使用的常量的，关于启动函数，其他不管，我们找到yg_server_sup和yg_server这两个模块，先看yg_server_sup，这个模块主要是启动启动一个监控，关于erlang监控，可以看我的另外一篇博客，然后是yg_server这个模块，如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_04.png" alt="52324802070"></p>
-<p>这里面就是启动各种服务的地方了，我们随便看一个，比如跟客户端相关的服务，start_client(),如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/erlang_05.png" alt="52324869532"></p>
-<p>这里面也是各种开启监控树。</p>
+        <p>使用github和hexo搭建博客一段时间了，感觉图片的处理还真是挺麻烦的，有两个问题：<a id="more"></a></p>
+<p>1、因为自己的博客经常要修改，会很频繁的使用hexo clean这个命令，经常会把图片清空，然后又要重新导入图片</p>
+<p>要特别注意路径的处理，感觉挺浪费时间的</p>
+<p>2、github提供的空间只有1g,图片会占用非常多的空间，对自己github未来的使用有负面影响</p>
+<p>于是，根据这些问题，查阅了一些资料，找到了一个很好的处理方法，那就是使用在线链接，一般都是用图床放图片，但是大部分图床都是收费的，所以我没有选择图床，而是使用了另外一个工具，那就是github，我们可以申请一个github专门放自己的图片，然后所有博客都使用图片的在线地址即可，现在简单为初学者介绍具体步骤：</p>
+<p>(1)、申请一个github小号，步骤和你申请博客的github帐号一样，注意邮箱不能和博客帐号的邮箱一样，我们可以申请一个qq小号用于接受github邮件</p>
+<p>(2)、新建一个仓库，我创建的是ganmyxh.io，考虑到以后有可能会在这个仓库里面放html就这样创建，你如果只是放图片这里可以随便取名，点击Create repository</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_01.png?raw=true" alt="ithub_img_0"></p>
+<p>(3)、进入仓库，复制仓库路径，如图</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_02.png?raw=true" alt="ithub_img_0"></p>
+<p>(4)、在桌面上新建一个文件夹，github_img,右键打开git，输入命令git clone 加你的的地址</p>
+<p>(5)、进入目录ganmyxh.io，新建文件夹img,如图</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_03.png?raw=true" alt="ithub_img_0"></p>
+<p>(6)、把图片放到img目录里面，在git里面输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ganmyxh.io/</span><br></pre></td></tr></table></figure>
+<p>然后输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<p>说明一下，git add 后面那个.表示将你要提交的所有文件放到暂存区里面，然后依次输入下面两个命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"提交图片"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>这里会要你输入自己的用户名和密码，如图</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_04.png?raw=true" alt="ithub_img_0"></p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/github_img_05.png?raw=true" alt="ithub_img_0"></p>
+<p>(7)、进入我们的github，随便点到一张图片里面，右键-&gt;复制图片地址。注意不能复制网页上面的地址，</p>
+<p>以后我们自己的博客图片地址都可以这样使用，就不用担心地址的问题了</p>
 
       
     </div>
@@ -373,11 +376,9 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/linux/" rel="tag"># linux</a>
+            <a href="../../../../tags/hexo/" rel="tag"># hexo</a>
           
-            <a href="../../../../tags/windows/" rel="tag"># windows</a>
-          
-            <a href="../../../../tags/SSH/" rel="tag"># SSH</a>
+            <a href="../../../../tags/github/" rel="tag"># github</a>
           
         </div>
       
@@ -390,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../03/29/linux上面安装配置mysql/" rel="next" title="linux上面安装配置mysql">
-                <i class="fa fa-chevron-left"></i> linux上面安装配置mysql
+              <a href="../../12/aritcle04/" rel="next" title="关于hexo搭建博客的经验">
+                <i class="fa fa-chevron-left"></i> 关于hexo搭建博客的经验
               </a>
             
           </div>
@@ -399,10 +400,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../12/aritcle04/" rel="prev" title="关于hexo搭建博客的经验">
-                关于hexo搭建博客的经验 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

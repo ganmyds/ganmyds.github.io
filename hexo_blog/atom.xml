@@ -6,7 +6,7 @@
   <link href="/hexo_blog/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-12T15:09:00.883Z</updated>
+  <updated>2018-04-15T10:20:10.878Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>巧妙解决hexo博客使用的图片的处理</title>
+    <link href="http://yoursite.com/2018/04/15/article05/"/>
+    <id>http://yoursite.com/2018/04/15/article05/</id>
+    <published>2018-04-15T08:05:00.000Z</published>
+    <updated>2018-04-15T10:20:10.878Z</updated>
+    
+    <summary type="html">
+    
+      处理hexo博客图片提交的麻烦
+    
+    </summary>
+    
+      <category term="hexo" scheme="http://yoursite.com/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>关于hexo搭建博客的经验</title>
