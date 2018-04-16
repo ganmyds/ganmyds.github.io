@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_8.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_9.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_10.png">
-<meta property="og:updated_time" content="2018-04-09T08:49:59.854Z">
+<meta property="og:updated_time" content="2018-04-16T08:36:08.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux和windows之间传输文件">
 <meta name="twitter:description" content="通过SSH服务实现linux和windows之间便捷的连接">
@@ -298,8 +298,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/甘明阳/" itemprop="url" rel="index">
-                    <span itemprop="name">甘明阳</span>
+                  <a href="../../../../categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -340,8 +340,7 @@
 
       
         <p>​    现在的开发流程一般都是在window上面写代码，然后在linux上面编译运行，但是windows和linux是不能直接传输文件的，下面我来详细的讲解linux与windows的传输，主要可以分为以下几步:<a id="more"></a></p>
-<p>1、让window和linux互相ping通</p>
-<p>​        首先确认我们的ip地址，在window上输入ipconfig，如图是我window上的ip地址</p>
+<h4 id="1、让window和linux互相ping通"><a href="#1、让window和linux互相ping通" class="headerlink" title="1、让window和linux互相ping通"></a>1、让window和linux互相ping通</h4><p>​      首先确认我们的ip地址，在window上输入ipconfig，如图是我window上的ip地址</p>
 <p>​           <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_01.png" alt="mg0"></p>
 <p>​       然后在linux上输入ifconfig,如图所示</p>
 <p>​           <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_02.png" alt="mg0"></p>
@@ -350,29 +349,23 @@
 <p>​       关闭linux就失效了。</p>
 <p>​       现在我们重新ping就可以了，如图：</p>
 <p>​         <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_03.png" alt="52238922762"></p>
-<p>  2、关闭linux防火墙，输入命令：</p>
-<p>​        service iptables stop</p>
+<h4 id="2、关闭linux防火墙，输入命令："><a href="#2、关闭linux防火墙，输入命令：" class="headerlink" title="2、关闭linux防火墙，输入命令："></a>2、关闭linux防火墙，输入命令：</h4><p>​        service iptables stop</p>
 <p>​       注意这个命令需要root权限，要先切换到root再使用，结果如图：</p>
 <p>​      <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_04.png" alt="mg0"></p>
-<p>  3、如果你的系统是win7就要看这一步 ，不是的话可以直接跳过</p>
-<p>​       在win7上我们要配置本地安全策略，在键盘上同时按win键和R键，win键就是ctrl和alt中间的那个键，输入</p>
+<h4 id="3、如果你的系统是win7就要看这一步-，不是的话可以直接跳过"><a href="#3、如果你的系统是win7就要看这一步-，不是的话可以直接跳过" class="headerlink" title="3、如果你的系统是win7就要看这一步 ，不是的话可以直接跳过"></a>3、如果你的系统是win7就要看这一步 ，不是的话可以直接跳过</h4><p>​       在win7上我们要配置本地安全策略，在键盘上同时按win键和R键，win键就是ctrl和alt中间的那个键，输入</p>
 <p>​      secpol.msc</p>
 <p>​      如图：</p>
 <p>​      <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_05.png" alt="mg0"></p>
 <p>​      找到本地策略-&gt;安全选项-&gt;网络安全：LAN管理器身份验证级别，把没有定义改为发送LM和NTLM-如果已协商，则使用NTLMV2会话安全，如图：</p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_06.png" alt="mg0"></p>
-<p>4、下载并安装SSH客户端，下载链接是：</p>
-<p>​     <a href="https://pan.baidu.com/s/173u4chFGQrgB3HJoTG1Cng" target="_blank" rel="noopener">https://pan.baidu.com/s/173u4chFGQrgB3HJoTG1Cng</a></p>
+<h4 id="4、下载并安装SSH客户端，下载链接是："><a href="#4、下载并安装SSH客户端，下载链接是：" class="headerlink" title="4、下载并安装SSH客户端，下载链接是："></a>4、下载并安装SSH客户端，下载链接是：</h4><p>​     <a href="https://pan.baidu.com/s/173u4chFGQrgB3HJoTG1Cng" target="_blank" rel="noopener">https://pan.baidu.com/s/173u4chFGQrgB3HJoTG1Cng</a></p>
 <p>​     密码是egc5</p>
-<p>5、双击SshClient.exe打开，点击Quick connect，如图</p>
-<p>​       <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_07.png" alt="mg0"></p>
-<p>6、Host Name是你的linux地址，User Name是你linux用户名，Port是对应的端口号，我们这里写22，如图：  </p>
+<h4 id="5、双击SshClient-exe打开，点击Quick-connect，如图"><a href="#5、双击SshClient-exe打开，点击Quick-connect，如图" class="headerlink" title="5、双击SshClient.exe打开，点击Quick connect，如图"></a>5、双击SshClient.exe打开，点击Quick connect，如图</h4><p>​       <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_07.png" alt="mg0"></p>
+<h4 id="6、填写参数"><a href="#6、填写参数" class="headerlink" title="6、填写参数"></a>6、填写参数</h4><p>Host Name是你的linux地址，User Name是你linux用户名，Port是对应的端口号，我们这里写22，如图：  </p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_8.png" alt="inux_connect_"></p>
 <p>接下来输入你root用户的密码即可</p>
-<p>7、点击文件夹图标，如图：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_9.png" alt="inux_connect_"></p>
-<p>8、现在你可以直接拖动文件到linux上了，如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_10.png" alt="inux_connect_1"></p>
+<h4 id="7、点击文件夹图标，如图："><a href="#7、点击文件夹图标，如图：" class="headerlink" title="7、点击文件夹图标，如图："></a>7、点击文件夹图标，如图：</h4><p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_9.png" alt="inux_connect_"></p>
+<h4 id="8、现在你可以直接拖动文件到linux上了，如图"><a href="#8、现在你可以直接拖动文件到linux上了，如图" class="headerlink" title="8、现在你可以直接拖动文件到linux上了，如图"></a>8、现在你可以直接拖动文件到linux上了，如图</h4><p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_connect_10.png" alt="inux_connect_1"></p>
 <p>​     </p>
 
       
@@ -468,8 +461,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -488,7 +490,7 @@
               
                 <a href="../../../../archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -499,7 +501,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -510,7 +512,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -540,6 +542,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、让window和linux互相ping通"><span class="nav-number">1.</span> <span class="nav-text">1、让window和linux互相ping通</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、关闭linux防火墙，输入命令："><span class="nav-number">2.</span> <span class="nav-text">2、关闭linux防火墙，输入命令：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、如果你的系统是win7就要看这一步-，不是的话可以直接跳过"><span class="nav-number">3.</span> <span class="nav-text">3、如果你的系统是win7就要看这一步 ，不是的话可以直接跳过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、下载并安装SSH客户端，下载链接是："><span class="nav-number">4.</span> <span class="nav-text">4、下载并安装SSH客户端，下载链接是：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、双击SshClient-exe打开，点击Quick-connect，如图"><span class="nav-number">5.</span> <span class="nav-text">5、双击SshClient.exe打开，点击Quick connect，如图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、填写参数"><span class="nav-number">6.</span> <span class="nav-text">6、填写参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、点击文件夹图标，如图："><span class="nav-number">7.</span> <span class="nav-text">7、点击文件夹图标，如图：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、现在你可以直接拖动文件到linux上了，如图"><span class="nav-number">8.</span> <span class="nav-text">8、现在你可以直接拖动文件到linux上了，如图</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

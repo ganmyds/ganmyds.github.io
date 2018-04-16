@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png">
-<meta property="og:updated_time" content="2018-04-09T08:52:31.239Z">
+<meta property="og:updated_time" content="2018-04-16T09:16:09.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux上面安装配置mysql">
 <meta name="twitter:description" content="linux上搭建mysql流程">
@@ -295,8 +295,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/甘明阳/" itemprop="url" rel="index">
-                    <span itemprop="name">甘明阳</span>
+                  <a href="../../../../categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -347,46 +347,46 @@
 </li>
 </ul>
 <p>mysql只有在linux运行环境下才能充分发挥其威力，在linux环境下搭建mysql就变得非常有意义了，下面我为大家详细介绍linux下mysql的搭建</p>
-<p>1、下载mysql安装文件，有两个文件，分别是mysql-connector-java-5.1.6-bin.jar和mysql-standard-4.0.26-pc-  linux-gnu-i686.tar.gz，点击下载<a href="https://pan.baidu.com/s/1es5NjK-VOiohtkScZKt6iw" target="_blank" rel="noopener">https://pan.baidu.com/s/1es5NjK-VOiohtkScZKt6iw</a></p>
+<h4 id="1、下载mysql安装文件"><a href="#1、下载mysql安装文件" class="headerlink" title="1、下载mysql安装文件"></a>1、下载mysql安装文件</h4><p>   有两个文件，分别是mysql-connector-java-5.1.6-bin.jar和mysql-standard-4.0.26-pc-  linux-gnu-i686.tar.gz，<a href="https://pan.baidu.com/s/1es5NjK-VOiohtkScZKt6iw" target="_blank" rel="noopener">点击下载</a></p>
 <p>将两个安装文件拷贝到/home下,切换到root，输入命令：</p>
 <p>su root</p>
-<p>不会从windows传文件到linux上？点这里<a href="https://ganmyds.github.io/hexo_blog/2018/03/28/article02/" target="_blank" rel="noopener">https://ganmyds.github.io/hexo_blog/2018/03/28/article02/</a></p>
-<p>2、解压安装文件:</p>
-<p>tar -zxvf  mysql-standard-4.0.26-pc-linux-gnu-i686.tar.gz</p>
+<p>不会从windows传文件到linux上？<a href="https://ganmyds.github.io/hexo_blog/2018/03/28/article02/" target="_blank" rel="noopener">点这里传送</a></p>
+<h4 id="2、解压安装文件"><a href="#2、解压安装文件" class="headerlink" title="2、解压安装文件:"></a>2、解压安装文件:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  mysql-standard-4.0.26-pc-linux-gnu-i686.tar.gz</span><br></pre></td></tr></table></figure>
 <p>解压缩后我们会得到一个目录如图</p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png" alt="mg0"></p>
-<p>3、创建一个文件夹mysql专门用于存放mysql文件,输入命令 :</p>
-<p>​     mkdir mysql</p>
-<p>4、将目录mysql-standard-4.0.26-pc-linux-gnu-i686下的文件移动到mysql里面，输入命令:</p>
-<p>​    mv mysql-standard-4.0.26-pc-linux-gnu-i686 mysql</p>
-<p>5、创建一个组mysql,注意这个命令要root权限才能使用，专门创建mysql组是为了方便以后管理mysql下面   的各个用户，输入命令:</p>
-<p>​     groupadd mysql</p>
-<p>6、创建mysql用户放入mysql组，输入命令:</p>
-<p>​    useradd -g mysql mysql</p>
-<p>7、进入mysql目录，输入命令 cd mysql</p>
-<p>8、初始化mysql数据库，输入命令：</p>
-<p>​    scripts/mysql_install_db  –user=mysql 如图就是初始化成功：</p>
+<h4 id="3、创建一个文件夹mysql"><a href="#3、创建一个文件夹mysql" class="headerlink" title="3、创建一个文件夹mysql :"></a>3、创建一个文件夹mysql :</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir mysql</span><br></pre></td></tr></table></figure>
+<h4 id="4、移动文件到mysql里，输入命令"><a href="#4、移动文件到mysql里，输入命令" class="headerlink" title="4、移动文件到mysql里，输入命令:"></a>4、移动文件到mysql里，输入命令:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mysql-standard-4.0.26-pc-linux-gnu-i686 mysql</span><br></pre></td></tr></table></figure>
+<h4 id="5、创建一个组mysql"><a href="#5、创建一个组mysql" class="headerlink" title="5、创建一个组mysql"></a>5、创建一个组mysql</h4><p>注意这个命令要root权限才能使用，专门创建mysql组是为了方便以后管理mysql下面   的各个用户，输入命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br></pre></td></tr></table></figure>
+<p>创建mysql用户放入mysql组，输入命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g mysql mysql</span><br></pre></td></tr></table></figure>
+<h4 id="7、进入mysql目录"><a href="#7、进入mysql目录" class="headerlink" title="7、进入mysql目录"></a>7、进入mysql目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mysql</span><br></pre></td></tr></table></figure>
+<h4 id="8、初始化mysql数据库："><a href="#8、初始化mysql数据库：" class="headerlink" title="8、初始化mysql数据库："></a>8、初始化mysql数据库：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scripts/mysql_install_db  --user=mysql</span><br></pre></td></tr></table></figure>
+<p> 如图就是初始化成功：</p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_5.png" alt="mg0"></p>
-<p>9、将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
-<p>  chown -R root:mysql .</p>
-<p>10、将数据文件夹用户改为mysql,输入命令：chown -R mysql data,我们检查一下是否成功改动，输入</p>
-<p>   命令: ls -l ,结果如图所示：</p>
+<h4 id="9、修改权限"><a href="#9、修改权限" class="headerlink" title="9、修改权限"></a>9、修改权限</h4><p>  将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:mysql .</span><br></pre></td></tr></table></figure>
+<p>注意后面有个点，表示使用当前路径，然后将数据文件夹用户改为mysql,输入命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql data</span><br></pre></td></tr></table></figure>
+<p>我们检查一下是否成功改动，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+<p>结果如图所示：</p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_4.png" alt="mg0"></p>
-<p>11、后台运行mysql,输入命令： </p>
-<p>  bin/mysqld_safe   –user=mysql &amp; ,结果如图所示：</p>
+<h4 id="10、后台运行mysql"><a href="#10、后台运行mysql" class="headerlink" title="10、后台运行mysql"></a>10、后台运行mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/mysqld_safe   --user=mysql &amp;</span><br></pre></td></tr></table></figure>
+<p>结果如图所示：</p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_3.png" alt="mg0"></p>
-<p>12、看看我们的mysql是否正常运行，输入命令netstat -anp | moe，看看3306端口是否存在，如图：</p>
+<h4 id="11、看看我们的mysql是否正常运行"><a href="#11、看看我们的mysql是否正常运行" class="headerlink" title="11、看看我们的mysql是否正常运行"></a>11、看看我们的mysql是否正常运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | moe</span><br></pre></td></tr></table></figure>
+<p>看看3306端口是否存在，如图：</p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png" alt="mg0"></p>
-<p>13、进入bin目录,输入命令:cd bin</p>
-<p>14、运行mysql,输入命令：</p>
-<p>​     mysql -u root -p，</p>
+<h4 id="12、进入bin目录"><a href="#12、进入bin目录" class="headerlink" title="12、进入bin目录"></a>12、进入bin目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> bin</span><br></pre></td></tr></table></figure>
+<h4 id="13、运行mysql"><a href="#13、运行mysql" class="headerlink" title="13、运行mysql"></a>13、运行mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
 <p>Enter password是要你输入密码，目前没有密码直接按enter即可，如图:</p>
 <p>​              <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png" alt="mg0"> </p>
 <p>现在mysql已经成功的安装到我们的linux下面了。到这里基本完成了，如果你想让以后的工作更方便，看看下面的内容。</p>
 <hr>
 <p>现在我们打开mysql非常麻烦，需要进入/home/mysql/bin目录下执行，为了减少麻烦，我们可以将这个路径配置到环境变量里面，输入命令 </p>
-<p>​    cd /root </p>
-<p>​    vi  .bash_profile </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  .bash_profile</span><br></pre></td></tr></table></figure>
 <p>改动如图</p>
 <p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png" alt="mg0"></p>
 <p>然后我们登出让配置文件生效，输入命令logout ，重新登录，现在你就可以在任意路径上运行mysql了。</p>
@@ -486,8 +486,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -506,7 +515,7 @@
               
                 <a href="../../../../archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -517,7 +526,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 
               </div>
@@ -528,7 +537,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -558,6 +567,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、下载mysql安装文件"><span class="nav-number">1.</span> <span class="nav-text">1、下载mysql安装文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、解压安装文件"><span class="nav-number">2.</span> <span class="nav-text">2、解压安装文件:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、创建一个文件夹mysql"><span class="nav-number">3.</span> <span class="nav-text">3、创建一个文件夹mysql :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、移动文件到mysql里，输入命令"><span class="nav-number">4.</span> <span class="nav-text">4、移动文件到mysql里，输入命令:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、创建一个组mysql"><span class="nav-number">5.</span> <span class="nav-text">5、创建一个组mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7、进入mysql目录"><span class="nav-number">6.</span> <span class="nav-text">7、进入mysql目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8、初始化mysql数据库："><span class="nav-number">7.</span> <span class="nav-text">8、初始化mysql数据库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9、修改权限"><span class="nav-number">8.</span> <span class="nav-text">9、修改权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10、后台运行mysql"><span class="nav-number">9.</span> <span class="nav-text">10、后台运行mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11、看看我们的mysql是否正常运行"><span class="nav-number">10.</span> <span class="nav-text">11、看看我们的mysql是否正常运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12、进入bin目录"><span class="nav-number">11.</span> <span class="nav-text">12、进入bin目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13、运行mysql"><span class="nav-number">12.</span> <span class="nav-text">13、运行mysql</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
