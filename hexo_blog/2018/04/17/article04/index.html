@@ -79,24 +79,23 @@
 
 
 
-<meta name="description" content="记录重装hexo需要改动的配置信息">
+<meta name="description" content="主要是记录要改动的配置信息">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo卸载重装更换next主题">
+<meta property="og:title" content="处理hexo使用next主题遇到的问题">
 <meta property="og:url" content="https://ganmyds.github.io/hexo_blog/2018/04/17/article04/index.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="记录重装hexo需要改动的配置信息">
+<meta property="og:description" content="主要是记录要改动的配置信息">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_01.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_02.png?raw=true">
-<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_03.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_04.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_05.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_06.png?raw=true">
-<meta property="og:updated_time" content="2018-04-17T08:34:38.927Z">
+<meta property="og:updated_time" content="2018-04-17T09:14:14.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo卸载重装更换next主题">
-<meta name="twitter:description" content="记录重装hexo需要改动的配置信息">
+<meta name="twitter:title" content="处理hexo使用next主题遇到的问题">
+<meta name="twitter:description" content="主要是记录要改动的配置信息">
 <meta name="twitter:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_01.png?raw=true">
 
 
@@ -133,7 +132,7 @@
 
 
 
-  <title>hexo卸载重装更换next主题 | 小小程序员</title>
+  <title>处理hexo使用next主题遇到的问题 | 小小程序员</title>
   
 
 
@@ -277,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo卸载重装更换next主题</h1>
+          <h1 class="post-title" itemprop="name headline">处理hexo使用next主题遇到的问题</h1>
         
 
         <div class="post-meta">
@@ -336,7 +335,7 @@
 
           
               <div class="post-description">
-                  记录重装hexo需要改动的配置信息
+                  主要是记录要改动的配置信息
               </div>
           
 
@@ -354,11 +353,12 @@
 
       
         <p>ps: 之前用hexo写的博客一直有问题，首先是样式加载不到，我将hexo文件夹下的_config.yml里面的relative_link改为true之后就可以正常加载了，本来以为问题已经解决，但是替换next主题后陆陆续续各种路径找不到，索性就将hexo卸载重装，用了最新版本hexo后感觉世界都变得美好了，重新提交了blog，现在记录一下相关的配置。<a id="more"></a></p>
-<h3 id="卸载hexo"><a href="#卸载hexo" class="headerlink" title="卸载hexo"></a>卸载hexo</h3><p>3.0.0之前版本执行</p>
+<h3 id="重装hexo"><a href="#重装hexo" class="headerlink" title="重装hexo"></a>重装hexo</h3><p>卸载hexo，3.0.0之前版本执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
 <p>3.0.0之后版本执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
-<p>查看hexo版本使用==hexo -v== </p>
+<p>查看hexo版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
 <p>安装最新版hexo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <h3 id="next主题安装"><a href="#next主题安装" class="headerlink" title="next主题安装"></a>next主题安装</h3><p>1、下载next主题</p>
@@ -372,11 +372,13 @@
 <p>​        重启服务，在git里面输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 <h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>​      1、配置语言</p>
-<p>​           现在你的主题就成功改好了，但是还有一些小小的问题，我们找到Hexo\blog\themes\next_config.yml，按照如图修改</p>
-<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_03.png?raw=true" alt="exo_themes_0"></p>
-<p>​           然后我们去Hexo\blog\themes\next_config.yml，搜索scheme，如图：</p>
+<p>​           现在你的主题就成功改好了，但是还有一些小小的问题，我们找到Hexo\blog\themes\next_config.yml，搜索</p>
+<p>title，修改如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 小小程序员</span><br><span class="line">subtitle: 记录学习过程中的点点滴滴</span><br><span class="line">description: 技术与生活，与我融为一体</span><br><span class="line">keywords: linux</span><br><span class="line">author: 甘明阳</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
+<p>​           </p>
+<p>然后我们去Hexo\blog\themes\next_config.yml，搜索scheme，如图：</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_04.png?raw=true" alt="exo_themes_0"></p>
-<p>​           这里有四种样式可以供我们选择，记住只有一个要去掉#哦</p>
+<p>这里有四种样式可以供我们选择，记住，有一个要去掉#，然后其他三个要加上#</p>
 <p>​      2、添加头像</p>
 <p>​           我们要加上自己的头像，在这个文件里搜索avatar，如图：</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_05.png?raw=true" alt="exo_themes_0"></p>
@@ -387,8 +389,8 @@
 <p>​           还是在当前文件，搜索social，添加如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">social:</span><br><span class="line">  github: https://github.com/your-user-name</span><br><span class="line">  twitter: https://twitter.com/your-user-name</span><br><span class="line">  weibo: http://weibo.com/your-user-name</span><br><span class="line">  douban: http://douban.com/people/your-user-name</span><br><span class="line">  zhihu: http://www.zhihu.com/people/your-user-name</span><br></pre></td></tr></table></figure>
 <p>​           内容可根据需求增减</p>
-<h3 id="处理一些next的问题"><a href="#处理一些next的问题" class="headerlink" title="处理一些next的问题"></a>处理一些next的问题</h3><hr>
-<p>问题一、分类和标签按钮不能点击</p>
+<hr>
+<h3 id="处理一些next的问题"><a href="#处理一些next的问题" class="headerlink" title="处理一些next的问题"></a>处理一些next的问题</h3><p>问题一、分类和标签按钮不能点击</p>
 <p>​    next目前没有分类和标签页面，需要我们手动添加，首先添加分类页面，在git命令行里面输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
 <p>完成后在source里面生成一个categories文件夹，我们进入Hexo\blog\source\categories，找到index.md，改动如下：</p>
@@ -552,7 +554,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -595,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载hexo"><span class="nav-number">1.</span> <span class="nav-text">卸载hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#重装hexo"><span class="nav-number">1.</span> <span class="nav-text">重装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a></li></ol></div>
             
 
           </div>
