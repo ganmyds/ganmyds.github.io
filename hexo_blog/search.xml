@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[hexo关于next主题的使用经验]]></title>
+    <url>%2Fhexo_blog%2F2018%2F04%2F17%2Farticle04%2F</url>
+    <content type="text"><![CDATA[ps: 之前用hexo写的博客一直有问题，首先是样式加载不到，我将hexo文件夹下的_config.yml里面的relative_link改为true之后就可以正常加载了，本来以为问题已经解决，但是替换next主题后陆陆续续各种路径找不到，索性就将hexo卸载重装，用了最新版本hexo后感觉世界都变得美好了，重新提交了blog，现在记录一下相关的配置。 hexo卸载重装卸载hexo，3.0.0之前版本执行 1npm uninstall hexo -g 3.0.0之后版本执行 1npm uninstall hexo -g 查看hexo版本 1hexo -v 安装最新版hexo 1npm install hexo-cli -g next主题安装下载next主题​ 进入你的博客下的themes文件夹下，目录结构类似Hexo\blog\themes，输入 1git clone https://github.com/iissnan/hexo-theme-next themes/next ​ 会下载一个next文件夹，如图所示 修改主题​ 找到Hexo\blog\\_config.yml(貌似别的博客都称这个文件为站点配置文件，下面我也怎么称呼吧！)，将theme原来的landscape改为next,如图 ​ 重启服务，在git里面输入 1hexo s 修改配置文件配置语言​ 现在你的主题就成功改好了，但是还有一些小小的问题 ​ 我们找到Hexo\blog\themes\next_config.yml，搜索title，修改如下: 12345678# Sitetitle: 小小程序员subtitle: 记录学习过程中的点点滴滴description: 技术与生活，与我融为一体keywords: linuxauthor: 甘明阳language: zh-Hanstimezone: ​ 然后我们去Hexo\blog\themes\next\_config.yml，搜索scheme，如图： 这里有四种样式可以供我们选择，记住，有一个要去掉#，然后其他三个要加上# 添加头像​ 我们要加上自己的头像，在这个文件里搜索avatar，如图： ​ 将avatar的值改为我们自己的图片路径，如图 添加社交链接​ 还是在当前文件，搜索social，添加如下： 123456social: github: https://github.com/your-user-name twitter: https://twitter.com/your-user-name weibo: http://weibo.com/your-user-name douban: http://douban.com/people/your-user-name zhihu: http://www.zhihu.com/people/your-user-name ​ 内容可根据需求增减 添加背景音乐​ 使用hexo搭建的博客添加背景音乐非常简单，不同的主题改动稍微会有一点差别，以next主题为例，我们打开网易云随便搜索一首歌，以未闻花名为例，点击进去 点击生成外链播放器 选择不同的播放模式代码会不一样，想一进页面就播放音乐就选择自动播放，否则自动播放的对钩不要点，然后我们复制下面的代码 进入hexo/themes/next/layout/_macro,找到sidebar.swig,搜索links-of-blogroll，使用这个类的div是用来放置外链的，我们将复制的代码放到下面就可以了，如图： 然后，在git里面输入 1hexo g 1hexo s 现在打开localhost:4000就有效果了，如图 点击进入我的博客看看效果 添加字数统计功能​ 需要安装一个控件hexo-wordcount，在Hexo\blog\目录下安装，输入： 1npm install hexo-wordcount --save ​ 之前我在这一步遇到了一个报错，内容是 12345678910111213141516npm ERR! path C:\Users\home\Desktop\hexo_blog\blog\node_modules\minipass\node_mo dulesnpm ERR! code EPERMnpm ERR! errno -4048npm ERR! syscall scandirnpm ERR! Error: EPERM: operation not permitted, scandir 'C:\Users\home\Desktop\h exo_blog\blog\node_modules\minipass\node_modules'npm ERR! &#123; Error: EPERM: operation not permitted, scandir 'C:\Users\home\Deskto p\hexo_blog\blog\node_modules\minipass\node_modules'npm ERR! stack: 'Error: EPERM: operation not permitted, scandir \'C:\\Users\\h ome\\Desktop\\hexo_blog\\blog\\node_modules\\minipass\\node_modules\'',npm ERR! errno: -4048,npm ERR! code: 'EPERM',npm ERR! syscall: 'scandir',npm ERR! path: 'C:\\Users\\home\\Desktop\\hexo_blog\\blog\\node_modules\\minip ass\\node_modules' &#125;npm ERR!npm ERR! Please try running this command again as root/Administrator.npm ERR! A complete log of this run can be found in:npm ERR! C:\Users\home\AppData\Roaming\npm-cache\_logs\2018-04-23T04_26_33_4 54Z-debug.log 在网上搜索了很多都没有看到有类似这个问题的，我感觉有可能是路径的问题，于是关掉本地服务器打算切换路径安装，结果有事忙忘了切换路径，居然成功安装了，原来原因是没有关掉本地服务器，囧！这里记录一下。 安装成功后，我们去主题配置文件里面搜索post_wordcount，改成如下配置 12345678# Post wordcount display settings# Dependencies: https://github.com/willin/hexo-wordcountpost_wordcount: item_text: true wordcount: true min2read: true totalcount: false separated_meta: true 刷新一下，字数统计功能就有了，但是现在是没有单位的 到Hexo\blog\themes\next\layout\_macro\post.swig 路径下 搜索wordcount(post.content)和min2read(post.content)，修改如下 123&lt;span title="&#123;&#123; __('post.wordcount') &#125;&#125;"&gt; &#123;&#123; wordcount(post.content) &#125;&#125;字&lt;/span&gt; 123&lt;span title="&#123;&#123; __('post.min2read') &#125;&#125;"&gt; &#123;&#123; min2read(post.content) &#125;&#125;分钟&lt;/span&gt; 首页添加分页功能分页功能需要下载对应的插件，git切换到Hexo\blog\依次输入： 1npm install hexo-generator-index --save 1npm install hexo-generator-archive --save 1npm install hexo-generator-category --save 1npm install hexo-generator-tag --save 到站点配置文件里面，搜索index_generator，修改如下： 1234567891011121314#首页分页设置index_generator: path: '' per_page: 5 #这里是配置5篇文章一页 order_by: -date#归档页的分页设置archive_generator: per_page: 30 yearly: true monthly: true#标签页的分页设置tag_generator: per_page: 20 处理一些next的问题分类和标签按钮不能点击​ next目前没有分类和标签页面，需要我们手动添加，首先添加分类页面，在git命令行里面输入： 1hexo new page categories 完成后在source里面生成一个categories文件夹，我们进入Hexo\blog\source\categories，找到index.md，改动如下： 123title: categoriesdate: 2018-04-17 15:47:33type: "categories" 然后在git命令行里面输入: 1hexo g 刷新页面，分类按钮就能点击了。 然后添加标签页面，输入： 1hexo new page tag 进入Hexo\blog\source\tag，找到index.md,改动如下 123title: categoriesdate: 2018-04-17 15:47:33type: "tags" 剩下的步骤同上。 点击首页回不去 这个要看你的博客是不是处于子目录里面，例如我的博客路径为 1https://ganmyds.github.io/hexo_blog/ 就是有子目录,下面就是不含子目录 1https://ganmyds.github.io/ 如果你是将博客放在子目录里面，找到Hexo\blog\themes\next\_config.yml，搜索menu内容类似下面： 1234567menu: home: / archives: /archives #about: /about #categories: /categories tags: /tags #commonweal: /404.html 将内容改为你博客的对应链接就可以了，例如我的改动是： 123456789menu: home: https://ganmyds.github.io/hexo_blog/ # about: /about/ || user tags: https://ganmyds.github.io/hexo_blog/tags/ || tags categories: https://ganmyds.github.io/hexo_blog/categories/ || th archives: https://ganmyds.github.io/hexo_blog/archives/ || archive # schedule: schedule/ || calendar # sitemap: sitemap.xml || sitemap # commonweal: 404/ || heartbeat]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Navicate for Mysql的破解]]></title>
+    <url>%2Fhexo_blog%2F2018%2F04%2F15%2Farticle03%2F</url>
+    <content type="text"><![CDATA[在windows上开发的时候我们也会用到mysql，一般都是配合一些工具使用mysql的，现在我来介绍navicate这个工具的使用： 首先这个工具需要我们的电脑上安装了mysql,如果你的电脑上没有安装mysql，点这里下载免安装版的：点击下载 密码是：o2mb 在D盘创建一个文件夹mysql,然后解压到这个文件夹，双击bin下面的mysqld.exe打开，如图 会有一个黑窗口一闪而过，我们不用管他，打开任务管理器看看是不是有一个mysqld.exe的进程在运行，如图： 如果有就说明你的mysql已经成功运行，接下来我们下载Navicate for Mysql和相关的破解文件，点击下载 密码：5t6d 下载找到navicat111_mysql_cs_x86.exe，双击安装，安装后找到安装的路径，会多一个文件夹Navicat for MySQL，然后我们把压缩包里面的PatchNavicat.exe复制到Navicat for MySQL下，如图 双击打开，选中navicte.exe，弹出一个success的框框就说明破解成功，然后我们双击navicte.exe打开，点击连接，如图： 选择mysql,输入如图，密码是root 现在我们就可以在windows上自由的使用mysql了]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[巧妙解决hexo博客使用的图片的处理]]></title>
+    <url>%2Fhexo_blog%2F2018%2F04%2F15%2Farticle05%2F</url>
+    <content type="text"><![CDATA[使用github和hexo搭建博客一段时间了，感觉图片的处理还真是挺麻烦的，有两个问题： 1、因为自己的博客经常要修改，会很频繁的使用hexo clean这个命令，经常会把图片清空，然后又要重新导入图片 要特别注意路径的处理，感觉挺浪费时间的 2、github提供的空间只有1g,图片会占用非常多的空间，对自己github未来的使用有负面影响 于是，根据这些问题，查阅了一些资料，找到了一个很好的处理方法，那就是使用在线链接，一般都是用图床放图片，但是大部分图床都是收费的，所以我没有选择图床，而是使用了另外一个工具，那就是github，我们可以申请一个github专门放自己的图片，然后所有博客都使用图片的在线地址即可，现在简单为初学者介绍具体步骤： (1)、申请一个github小号，步骤和你申请博客的github帐号一样，注意邮箱不能和博客帐号的邮箱一样，我们可以申请一个qq小号用于接受github邮件 (2)、新建一个仓库，我创建的是ganmyxh.io，考虑到以后有可能会在这个仓库里面放html就这样创建，你如果只是放图片这里可以随便取名，点击Create repository (3)、进入仓库，复制仓库路径，如图 (4)、在桌面上新建一个文件夹，github_img,右键打开git，输入命令git clone 加你的的地址 (5)、进入目录ganmyxh.io，新建文件夹img,如图 (6)、把图片放到img目录里面，在git里面输入 1cd ganmyxh.io/ 然后输入 1git add . 说明一下，git add 后面那个.表示将你要提交的所有文件放到暂存区里面，然后依次输入下面两个命令 1git commit -m "提交图片" 1git push 这里会要你输入自己的用户名和密码，如图 (7)、进入我们的github，随便点到一张图片里面，右键-&gt;复制图片地址。注意不能复制网页上面的地址， 以后我们自己的博客图片地址都可以这样使用，就不用担心地址的问题了]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[erlang项目流程查看技巧]]></title>
+    <url>%2Fhexo_blog%2F2018%2F04%2F09%2Ferlang%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B%E6%9F%A5%E7%9C%8B%E6%8A%80%E5%B7%A7%2F</url>
+    <content type="text"><![CDATA[在公司用过erlang一段时间，主要是用erlang来加密传输数据的，现在把我关于erlang的一点感悟写出来，现在erlanng项目基本框架都是用rebar生成的，所以大部分erlang项目都用一些类似的特点。 一般都有几个基本的的文件夹，如图： 先说说相关文件夹的作用： 1、bin主要是存放数据库的，因为公司项目主要是做手机银行后台的，具体内容我不能说，我们主要使用的数据库是mnesia,用于存放项目的相关数据。 2、config文件夹是用来存放配置文件的，比方说连接的ip地址 3、include文件夹是用来存放头文件的 4、ebin文件夹主要是放beam文件的，beam文件是erlang编译后生成的文件 5、log是存放报文的，分析问题的时候经常会使用报文 6、script文件夹是存放脚步文件的 7、用得最多的是src文件夹，我们写的erlang代码一般是放在里面 然后说先erlang项目的入口，向java和c都有main入口，erlang也有自己的入口，是一个后缀名为.app的文件，还是以网上比较出名的erlang项目远古封神来看，是用sublime text3找到server.app，这里面可以提供很多项目的相关信息，如图： 主要看mod对应的值yg_server_app,然后我们搜索yg_server_app.erl，这是我们的启动模块 在这里面有一个函数start就是我们的入口，如图 这个模块引用了两个头文件，common.hrl和record.hrl,这两个文件主要是存放一些我们经常会使用的常量的，关于启动函数，其他不管，我们找到yg_server_sup和yg_server这两个模块，先看yg_server_sup，这个模块主要是启动启动一个监控，关于erlang监控，可以看我的另外一篇博客，然后是yg_server这个模块，如图 这里面就是启动各种服务的地方了，我们随便看一个，比如跟客户端相关的服务，start_client(),如图 这里面也是各种开启监控树。]]></content>
+      <categories>
+        <category>erlang</category>
+      </categories>
+      <tags>
+        <tag>erlang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux上面安装配置mysql]]></title>
+    <url>%2Fhexo_blog%2F2018%2F03%2F29%2Flinux%E4%B8%8A%E9%9D%A2%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEmysql%2F</url>
+    <content type="text"><![CDATA[一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处： 免费 跨平台 轻量级 支持多并发 mysql只有在linux运行环境下才能充分发挥其威力，在linux环境下搭建mysql就变得非常有意义了，下面我为大家详细介绍linux下mysql的搭建 下载mysql安装文件 有两个文件，分别是mysql-connector-java-5.1.6-bin.jar和mysql-standard-4.0.26-pc- linux-gnu-i686.tar.gz，点击下载 将两个安装文件拷贝到/home下,切换到root，输入命令： su root 不会从windows传文件到linux上？点这里传送 解压安装文件:1tar -zxvf mysql-standard-4.0.26-pc-linux-gnu-i686.tar.gz 解压缩后我们会得到一个目录如图 创建一个文件夹mysql :1mkdir mysql 移动文件到mysql里，输入命令:1mv mysql-standard-4.0.26-pc-linux-gnu-i686 mysql 创建一个组mysql注意这个命令要root权限才能使用，专门创建mysql组是为了方便以后管理mysql下面 的各个用户，输入命令: 1groupadd mysql 创建mysql用户放入mysql组，输入命令: 1useradd -g mysql mysql 进入mysql目录1cd mysql 初始化mysql数据库：1scripts/mysql_install_db --user=mysql 如图就是初始化成功： 修改权限 将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令： 1chown -R root:mysql . 注意后面有个点，表示使用当前路径，然后将数据文件夹用户改为mysql,输入命令： 1chown -R mysql data 我们检查一下是否成功改动，输入 1ls -l 结果如图所示： 后台运行mysql1bin/mysqld_safe --user=mysql &amp; 结果如图所示： 看看我们的mysql是否正常运行1netstat -anp | moe 看看3306端口是否存在，如图： 进入bin目录1cd bin 运行mysql1mysql -u root -p Enter password是要你输入密码，目前没有密码直接按enter即可，如图: ​ 现在mysql已经成功的安装到我们的linux下面了。到这里基本完成了，如果你想让以后的工作更方便，看看下面的内容。 现在我们打开mysql非常麻烦，需要进入/home/mysql/bin目录下执行，为了减少麻烦，我们可以将这个路径配置到环境变量里面，输入命令 1cd /root 1vi .bash_profile 改动如图 然后我们登出让配置文件生效，输入命令logout ，重新登录，现在你就可以在任意路径上运行mysql了。]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux和windows之间传输文件]]></title>
+    <url>%2Fhexo_blog%2F2018%2F03%2F28%2Farticle02%2F</url>
+    <content type="text"><![CDATA[​ 现在的开发流程一般都是在window上面写代码，然后在linux上面编译运行，但是windows和linux是不能直接传输文件的，下面我来详细的讲解linux与windows的传输，主要可以分为以下几步: 1、让window和linux互相ping通​ 首先确认我们的ip地址，在window上输入ipconfig，如图是我window上的ip地址 ​ ​ 然后在linux上输入ifconfig,如图所示 ​ ​ 这两个ip的网段不同，不能ping通，我们要改为一个网段，ip的前三个数字要相同，第四个数字不同，现在我将 ​ linux上的ip改为192.168.214.66，输入命令：ifconfig eth0 192.168.214.66，注意这个命令只能暂时改变ip， ​ 关闭linux就失效了。 ​ 现在我们重新ping就可以了，如图： ​ 2、关闭linux防火墙，输入命令：​ service iptables stop ​ 注意这个命令需要root权限，要先切换到root再使用，结果如图： ​ 3、如果你的系统是win7就要看这一步 ，不是的话可以直接跳过​ 在win7上我们要配置本地安全策略，在键盘上同时按win键和R键，win键就是ctrl和alt中间的那个键，输入 ​ secpol.msc ​ 如图： ​ ​ 找到本地策略-&gt;安全选项-&gt;网络安全：LAN管理器身份验证级别，把没有定义改为发送LM和NTLM-如果已协商，则使用NTLMV2会话安全，如图： 4、下载并安装SSH客户端，下载链接是：​ https://pan.baidu.com/s/173u4chFGQrgB3HJoTG1Cng ​ 密码是egc5 5、双击SshClient.exe打开，点击Quick connect，如图​ 6、填写参数Host Name是你的linux地址，User Name是你linux用户名，Port是对应的端口号，我们这里写22，如图： 接下来输入你root用户的密码即可 7、点击文件夹图标，如图： 8、现在你可以直接拖动文件到linux上了，如图 ​]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+</search>

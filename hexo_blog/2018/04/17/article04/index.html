@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="../../../../lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="../../../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -79,13 +86,13 @@
 
 
 
-<meta name="description" content="总结这段时间使用next主题的经验，可以添加的功能，包括国际化、添加头像、添加社交链接、添加背景音乐。记录碰到的一些问题">
+<meta name="description" content="记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo的关于next主题的各种功能配置">
+<meta property="og:title" content="hexo关于next主题的使用经验">
 <meta property="og:url" content="https://ganmyds.github.io/hexo_blog/2018/04/17/article04/index.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="总结这段时间使用next主题的经验，可以添加的功能，包括国际化、添加头像、添加社交链接、添加背景音乐。记录碰到的一些问题">
+<meta property="og:description" content="记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_01.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_02.png?raw=true">
@@ -97,10 +104,10 @@
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_09.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_10.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_11.png?raw=true">
-<meta property="og:updated_time" content="2018-04-18T09:50:31.685Z">
+<meta property="og:updated_time" content="2018-04-23T06:53:35.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo的关于next主题的各种功能配置">
-<meta name="twitter:description" content="总结这段时间使用next主题的经验，可以添加的功能，包括国际化、添加头像、添加社交链接、添加背景音乐。记录碰到的一些问题">
+<meta name="twitter:title" content="hexo关于next主题的使用经验">
+<meta name="twitter:description" content="记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等">
 <meta name="twitter:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_01.png?raw=true">
 
 
@@ -137,7 +144,7 @@
 
 
 
-  <title>hexo的关于next主题的各种功能配置 | 小小程序员</title>
+  <title>hexo关于next主题的使用经验 | 小小程序员</title>
   
 
 
@@ -197,19 +204,19 @@
         <li class="menu-item menu-item-home">
           <a href="https://ganmyds.github.io/hexo_blog/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="https://ganmyds.github.io/hexo_blog/tags/" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="https://ganmyds.github.io/hexo_blog/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            标签
+            时间轴
           </a>
         </li>
       
@@ -224,20 +231,54 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="https://ganmyds.github.io/hexo_blog/archives/" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="https://ganmyds.github.io/hexo_blog/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            归档
+            标签
           </a>
         </li>
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            站内搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -283,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo的关于next主题的各种功能配置</h1>
+          <h1 class="post-title" itemprop="name headline">hexo关于next主题的使用经验</h1>
         
 
         <div class="post-meta">
@@ -339,10 +380,41 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,718
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8分钟
+                </span>
+              
+            </div>
+          
 
           
               <div class="post-description">
-                  总结这段时间使用next主题的经验，可以添加的功能，包括国际化、添加头像、添加社交链接、添加背景音乐。记录碰到的一些问题
+                  记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等
               </div>
           
 
@@ -372,15 +444,15 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 <p>​     会下载一个next文件夹，如图所示</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_01.png?raw=true" alt="exo_themes_0"></p>
-<h4 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h4><p>​        找到Hexo\blog\_config.yml，将theme原来的landscape改为next,如图</p>
+<h4 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h4><p>​        找到<code>Hexo\blog\\_config.yml(</code>貌似别的博客都称这个文件为站点配置文件，下面我也怎么称呼吧！)，将theme原来的landscape改为next,如图</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_02.png?raw=true" alt="exo_themes_0"></p>
 <p>​        重启服务，在git里面输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><h4 id="配置语言"><a href="#配置语言" class="headerlink" title="配置语言"></a>配置语言</h4><p>​           现在你的主题就成功改好了，但是还有一些小小的问题，我们找到Hexo\blog\themes\next_config.yml，搜索</p>
-<p>title，修改如下:</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><h4 id="配置语言"><a href="#配置语言" class="headerlink" title="配置语言"></a>配置语言</h4><p>​           现在你的主题就成功改好了，但是还有一些小小的问题</p>
+<p>​           我们找到<code>Hexo\blog\themes\next_config.yml</code>，搜索title，修改如下:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 小小程序员</span><br><span class="line">subtitle: 记录学习过程中的点点滴滴</span><br><span class="line">description: 技术与生活，与我融为一体</span><br><span class="line">keywords: linux</span><br><span class="line">author: 甘明阳</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
 <p>​           </p>
-<p>然后我们去Hexo\blog\themes\next_config.yml，搜索scheme，如图：</p>
+<p>然后我们去<code>Hexo\blog\themes\next\_config.yml</code>，搜索scheme，如图：</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_04.png?raw=true" alt="exo_themes_0"></p>
 <p>这里有四种样式可以供我们选择，记住，有一个要去掉#，然后其他三个要加上#</p>
 <h4 id="添加头像"><a href="#添加头像" class="headerlink" title="添加头像"></a>添加头像</h4><p>​           我们要加上自己的头像，在这个文件里搜索avatar，如图：</p>
@@ -396,7 +468,7 @@
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_08.png?raw=true" alt="exo_themes_0"></p>
 <p>选择不同的播放模式代码会不一样，想一进页面就播放音乐就选择自动播放，否则自动播放的对钩不要点，然后我们复制下面的代码</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_09.png?raw=true" alt="exo_themes_0"></p>
-<p>进入hexo/themes/next/layout/_macro,找到sidebar.swig,搜索links-of-blogroll，使用这个类的div是用来放置外链的，我们将复制的代码放到下面就可以了，如图：</p>
+<p>进入<code>hexo/themes/next/layout/_macro</code>,找到sidebar.swig,搜索links-of-blogroll，使用这个类的div是用来放置外链的，我们将复制的代码放到下面就可以了，如图：</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_10.png?raw=true" alt="exo_themes_1"></p>
 <p>然后，在git里面输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
@@ -404,17 +476,36 @@
 <p>现在打开localhost:4000就有效果了，如图</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_11.png?raw=true" alt="exo_themes_1"></p>
 <p><a href="https://ganmyds.github.io/hexo_blog/">点击进入我的博客看看效果</a></p>
+<h4 id="添加字数统计功能"><a href="#添加字数统计功能" class="headerlink" title="添加字数统计功能"></a>添加字数统计功能</h4><p>​     需要安装一个控件hexo-wordcount，在<code>Hexo\blog\</code>目录下安装，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure>
+<p>​     之前我在这一步遇到了一个报错，内容是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! path C:\Users\home\Desktop\hexo_blog\blog\node_modules\minipass\node_mo                             dules</span><br><span class="line">npm ERR! code EPERM</span><br><span class="line">npm ERR! errno -4048</span><br><span class="line">npm ERR! syscall scandir</span><br><span class="line">npm ERR! Error: EPERM: operation not permitted, scandir <span class="string">'C:\Users\home\Desktop\h                                 exo_blog\blog\node_modules\minipass\node_modules'</span></span><br><span class="line">npm ERR!  &#123; Error: EPERM: operation not permitted, scandir <span class="string">'C:\Users\home\Deskto                                 p\hexo_blog\blog\node_modules\minipass\node_modules'</span></span><br><span class="line">npm ERR!   stack: <span class="string">'Error: EPERM: operation not permitted, scandir \'</span>C:\\Users\\h                                 ome\\Desktop\\hexo_blog\\blog\\node_modules\\minipass\\node_modules\<span class="string">''</span>,</span><br><span class="line">npm ERR!   errno: -4048,</span><br><span class="line">npm ERR!   code: <span class="string">'EPERM'</span>,</span><br><span class="line">npm ERR!   syscall: <span class="string">'scandir'</span>,</span><br><span class="line">npm ERR!   path: <span class="string">'C:\\Users\\home\\Desktop\\hexo_blog\\blog\\node_modules\\minip                                 ass\\node_modules'</span> &#125;</span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Please try running this <span class="built_in">command</span> again as root/Administrator.</span><br><span class="line"></span><br><span class="line">npm ERR! A complete <span class="built_in">log</span> of this run can be found <span class="keyword">in</span>:</span><br><span class="line">npm ERR!     C:\Users\home\AppData\Roaming\npm-cache\_logs\2018-04-23T04_26_33_4                                 54Z-debug.log</span><br></pre></td></tr></table></figure>
+<p>在网上搜索了很多都没有看到有类似这个问题的，我感觉有可能是路径的问题，于是关掉本地服务器打算切换路径安装，结果有事忙忘了切换路径，居然成功安装了，原来原因是没有关掉本地服务器，囧！这里记录一下。</p>
+<p>安装成功后，我们去主题配置文件里面搜索post_wordcount，改成如下配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post wordcount display settings</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/willin/hexo-wordcount</span></span><br><span class="line">post_wordcount:</span><br><span class="line">  item_text: <span class="literal">true</span></span><br><span class="line">  wordcount: <span class="literal">true</span></span><br><span class="line">  min2read: <span class="literal">true</span></span><br><span class="line">  totalcount: <span class="literal">false</span></span><br><span class="line">  separated_meta: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>刷新一下，字数统计功能就有了，但是现在是没有单位的</p>
+<p>到<code>Hexo\blog\themes\next\layout\_macro\post.swig</code> 路径下</p>
+<p>搜索<code>wordcount(post.content)</code>和<code>min2read(post.content)</code>，修改如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span title=<span class="string">"&#123;&#123; __('post.wordcount') &#125;&#125;"</span>&gt;</span><br><span class="line">     &#123;&#123; wordcount(post.content) &#125;&#125;字</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;span title=<span class="string">"&#123;&#123; __('post.min2read') &#125;&#125;"</span>&gt;</span><br><span class="line">    &#123;&#123; min2read(post.content) &#125;&#125;分钟</span><br><span class="line">&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="首页添加分页功能"><a href="#首页添加分页功能" class="headerlink" title="首页添加分页功能"></a>首页添加分页功能</h4><p>分页功能需要下载对应的插件，git切换到<code>Hexo\blog\</code>依次输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-index --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-archive --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-category --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-tag --save</span><br></pre></td></tr></table></figure>
+<p>到站点配置文件里面，搜索index_generator，修改如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#首页分页设置</span></span><br><span class="line">index_generator:</span><br><span class="line">  path: <span class="string">''</span></span><br><span class="line">  per_page: 5 <span class="comment">#这里是配置5篇文章一页</span></span><br><span class="line">  order_by: -date</span><br><span class="line"></span><br><span class="line"><span class="comment">#归档页的分页设置</span></span><br><span class="line">archive_generator:</span><br><span class="line">  per_page: 30</span><br><span class="line">  yearly: <span class="literal">true</span></span><br><span class="line">  monthly: <span class="literal">true</span></span><br><span class="line"><span class="comment">#标签页的分页设置</span></span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 20</span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="处理一些next的问题"><a href="#处理一些next的问题" class="headerlink" title="处理一些next的问题"></a>处理一些next的问题</h3><h4 id="分类和标签按钮不能点击"><a href="#分类和标签按钮不能点击" class="headerlink" title="分类和标签按钮不能点击"></a>分类和标签按钮不能点击</h4><p>​    next目前没有分类和标签页面，需要我们手动添加，首先添加分类页面，在git命令行里面输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-<p>完成后在source里面生成一个categories文件夹，我们进入Hexo\blog\source\categories，找到index.md，改动如下：</p>
+<p>完成后在source里面生成一个categories文件夹，我们进入<code>Hexo\blog\source\categories</code>，找到index.md，改动如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: 2018-04-17 15:47:33</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"categories"</span></span><br></pre></td></tr></table></figure>
 <p>然后在git命令行里面输入:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
 <p>刷新页面，分类按钮就能点击了。</p>
 <p>然后添加标签页面，输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tag</span><br></pre></td></tr></table></figure>
-<p>进入Hexo\blog\source\tag，找到index.md,改动如下</p>
+<p>进入<code>Hexo\blog\source\tag</code>，找到index.md,改动如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: categories</span><br><span class="line">date: 2018-04-17 15:47:33</span><br><span class="line"><span class="built_in">type</span>: <span class="string">"tags"</span></span><br></pre></td></tr></table></figure>
 <p>剩下的步骤同上。</p>
 <hr>
@@ -422,7 +513,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://ganmyds.github.io/hexo_blog/</span><br></pre></td></tr></table></figure>
 <p>  就是有子目录,下面就是不含子目录</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://ganmyds.github.io/</span><br></pre></td></tr></table></figure>
-<p>如果你是将博客放在子目录里面，找到Hexo\blog\themes\next_config.yml，搜索menu内容类似下面：</p>
+<p>如果你是将博客放在子目录里面，找到<code>Hexo\blog\themes\next\_config.yml</code>，搜索menu内容类似下面：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  <span class="comment">#about: /about</span></span><br><span class="line">  <span class="comment">#categories: /categories</span></span><br><span class="line">  tags: /tags</span><br><span class="line">  <span class="comment">#commonweal: /404.html</span></span><br></pre></td></tr></table></figure>
 <p>将内容改为你博客的对应链接就可以了，例如我的改动是：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: https://ganmyds.github.io/hexo_blog/</span><br><span class="line">  <span class="comment"># about: /about/ || user</span></span><br><span class="line">  tags: https://ganmyds.github.io/hexo_blog/tags/ || tags</span><br><span class="line">  categories: https://ganmyds.github.io/hexo_blog/categories/ || th</span><br><span class="line">  archives: https://ganmyds.github.io/hexo_blog/archives/ || archive</span><br><span class="line">  <span class="comment"># schedule: schedule/ || calendar</span></span><br><span class="line">  <span class="comment"># sitemap: sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment"># commonweal: 404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
@@ -436,6 +527,35 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/wechatpay.jpg" alt="甘明阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/alipay.jpg" alt="甘明阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
       <div>
@@ -446,7 +566,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://ganmyds.github.io/hexo_blog/2018/04/17/article04/" title="hexo的关于next主题的各种功能配置">https://ganmyds.github.io/hexo_blog/2018/04/17/article04/</a>
+    <a href="https://ganmyds.github.io/hexo_blog/2018/04/17/article04/" title="hexo关于next主题的使用经验">https://ganmyds.github.io/hexo_blog/2018/04/17/article04/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -461,7 +581,7 @@
         
             <div>
     
-        <div style="text-align:center;color: #666;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
     
 </div>
         
@@ -510,6 +630,32 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
       
     </div>
   </div>
@@ -639,7 +785,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo卸载重装"><span class="nav-number">1.</span> <span class="nav-text">hexo卸载重装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题"><span class="nav-number">2.2.</span> <span class="nav-text">修改主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置语言"><span class="nav-number">3.1.</span> <span class="nav-text">配置语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加头像"><span class="nav-number">3.2.</span> <span class="nav-text">添加头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加社交链接"><span class="nav-number">3.3.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加背景音乐"><span class="nav-number">3.4.</span> <span class="nav-text">添加背景音乐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类和标签按钮不能点击"><span class="nav-number">4.1.</span> <span class="nav-text">分类和标签按钮不能点击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击首页回不去"><span class="nav-number">4.2.</span> <span class="nav-text">点击首页回不去</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo卸载重装"><span class="nav-number">1.</span> <span class="nav-text">hexo卸载重装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题"><span class="nav-number">2.2.</span> <span class="nav-text">修改主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置语言"><span class="nav-number">3.1.</span> <span class="nav-text">配置语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加头像"><span class="nav-number">3.2.</span> <span class="nav-text">添加头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加社交链接"><span class="nav-number">3.3.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加背景音乐"><span class="nav-number">3.4.</span> <span class="nav-text">添加背景音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字数统计功能"><span class="nav-number">3.5.</span> <span class="nav-text">添加字数统计功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首页添加分页功能"><span class="nav-number">3.6.</span> <span class="nav-text">首页添加分页功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类和标签按钮不能点击"><span class="nav-number">4.1.</span> <span class="nav-text">分类和标签按钮不能点击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击首页回不去"><span class="nav-number">4.2.</span> <span class="nav-text">点击首页回不去</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -824,6 +970,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/hexo_blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
