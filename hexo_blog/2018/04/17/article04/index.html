@@ -54,7 +54,6 @@
 
 
 
-
 <link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
@@ -90,7 +89,7 @@
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo关于next主题的使用经验">
-<meta property="og:url" content="https://ganmyds.github.io/hexo_blog/2018/04/17/article04/index.html">
+<meta property="og:url" content="https://www.ganmyds.github.io/hexo_blog/2018/04/17/article04/index.html">
 <meta property="og:site_name" content="小小程序员">
 <meta property="og:description" content="记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等">
 <meta property="og:locale" content="zh-Hans">
@@ -104,7 +103,7 @@
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_09.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_10.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_11.png?raw=true">
-<meta property="og:updated_time" content="2018-04-23T08:35:09.346Z">
+<meta property="og:updated_time" content="2018-05-02T02:19:29.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo关于next主题的使用经验">
 <meta name="twitter:description" content="记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等">
@@ -138,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="https://ganmyds.github.io/hexo_blog/2018/04/17/article04/"/>
+  <link rel="canonical" href="https://www.ganmyds.github.io/hexo_blog/2018/04/17/article04/"/>
 
 
 
@@ -307,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ganmyds.github.io/hexo_blog">
+    <link itemprop="mainEntityOfPage" href="https://www.ganmyds.github.io/hexo_blog">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="甘明阳">
@@ -390,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,921
+                  2,172
                 </span>
               
 
@@ -406,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8分钟
+                  9分钟
                 </span>
               
             </div>
@@ -435,11 +434,13 @@
 <h3 id="hexo卸载重装"><a href="#hexo卸载重装" class="headerlink" title="hexo卸载重装"></a>hexo卸载重装</h3><p>卸载hexo，3.0.0之前版本执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
 <p>3.0.0之后版本执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>查看hexo版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
 <p>安装最新版hexo</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<p>ps：npm删除模块通用命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall xxx     //删除模块</span><br><span class="line">npm uninstall -g xxx    //全局删除模块</span><br></pre></td></tr></table></figure>
 <h3 id="next主题安装"><a href="#next主题安装" class="headerlink" title="next主题安装"></a>next主题安装</h3><h4 id="下载next主题"><a href="#下载next主题" class="headerlink" title="下载next主题"></a>下载next主题</h4><p>​     进入你的博客下的themes文件夹下，目录结构类似Hexo\blog\themes，输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 <p>​     会下载一个next文件夹，如图所示</p>
@@ -498,6 +499,39 @@
 <h4 id="添加标题图片"><a href="#添加标题图片" class="headerlink" title="添加标题图片"></a>添加标题图片</h4><p>之前在网上看到很多人的博客都配置了标题图片，感觉这样挺好看的，于是也想搞一下，没想到在网上找了半天都搜不到答案，估计是我没有描述清楚问题，感觉描述能力也挺重要的，反正我费了老大的劲才找到答案，现在记录一下：</p>
 <p>其实很简单，我们主要在每个md文件的前面加上photos配置信息就可以了，如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title:  hexo关于next主题的使用经验</span><br><span class="line">date: 2018-04-17 10:42:00 </span><br><span class="line">tags: [hexo] </span><br><span class="line">categories: hexo </span><br><span class="line">description: 记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等11</span><br><span class="line">photos: </span><br><span class="line">    - <span class="string">"http://oz2tkq0zj.bkt.clouddn.com/17-11-9/52323298.jpg"</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h4 id="添加个性宠物"><a href="#添加个性宠物" class="headerlink" title="添加个性宠物"></a>添加个性宠物</h4><p>个性宠物需要安装插件，切换到<code>Hexo\blog\</code>目录下，输入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -save hexo-helper-live2d</span><br></pre></td></tr></table></figure>
+<p>打开<code>Hexo/blog/themes/next/layout</code>,找到_layout.swig，,将下面代码放到<code>&lt;/body&gt;</code>之前：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; live2d() &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在在 <code>hexo</code> 的 <code>_config.yml</code>中添加参数：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  model: wanko</span><br><span class="line">  bottom: -30</span><br></pre></td></tr></table></figure>
+<p>然后<code>hexo clean</code>一下就行了</p>
+<p>下面是所有宠物的名称，默认宠物是z16</p>
+<ul>
+<li>Gantzert_Felixander</li>
+<li>Epsilon2.1</li>
+<li>haru</li>
+<li>miku</li>
+<li>ni-j</li>
+<li>nico</li>
+<li>nito</li>
+<li>nipsilon</li>
+<li>nietzsche</li>
+<li>shizuku</li>
+<li>tsumiki</li>
+<li>wanko</li>
+<li>z16</li>
+<li>hibiki</li>
+<li>koharu</li>
+<li>haruto</li>
+<li>Unitychan</li>
+<li>tororo</li>
+<li>hijiki</li>
+</ul>
+<p>width 宽度 默认值: 150，height 高度 默认值： 300，className <code>&lt;canvas&gt;</code>元素的类名 默认值： live2d，</p>
+<p>id <code>&lt;canvas&gt;</code> 元素的id 默认值： live2dcanvas，bottom <code>&lt;canvas&gt;</code> 元素的底部偏移 默认值： -20 如果嫌模型位置不正确 可以调整这个参数</p>
+<p>ps：如果不想在手机上显示宠物，修改配置文件如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  model: wanko</span><br><span class="line">  bottom: -30</span><br><span class="line">  mobileShow: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h3 id="处理一些next的问题"><a href="#处理一些next的问题" class="headerlink" title="处理一些next的问题"></a>处理一些next的问题</h3><h4 id="分类和标签按钮不能点击"><a href="#分类和标签按钮不能点击" class="headerlink" title="分类和标签按钮不能点击"></a>分类和标签按钮不能点击</h4><p>​    next目前没有分类和标签页面，需要我们手动添加，首先添加分类页面，在git命令行里面输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
@@ -569,7 +603,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://ganmyds.github.io/hexo_blog/2018/04/17/article04/" title="hexo关于next主题的使用经验">https://ganmyds.github.io/hexo_blog/2018/04/17/article04/</a>
+    <a href="https://www.ganmyds.github.io/hexo_blog/2018/04/17/article04/" title="hexo关于next主题的使用经验">https://www.ganmyds.github.io/hexo_blog/2018/04/17/article04/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -637,12 +671,8 @@
         <!-- JiaThis Button BEGIN -->
 <div class="jiathis_style">
 <span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
 <a class="jiathis_button_weixin">微信</a>
 <a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
 <a class="jiathis_button_douban">豆瓣</a>
 <a class="jiathis_button_share">一键分享</a>
 
@@ -788,7 +818,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo卸载重装"><span class="nav-number">1.</span> <span class="nav-text">hexo卸载重装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题"><span class="nav-number">2.2.</span> <span class="nav-text">修改主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置语言"><span class="nav-number">3.1.</span> <span class="nav-text">配置语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加头像"><span class="nav-number">3.2.</span> <span class="nav-text">添加头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加社交链接"><span class="nav-number">3.3.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加背景音乐"><span class="nav-number">3.4.</span> <span class="nav-text">添加背景音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字数统计功能"><span class="nav-number">3.5.</span> <span class="nav-text">添加字数统计功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首页添加分页功能"><span class="nav-number">3.6.</span> <span class="nav-text">首页添加分页功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加标题图片"><span class="nav-number">3.7.</span> <span class="nav-text">添加标题图片</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类和标签按钮不能点击"><span class="nav-number">4.1.</span> <span class="nav-text">分类和标签按钮不能点击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击首页回不去"><span class="nav-number">4.2.</span> <span class="nav-text">点击首页回不去</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo卸载重装"><span class="nav-number">1.</span> <span class="nav-text">hexo卸载重装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题"><span class="nav-number">2.2.</span> <span class="nav-text">修改主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置语言"><span class="nav-number">3.1.</span> <span class="nav-text">配置语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加头像"><span class="nav-number">3.2.</span> <span class="nav-text">添加头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加社交链接"><span class="nav-number">3.3.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加背景音乐"><span class="nav-number">3.4.</span> <span class="nav-text">添加背景音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字数统计功能"><span class="nav-number">3.5.</span> <span class="nav-text">添加字数统计功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首页添加分页功能"><span class="nav-number">3.6.</span> <span class="nav-text">首页添加分页功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加标题图片"><span class="nav-number">3.7.</span> <span class="nav-text">添加标题图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加个性宠物"><span class="nav-number">3.8.</span> <span class="nav-text">添加个性宠物</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类和标签按钮不能点击"><span class="nav-number">4.1.</span> <span class="nav-text">分类和标签按钮不能点击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击首页回不去"><span class="nav-number">4.2.</span> <span class="nav-text">点击首页回不去</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1310,7 +1340,8 @@ var jiathis_config={
 
   
 
-<script src="/hexo_blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+  undefined
+<script src="/hexo_blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"wanko","bottom":-30,"mobileShow":false,"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="http://7u2ss1.com1.z0.glb.clouddn.com/love.js"></script>
 </html>
