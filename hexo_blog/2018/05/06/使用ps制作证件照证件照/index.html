@@ -22,6 +22,17 @@
   <link href="../../../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -86,13 +97,13 @@
 
 
 
-<meta name="description" content="记录关于使用photoshop的一些使用方法">
+<meta name="description" content="记录ps的一些实用功能，比如说证件照的制作、侧面视角正面化等等">
 <meta name="keywords" content="photoshop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用ps制作一寸证件照">
+<meta property="og:title" content="关于ps的一些经验">
 <meta property="og:url" content="https://www.ganmyds.github.io/hexo_blog/2018/05/06/使用ps制作证件照证件照/index.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="记录关于使用photoshop的一些使用方法">
+<meta property="og:description" content="记录ps的一些实用功能，比如说证件照的制作、侧面视角正面化等等">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_01.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_02.png">
@@ -104,10 +115,14 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_08.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_09.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_10.png">
-<meta property="og:updated_time" content="2018-05-06T05:54:35.773Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_01.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_03.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_04.png">
+<meta property="og:updated_time" content="2018-05-07T04:51:25.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用ps制作一寸证件照">
-<meta name="twitter:description" content="记录关于使用photoshop的一些使用方法">
+<meta name="twitter:title" content="关于ps的一些经验">
+<meta name="twitter:description" content="记录ps的一些实用功能，比如说证件照的制作、侧面视角正面化等等">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_01.png">
 
 
@@ -144,7 +159,7 @@
 
 
 
-  <title>使用ps制作一寸证件照 | 小小程序员</title>
+  <title>关于ps的一些经验 | 小小程序员</title>
   
 
 
@@ -324,7 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用ps制作一寸证件照</h1>
+          <h1 class="post-title" itemprop="name headline">关于ps的一些经验</h1>
         
 
         <div class="post-meta">
@@ -390,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  409
+                  614
                 </span>
               
 
@@ -406,7 +421,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  2分钟
                 </span>
               
             </div>
@@ -414,7 +429,7 @@
 
           
               <div class="post-description">
-                  记录关于使用photoshop的一些使用方法
+                  记录ps的一些实用功能，比如说证件照的制作、侧面视角正面化等等
               </div>
           
 
@@ -434,7 +449,7 @@
         <p>最近看百度贴吧ps吧笑出腹肌，很多人使用ps将照片变得非常有趣，于是也开始学习ps的一些技巧，在这里记录一下</p>
 <h4 id="ps下载安装"><a href="#ps下载安装" class="headerlink" title="ps下载安装"></a>ps下载安装</h4><p>ps全称是photoshop，网上有很多下载的地方，但是说实话，大多数都收费的，而且安装包巨大，我找了很多资源才找到破解版的，<a href="https://pan.baidu.com/s/1iaJoGjzEFHVr05wYOfOiiQ" target="_blank" rel="noopener">点击下载免安装版,密码是uznw</a></p>
 <p>解压后打开，界面如下<img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_01.png" alt="s_0"></p>
-<h4 id="改动图片大小"><a href="#改动图片大小" class="headerlink" title="改动图片大小"></a>改动图片大小</h4><p>我们先在网上随便下载一张证件照，按住<code>ctrl+alt+i</code>改变大小，这里说明一下：</p>
+<h3 id="将照片放到5寸白纸上"><a href="#将照片放到5寸白纸上" class="headerlink" title="将照片放到5寸白纸上"></a>将照片放到5寸白纸上</h3><h4 id="改动图片大小"><a href="#改动图片大小" class="headerlink" title="改动图片大小"></a>改动图片大小</h4><p>我们先在网上随便下载一张证件照，按住<code>ctrl+alt+i</code>改变大小，这里说明一下：</p>
 <p>一寸证件照长宽为： 2.54*3.62cm</p>
 <p>两寸证件照长宽为：3.5*4.5cm</p>
 <p>改动如下，改变红框里面的内容就可以了：</p>
@@ -444,7 +459,7 @@
 <p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_03.png" alt="s_0"></p>
 <p>现在你的照片就有白边了，效果如图</p>
 <p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_04.png" alt="s_0"></p>
-<h4 id="将照片放到5寸白纸上"><a href="#将照片放到5寸白纸上" class="headerlink" title="将照片放到5寸白纸上"></a>将照片放到5寸白纸上</h4><p>文件–&gt;新建，改动如图：</p>
+<h4 id="将照片放到5寸白纸上-1"><a href="#将照片放到5寸白纸上-1" class="headerlink" title="将照片放到5寸白纸上"></a>将照片放到5寸白纸上</h4><p>文件–&gt;新建，改动如图：</p>
 <p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_05.png" alt="s_0"></p>
 <p>点击确定，出现了一张白纸，你之前的照片在红线部分那里</p>
 <p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_06.png" alt="s_0"></p>
@@ -457,6 +472,14 @@
 <p>按住alt不动。开始拖动图片，如图我们就有了16张一寸照片了</p>
 <p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_10.png" alt="s_1"></p>
 <p>照相馆里面的相片就是这么制作的，另外给大家说一个很有用的快捷键，撤销：ctrl+alt+z</p>
+<h3 id="侧面视角正面化"><a href="#侧面视角正面化" class="headerlink" title="侧面视角正面化"></a>侧面视角正面化</h3><p>我们去看画展的时候经常会拍照，但是有的时候在走廊只拍到侧面照，我们想将侧面照片转化为正面照片，就可以是用ps透视裁剪功能了，现在我们有一张画展走廊照片，如图</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_01.jpg" alt="s_tousi_0"></p>
+<p>现在每一幅画都是侧面的，我们想看到某一幅画的正面，就可以使用ps的裁剪功能了，鼠标按住裁剪工具不动，选中透视裁剪工具，如图</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_02.png" alt="Q图片2018050616013"></p>
+<p>选中你想查看的区域，可以先随便选一个区域然后自己慢慢调整，如图是我选择的区域</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_03.png" alt="s_tousi_0"></p>
+<p>鼠标左键双击选中区域，我们就可以看到想要的效果了，如图</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/ps_tousi_04.png" alt="s_tousi_0"></p>
 
       
     </div>
@@ -506,7 +529,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.ganmyds.github.io/hexo_blog/2018/05/06/使用ps制作证件照证件照/" title="使用ps制作一寸证件照">https://www.ganmyds.github.io/hexo_blog/2018/05/06/使用ps制作证件照证件照/</a>
+    <a href="https://www.ganmyds.github.io/hexo_blog/2018/05/06/使用ps制作证件照证件照/" title="关于ps的一些经验">https://www.ganmyds.github.io/hexo_blog/2018/05/06/使用ps制作证件照证件照/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -722,7 +745,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ps下载安装"><span class="nav-number">1.</span> <span class="nav-text">ps下载安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改动图片大小"><span class="nav-number">2.</span> <span class="nav-text">改动图片大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加上白边"><span class="nav-number">3.</span> <span class="nav-text">加上白边</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将照片放到5寸白纸上"><span class="nav-number">4.</span> <span class="nav-text">将照片放到5寸白纸上</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ps下载安装"><span class="nav-number">1.</span> <span class="nav-text">ps下载安装</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将照片放到5寸白纸上"><span class="nav-number"></span> <span class="nav-text">将照片放到5寸白纸上</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#改动图片大小"><span class="nav-number">1.</span> <span class="nav-text">改动图片大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加上白边"><span class="nav-number">2.</span> <span class="nav-text">加上白边</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将照片放到5寸白纸上-1"><span class="nav-number">3.</span> <span class="nav-text">将照片放到5寸白纸上</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧面视角正面化"><span class="nav-number"></span> <span class="nav-text">侧面视角正面化</span></a></div>
             
 
           </div>
