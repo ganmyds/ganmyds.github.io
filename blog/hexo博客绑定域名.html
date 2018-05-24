@@ -18,8 +18,8 @@
   
     
     
-  <script src="../../../../lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="../../../../lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+  <script src="lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
 
 
 <script>
@@ -58,7 +58,7 @@
 
   
   
-  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -66,29 +66,27 @@
 
 
 
-<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon-next.png?v=5.1.4">
+<link href="css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../../../../images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="../../../../images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="../../../../images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
 
 
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
 
 
 
-  <meta name="keywords" content="linux,mysql," />
 
 
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -97,26 +95,26 @@
 
 
 
-<meta name="description" content="linux上搭建mysql流程">
-<meta name="keywords" content="linux,mysql">
+
+
+<meta name="description" content="详细讲解hexo博客绑定一级域名的过程">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux上面安装配置mysql">
-<meta property="og:url" content="https://www.ganmyds.github.io/blog/2018/03/29/linux上面安装配置mysql/index.html">
+<meta property="og:title" content="hexo博客绑定域名">
+<meta property="og:url" content="http://ganmyds.cn/blog/hexo博客绑定域名.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="linux上搭建mysql流程">
+<meta property="og:description" content="详细讲解hexo博客绑定一级域名的过程">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png">
-<meta property="og:updated_time" content="2018-04-19T08:13:38.330Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_03.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_04.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_05.png">
+<meta property="og:updated_time" content="2018-05-24T06:08:01.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux上面安装配置mysql">
-<meta name="twitter:description" content="linux上搭建mysql流程">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png">
+<meta name="twitter:title" content="hexo博客绑定域名">
+<meta name="twitter:description" content="详细讲解hexo博客绑定一级域名的过程">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_01.png">
 
 
 
@@ -146,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="https://www.ganmyds.github.io/blog/2018/03/29/linux上面安装配置mysql/"/>
+  <link rel="canonical" href="http://ganmyds.cn/blog/hexo博客绑定域名.html"/>
 
 
 
 
 
-  <title>linux上面安装配置mysql | 小小程序员</title>
+  <title>hexo博客绑定域名 | 小小程序员</title>
   
 
 
@@ -315,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.ganmyds.github.io/blog">
+    <link itemprop="mainEntityOfPage" href="http://ganmyds.cn/blog">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="甘明阳">
@@ -332,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux上面安装配置mysql</h1>
+          <h1 class="post-title" itemprop="name headline">hexo博客绑定域名</h1>
         
 
         <div class="post-meta">
@@ -344,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T19:05:00+08:00">
-                2018-03-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-24T14:54:00+08:00">
+                2018-05-24
               </time>
             
 
@@ -367,8 +365,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="../../../../categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
                   </a>
                 </span>
 
@@ -387,7 +385,7 @@
               </span>
               
                 <a href="#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/03/29/linux上面安装配置mysql/" itemprop="commentsCount"></span>
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="hexo博客绑定域名.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -409,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  723
+                  530
                 </span>
               
 
@@ -425,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  2分钟
                 </span>
               
             </div>
@@ -433,7 +431,7 @@
 
           
               <div class="post-description">
-                  linux上搭建mysql流程
+                  详细讲解hexo博客绑定一级域名的过程
               </div>
           
 
@@ -450,60 +448,32 @@
       
 
       
-        <p>一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：<a id="more"></a></p>
-<ul>
-<li><ol>
-<li>免费</li>
-<li>跨平台</li>
-<li>轻量级</li>
-<li>支持多并发</li>
-</ol>
-</li>
-</ul>
-<p>mysql只有在linux运行环境下才能充分发挥其威力，在linux环境下搭建mysql就变得非常有意义了，下面我为大家详细介绍linux下mysql的搭建</p>
-<h4 id="下载mysql安装文件"><a href="#下载mysql安装文件" class="headerlink" title="下载mysql安装文件"></a>下载mysql安装文件</h4><p>   有两个文件，分别是mysql-connector-java-5.1.6-bin.jar和mysql-standard-4.0.26-pc-  linux-gnu-i686.tar.gz，<a href="https://pan.baidu.com/s/1es5NjK-VOiohtkScZKt6iw" target="_blank" rel="noopener">点击下载</a></p>
-<p>将两个安装文件拷贝到/home下,切换到root，输入命令：</p>
-<p>su root</p>
-<p>不会从windows传文件到linux上？<a href="https://ganmyds.github.io/hexo_blog/2018/03/28/article02/" target="_blank" rel="noopener">点这里传送</a></p>
-<h4 id="解压安装文件"><a href="#解压安装文件" class="headerlink" title="解压安装文件:"></a>解压安装文件:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  mysql-standard-4.0.26-pc-linux-gnu-i686.tar.gz</span><br></pre></td></tr></table></figure>
-<p>解压缩后我们会得到一个目录如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png" alt="mg0"></p>
-<h4 id="创建一个文件夹mysql"><a href="#创建一个文件夹mysql" class="headerlink" title="创建一个文件夹mysql :"></a>创建一个文件夹mysql :</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir mysql</span><br></pre></td></tr></table></figure>
-<h4 id="移动文件到mysql里，输入命令"><a href="#移动文件到mysql里，输入命令" class="headerlink" title="移动文件到mysql里，输入命令:"></a>移动文件到mysql里，输入命令:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mysql-standard-4.0.26-pc-linux-gnu-i686 mysql</span><br></pre></td></tr></table></figure>
-<h4 id="创建一个组mysql"><a href="#创建一个组mysql" class="headerlink" title="创建一个组mysql"></a>创建一个组mysql</h4><p>注意这个命令要root权限才能使用，专门创建mysql组是为了方便以后管理mysql下面   的各个用户，输入命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br></pre></td></tr></table></figure>
-<p>创建mysql用户放入mysql组，输入命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g mysql mysql</span><br></pre></td></tr></table></figure>
-<h4 id="进入mysql目录"><a href="#进入mysql目录" class="headerlink" title="进入mysql目录"></a>进入mysql目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mysql</span><br></pre></td></tr></table></figure>
-<h4 id="初始化mysql数据库："><a href="#初始化mysql数据库：" class="headerlink" title="初始化mysql数据库："></a>初始化mysql数据库：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scripts/mysql_install_db  --user=mysql</span><br></pre></td></tr></table></figure>
-<p> 如图就是初始化成功：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_5.png" alt="mg0"></p>
-<h4 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h4><p>  将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:mysql .</span><br></pre></td></tr></table></figure>
-<p>注意后面有个点，表示使用当前路径，然后将数据文件夹用户改为mysql,输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql data</span><br></pre></td></tr></table></figure>
-<p>我们检查一下是否成功改动，输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
-<p>结果如图所示：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_4.png" alt="mg0"></p>
-<h4 id="后台运行mysql"><a href="#后台运行mysql" class="headerlink" title="后台运行mysql"></a>后台运行mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/mysqld_safe   --user=mysql &amp;</span><br></pre></td></tr></table></figure>
-<p>结果如图所示：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_3.png" alt="mg0"></p>
-<h4 id="看看我们的mysql是否正常运行"><a href="#看看我们的mysql是否正常运行" class="headerlink" title="看看我们的mysql是否正常运行"></a>看看我们的mysql是否正常运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | moe</span><br></pre></td></tr></table></figure>
-<p>看看3306端口是否存在，如图：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png" alt="mg0"></p>
-<h4 id="进入bin目录"><a href="#进入bin目录" class="headerlink" title="进入bin目录"></a>进入bin目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> bin</span><br></pre></td></tr></table></figure>
-<h4 id="运行mysql"><a href="#运行mysql" class="headerlink" title="运行mysql"></a>运行mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p>Enter password是要你输入密码，目前没有密码直接按enter即可，如图:</p>
-<p>​              <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png" alt="mg0"> </p>
-<p>现在mysql已经成功的安装到我们的linux下面了。到这里基本完成了，如果你想让以后的工作更方便，看看下面的内容。</p>
-<hr>
-<p>现在我们打开mysql非常麻烦，需要进入/home/mysql/bin目录下执行，为了减少麻烦，我们可以将这个路径配置到环境变量里面，输入命令 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  .bash_profile</span><br></pre></td></tr></table></figure>
-<p>改动如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png" alt="mg0"></p>
-<p>然后我们登出让配置文件生效，输入命令logout ，重新登录，现在你就可以在任意路径上运行mysql了。</p>
+        <p>刚开始接触hexo博客的时候，感觉非常惊奇，尤其是next主题自带的各种方便的功能，但是部署到github上面一直都有一些不满意的地方，觉得github的域名不好，主要有以下几个问题：</p>
+<p>1、.github.io是二级域名，始终有种寄人篱下的感觉，是github上的附属域名</p>
+<p>2、地址太长，像我之前的博客地址是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ganmyds.github.io/hexo_blog/</span><br></pre></td></tr></table></figure>
+<p>我自己都记不住，就别说别人了。</p>
+<p>3、.github.io不支持收录到百度上，也就是说你的博客别人搜索不到，这样博客基本就失去了一半的价值了</p>
+<p>4、没有自己的域名很多功能不能实现，比方说网站浏览数，评论功能</p>
+<p>所以我的域名备案好了之后马上就开始搞域名的调整，记录一下：</p>
+<h4 id="添加域名解析"><a href="#添加域名解析" class="headerlink" title="添加域名解析"></a>添加域名解析</h4><p>进入阿里云服务器管理平台，找到域名管理，点击添加解析</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_01.png" alt="Q图片2018052411140"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_02.png" alt="Q图片2018052411275"></p>
+<p>按照图片上的说明输入就可以了。</p>
+<h4 id="本地修改"><a href="#本地修改" class="headerlink" title="本地修改"></a>本地修改</h4><p>进入你的博客地址，找到source文件夹，创建一个CNAME文件,右键gitbash</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi CNAME</span><br></pre></td></tr></table></figure>
+<p>然后键盘输入i,输入域名，保存，和linux的vi操作一样，然后hexo g，部署到github上就可以了，注意：</p>
+<p>1、CNAME没有后缀，所以你最好用git来创建，不要创建一个txt文件然后把名字改成CNAME，这样很容易忘记去掉后缀，特别是有的电脑不显示后缀更麻烦</p>
+<p>2、内容没有什么http:www，写域名部分就可以了，例如我的域名全称是</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://ganmyds.cn</span><br></pre></td></tr></table></figure>
+<p>那我输入的部分就是ganmyds.cn</p>
+<h4 id="github修改"><a href="#github修改" class="headerlink" title="github修改"></a>github修改</h4><p>进入你的博客的github路径，找到setting</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_03.png" alt="Q图片2018052411443"></p>
+<p>搜索<code>Custom domain</code>，把值改为你的域名，如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_04.png" alt="Q图片2018052413544"></p>
+<p>如果没有操作好，就会出现404报错，如图所示</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/github_ymbd_05.png" alt="Q图片2018052413562"></p>
+<p>网上很多绑定博客的教程都没有第三步，所以这里重点说明一下，有什么不懂的可以在评论里面说明哦！</p>
 
       
     </div>
@@ -553,7 +523,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.ganmyds.github.io/blog/2018/03/29/linux上面安装配置mysql/" title="linux上面安装配置mysql">https://www.ganmyds.github.io/blog/2018/03/29/linux上面安装配置mysql/</a>
+    <a href="http://ganmyds.cn/blog/hexo博客绑定域名.html" title="hexo博客绑定域名">http://ganmyds.cn/blog/hexo博客绑定域名.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -578,9 +548,7 @@
       
         <div class="post-tags">
           
-            <a href="../../../../tags/linux/" rel="tag"># linux</a>
-          
-            <a href="../../../../tags/mysql/" rel="tag"># mysql</a>
+            <a href="tags/hexo/" rel="tag"># hexo</a>
           
         </div>
       
@@ -593,8 +561,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../28/article02/" rel="next" title="linux和windows之间传输文件">
-                <i class="fa fa-chevron-left"></i> linux和windows之间传输文件
+              <a href="2018-05-020-关于我的阿里云备案简经历.html" rel="next" title="关于我的阿里云备案经历">
+                <i class="fa fa-chevron-left"></i> 关于我的阿里云备案经历
               </a>
             
           </div>
@@ -602,10 +570,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../04/09/erlang项目流程查看技巧/" rel="prev" title="erlang项目流程查看技巧">
-                erlang项目流程查看技巧 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -724,7 +688,7 @@ var jiathis_config={
               
               
               <div class="site-state-item site-state-categories">
-                <a href="../../../../categories/index.html">
+                <a href="categories/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -735,7 +699,7 @@ var jiathis_config={
               
               
               <div class="site-state-item site-state-tags">
-                <a href="../../../../tags/index.html">
+                <a href="tags/index.html">
                   <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -780,7 +744,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载mysql安装文件"><span class="nav-number">1.</span> <span class="nav-text">下载mysql安装文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解压安装文件"><span class="nav-number">2.</span> <span class="nav-text">解压安装文件:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个文件夹mysql"><span class="nav-number">3.</span> <span class="nav-text">创建一个文件夹mysql :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动文件到mysql里，输入命令"><span class="nav-number">4.</span> <span class="nav-text">移动文件到mysql里，输入命令:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个组mysql"><span class="nav-number">5.</span> <span class="nav-text">创建一个组mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入mysql目录"><span class="nav-number">6.</span> <span class="nav-text">进入mysql目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化mysql数据库："><span class="nav-number">7.</span> <span class="nav-text">初始化mysql数据库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改权限"><span class="nav-number">8.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台运行mysql"><span class="nav-number">9.</span> <span class="nav-text">后台运行mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#看看我们的mysql是否正常运行"><span class="nav-number">10.</span> <span class="nav-text">看看我们的mysql是否正常运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入bin目录"><span class="nav-number">11.</span> <span class="nav-text">进入bin目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行mysql"><span class="nav-number">12.</span> <span class="nav-text">运行mysql</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加域名解析"><span class="nav-number">1.</span> <span class="nav-text">添加域名解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地修改"><span class="nav-number">2.</span> <span class="nav-text">本地修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#github修改"><span class="nav-number">3.</span> <span class="nav-text">github修改</span></a></li></ol></div>
             
 
           </div>
@@ -865,69 +829,69 @@ var jiathis_config={
 
   
   
-    <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
   
   
-    <script type="text/javascript" src="../../../../lib/canvas-nest/canvas-nest.min.js"></script>
+    <script type="text/javascript" src="lib/canvas-nest/canvas-nest.min.js"></script>
   
-
-
-  
-
-
-  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.4"></script>
-
 
 
   
 
 
-  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1307,6 +1271,21 @@ var jiathis_config={
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
