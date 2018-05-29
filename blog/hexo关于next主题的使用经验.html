@@ -115,7 +115,7 @@
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_09.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_10.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_11.png?raw=true">
-<meta property="og:updated_time" content="2018-05-07T04:40:17.145Z">
+<meta property="og:updated_time" content="2018-05-28T15:56:18.384Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo关于next主题的使用经验">
 <meta name="twitter:description" content="记录hexo博客各种功能的添加，包括国际化、头像、社交链接、背景音乐等">
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,172
+                  2,486
                 </span>
               
 
@@ -428,7 +428,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9分钟
+                  11分钟
                 </span>
               
             </div>
@@ -472,7 +472,7 @@
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hexo_themes_02.png?raw=true" alt="exo_themes_0"></p>
 <p>​        重启服务，在git里面输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><h4 id="配置语言"><a href="#配置语言" class="headerlink" title="配置语言"></a>配置语言</h4><p>​           现在你的主题就成功改好了，但是还有一些小小的问题</p>
+<h3 id="其他功能的添加"><a href="#其他功能的添加" class="headerlink" title="其他功能的添加"></a>其他功能的添加</h3><h4 id="配置语言"><a href="#配置语言" class="headerlink" title="配置语言"></a>配置语言</h4><p>​           现在你的主题就成功改好了，但是还有一些小小的问题</p>
 <p>​           我们找到<code>Hexo\blog\themes\next_config.yml</code>，搜索title，修改如下:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 小小程序员</span><br><span class="line">subtitle: 记录学习过程中的点点滴滴</span><br><span class="line">description: 技术与生活，与我融为一体</span><br><span class="line">keywords: linux</span><br><span class="line">author: 甘明阳</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
 <p>​           </p>
@@ -555,6 +555,26 @@
 <p>id <code>&lt;canvas&gt;</code> 元素的id 默认值： live2dcanvas，bottom <code>&lt;canvas&gt;</code> 元素的底部偏移 默认值： -20 如果嫌模型位置不正确 可以调整这个参数</p>
 <p>ps：如果不想在手机上显示宠物，修改配置文件如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  model: wanko</span><br><span class="line">  bottom: -30</span><br><span class="line">  mobileShow: <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h4 id="备案号的添加"><a href="#备案号的添加" class="headerlink" title="备案号的添加"></a>备案号的添加</h4><p>找到文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes\next\layout\_partials\footer.swig</span><br></pre></td></tr></table></figure>
+<p>找到如下部分</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"copyright"</span>&gt;&#123;<span class="comment">#</span></span><br><span class="line"><span class="comment">#&#125;&#123;% set current = date(Date.now(), "YYYY") %&#125;&#123;#</span></span><br><span class="line"><span class="comment">#&#125;&amp;copy; &#123;% if theme.footer.since and theme.footer.since != current %&#125;&#123;&#123; theme.footer.since &#125;&#125; &amp;mdash; &#123;% endif %&#125;&#123;#</span></span><br><span class="line"><span class="comment">#&#125;&lt;span itemprop="copyrightYear"&gt;&#123;&#123; current &#125;&#125;&lt;/span&gt;</span></span><br><span class="line">  &lt;span class=<span class="string">"with-love"</span>&gt;</span><br><span class="line">    &lt;i class=<span class="string">"fa fa-&#123;&#123; theme.footer.icon &#125;&#125;"</span>&gt;&lt;/i&gt;</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line">  &lt;span class=<span class="string">"author"</span> itemprop=<span class="string">"copyrightHolder"</span>&gt;&#123;&#123; theme.footer.copyright || config.author &#125;&#125;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=<span class="string">"copyright"</span>&gt;&#123;<span class="comment">#</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line">  &lt;span class=<span class="string">"author"</span> itemprop=<span class="string">"copyrightHolder"</span>&gt;浙公网安备 XXXX号&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="seo优化"><a href="#seo优化" class="headerlink" title="seo优化"></a>seo优化</h4><p>一个博客不做seo优化是很难被百度爬虫爬取的，下面记录next主题的seo优化方面</p>
+<h5 id="网站自身优化"><a href="#网站自身优化" class="headerlink" title="网站自身优化"></a>网站自身优化</h5><p>减少无用链接的爬取，增加网站的权重，我们要给没用的链接添加rel=”external nofollow”的属性，让爬虫不爬取这个链接</p>
+<p>找到文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes\next\layout\_partials\footer.swig</span><br></pre></td></tr></table></figure>
+<p>和文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes\next\layout_macro\sidebar.swig</span><br></pre></td></tr></table></figure>
+<p>在所有a链接上加上rel=”external nofollow”的属性</p>
+<h5 id="首页title的优化"><a href="#首页title的优化" class="headerlink" title="首页title的优化"></a>首页title的优化</h5><p>找到文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes\next\layout\index.swig</span><br></pre></td></tr></table></figure>
+<p>将下面代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125;  &#123;&#123; config.title &#125;&#125;  &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block title %&#125;  &#123;&#123; config.title &#125;&#125; - &#123;&#123; theme.description &#125;&#125;  &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="缩短链接长度"><a href="#缩短链接长度" class="headerlink" title="缩短链接长度"></a>缩短链接长度</h5><p>hexo默认的链接格式是4级url，堆爬虫是非常不友好的，建议改一下，编辑站点<code>_config.yml</code>文件，，修改其中的<code>permalink</code>字段改为<code>permalink: :title.html</code>即可。</p>
 <hr>
 <h3 id="处理一些next的问题"><a href="#处理一些next的问题" class="headerlink" title="处理一些next的问题"></a>处理一些next的问题</h3><h4 id="分类和标签按钮不能点击"><a href="#分类和标签按钮不能点击" class="headerlink" title="分类和标签按钮不能点击"></a>分类和标签按钮不能点击</h4><p>​    next目前没有分类和标签页面，需要我们手动添加，首先添加分类页面，在git命令行里面输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
@@ -828,7 +848,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo卸载重装"><span class="nav-number">1.</span> <span class="nav-text">hexo卸载重装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题"><span class="nav-number">2.2.</span> <span class="nav-text">修改主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.</span> <span class="nav-text">修改配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置语言"><span class="nav-number">3.1.</span> <span class="nav-text">配置语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加头像"><span class="nav-number">3.2.</span> <span class="nav-text">添加头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加社交链接"><span class="nav-number">3.3.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加背景音乐"><span class="nav-number">3.4.</span> <span class="nav-text">添加背景音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字数统计功能"><span class="nav-number">3.5.</span> <span class="nav-text">添加字数统计功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首页添加分页功能"><span class="nav-number">3.6.</span> <span class="nav-text">首页添加分页功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加标题图片"><span class="nav-number">3.7.</span> <span class="nav-text">添加标题图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加个性宠物"><span class="nav-number">3.8.</span> <span class="nav-text">添加个性宠物</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类和标签按钮不能点击"><span class="nav-number">4.1.</span> <span class="nav-text">分类和标签按钮不能点击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击首页回不去"><span class="nav-number">4.2.</span> <span class="nav-text">点击首页回不去</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo卸载重装"><span class="nav-number">1.</span> <span class="nav-text">hexo卸载重装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#next主题安装"><span class="nav-number">2.</span> <span class="nav-text">next主题安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载next主题"><span class="nav-number">2.1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改主题"><span class="nav-number">2.2.</span> <span class="nav-text">修改主题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他功能的添加"><span class="nav-number">3.</span> <span class="nav-text">其他功能的添加</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置语言"><span class="nav-number">3.1.</span> <span class="nav-text">配置语言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加头像"><span class="nav-number">3.2.</span> <span class="nav-text">添加头像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加社交链接"><span class="nav-number">3.3.</span> <span class="nav-text">添加社交链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加背景音乐"><span class="nav-number">3.4.</span> <span class="nav-text">添加背景音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加字数统计功能"><span class="nav-number">3.5.</span> <span class="nav-text">添加字数统计功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首页添加分页功能"><span class="nav-number">3.6.</span> <span class="nav-text">首页添加分页功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加标题图片"><span class="nav-number">3.7.</span> <span class="nav-text">添加标题图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加个性宠物"><span class="nav-number">3.8.</span> <span class="nav-text">添加个性宠物</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#备案号的添加"><span class="nav-number">3.9.</span> <span class="nav-text">备案号的添加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#seo优化"><span class="nav-number">3.10.</span> <span class="nav-text">seo优化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#网站自身优化"><span class="nav-number">3.10.1.</span> <span class="nav-text">网站自身优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#首页title的优化"><span class="nav-number">3.10.2.</span> <span class="nav-text">首页title的优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缩短链接长度"><span class="nav-number">3.10.3.</span> <span class="nav-text">缩短链接长度</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一些next的问题"><span class="nav-number">4.</span> <span class="nav-text">处理一些next的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类和标签按钮不能点击"><span class="nav-number">4.1.</span> <span class="nav-text">分类和标签按钮不能点击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#点击首页回不去"><span class="nav-number">4.2.</span> <span class="nav-text">点击首页回不去</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -848,11 +868,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">甘明阳</span>
+        <div class="copyright">
+  <span class="author" itemprop="copyrightHolder">鄂ICP备18010523号</span>
   
 </div>
 
