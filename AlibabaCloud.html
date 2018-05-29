@@ -86,7 +86,7 @@
 
 
 
-  <meta name="keywords" content="linux,mysql," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -97,26 +97,24 @@
 
 
 
-<meta name="description" content="linux上搭建mysql流程">
-<meta name="keywords" content="linux,mysql">
+<meta name="description" content="记录关于备案的一些坑">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux上面安装配置mysql">
-<meta property="og:url" content="http://ganmyds.cn/linux_mysql.html">
+<meta property="og:title" content="关于我的阿里云备案经历">
+<meta property="og:url" content="http://ganmyds.cn/AlibabaCloud.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="linux上搭建mysql流程">
+<meta property="og:description" content="记录关于备案的一些坑">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_5.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png">
-<meta property="og:updated_time" content="2018-04-19T08:13:38.330Z">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_05.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_01.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_02.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_03.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_04.png?raw=true">
+<meta property="og:updated_time" content="2018-05-21T14:17:06.291Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux上面安装配置mysql">
-<meta name="twitter:description" content="linux上搭建mysql流程">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png">
+<meta name="twitter:title" content="关于我的阿里云备案经历">
+<meta name="twitter:description" content="记录关于备案的一些坑">
+<meta name="twitter:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_05.png?raw=true">
 
 
 
@@ -146,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://ganmyds.cn/linux_mysql.html"/>
+  <link rel="canonical" href="http://ganmyds.cn/AlibabaCloud.html"/>
 
 
 
 
 
-  <title>linux上面安装配置mysql | 小小程序员</title>
+  <title>关于我的阿里云备案经历 | 小小程序员</title>
   
 
 
@@ -332,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux上面安装配置mysql</h1>
+          <h1 class="post-title" itemprop="name headline">关于我的阿里云备案经历</h1>
         
 
         <div class="post-meta">
@@ -344,8 +342,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T19:05:00+08:00">
-                2018-03-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-20T21:54:00+08:00">
+                2018-05-20
               </time>
             
 
@@ -387,7 +385,7 @@
               </span>
               
                 <a href="#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="linux_mysql.html" itemprop="commentsCount"></span>
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="AlibabaCloud.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -409,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  723
+                  1,455
                 </span>
               
 
@@ -425,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3分钟
+                  5分钟
                 </span>
               
             </div>
@@ -433,7 +431,7 @@
 
           
               <div class="post-description">
-                  linux上搭建mysql流程
+                  记录关于备案的一些坑
               </div>
           
 
@@ -450,60 +448,29 @@
       
 
       
-        <p>一个项目没有数据库可以说是无法想象的，作为一名开发人员，我们需要经常性的操作数据库。现在市面上有很多数据库可供我们使用，比如ACCESS，MSSQL，MYSQL，ORACLE，DB2,其中mysql可以说是目前最流行的数据库之一，mysql数据库主要有以下几个好处：<a id="more"></a></p>
-<ul>
-<li><ol>
-<li>免费</li>
-<li>跨平台</li>
-<li>轻量级</li>
-<li>支持多并发</li>
-</ol>
-</li>
-</ul>
-<p>mysql只有在linux运行环境下才能充分发挥其威力，在linux环境下搭建mysql就变得非常有意义了，下面我为大家详细介绍linux下mysql的搭建</p>
-<h4 id="下载mysql安装文件"><a href="#下载mysql安装文件" class="headerlink" title="下载mysql安装文件"></a>下载mysql安装文件</h4><p>   有两个文件，分别是mysql-connector-java-5.1.6-bin.jar和mysql-standard-4.0.26-pc-  linux-gnu-i686.tar.gz，<a href="https://pan.baidu.com/s/1es5NjK-VOiohtkScZKt6iw" target="_blank" rel="noopener">点击下载</a></p>
-<p>将两个安装文件拷贝到/home下,切换到root，输入命令：</p>
-<p>su root</p>
-<p>不会从windows传文件到linux上？<a href="https://ganmyds.github.io/hexo_blog/2018/03/28/article02/" target="_blank" rel="noopener">点这里传送</a></p>
-<h4 id="解压安装文件"><a href="#解压安装文件" class="headerlink" title="解压安装文件:"></a>解压安装文件:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  mysql-standard-4.0.26-pc-linux-gnu-i686.tar.gz</span><br></pre></td></tr></table></figure>
-<p>解压缩后我们会得到一个目录如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_1.png" alt="mg0"></p>
-<h4 id="创建一个文件夹mysql"><a href="#创建一个文件夹mysql" class="headerlink" title="创建一个文件夹mysql :"></a>创建一个文件夹mysql :</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir mysql</span><br></pre></td></tr></table></figure>
-<h4 id="移动文件到mysql里，输入命令"><a href="#移动文件到mysql里，输入命令" class="headerlink" title="移动文件到mysql里，输入命令:"></a>移动文件到mysql里，输入命令:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv mysql-standard-4.0.26-pc-linux-gnu-i686 mysql</span><br></pre></td></tr></table></figure>
-<h4 id="创建一个组mysql"><a href="#创建一个组mysql" class="headerlink" title="创建一个组mysql"></a>创建一个组mysql</h4><p>注意这个命令要root权限才能使用，专门创建mysql组是为了方便以后管理mysql下面   的各个用户，输入命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groupadd mysql</span><br></pre></td></tr></table></figure>
-<p>创建mysql用户放入mysql组，输入命令:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -g mysql mysql</span><br></pre></td></tr></table></figure>
-<h4 id="进入mysql目录"><a href="#进入mysql目录" class="headerlink" title="进入mysql目录"></a>进入mysql目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> mysql</span><br></pre></td></tr></table></figure>
-<h4 id="初始化mysql数据库："><a href="#初始化mysql数据库：" class="headerlink" title="初始化mysql数据库："></a>初始化mysql数据库：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scripts/mysql_install_db  --user=mysql</span><br></pre></td></tr></table></figure>
-<p> 如图就是初始化成功：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_5.png" alt="mg0"></p>
-<h4 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h4><p>  将mysql目录下所有文件以及子文件的所有者改为root、所在组改为mysql，输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R root:mysql .</span><br></pre></td></tr></table></figure>
-<p>注意后面有个点，表示使用当前路径，然后将数据文件夹用户改为mysql,输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql data</span><br></pre></td></tr></table></figure>
-<p>我们检查一下是否成功改动，输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
-<p>结果如图所示：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_4.png" alt="mg0"></p>
-<h4 id="后台运行mysql"><a href="#后台运行mysql" class="headerlink" title="后台运行mysql"></a>后台运行mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/mysqld_safe   --user=mysql &amp;</span><br></pre></td></tr></table></figure>
-<p>结果如图所示：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_3.png" alt="mg0"></p>
-<h4 id="看看我们的mysql是否正常运行"><a href="#看看我们的mysql是否正常运行" class="headerlink" title="看看我们的mysql是否正常运行"></a>看看我们的mysql是否正常运行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | moe</span><br></pre></td></tr></table></figure>
-<p>看看3306端口是否存在，如图：</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_2.png" alt="mg0"></p>
-<h4 id="进入bin目录"><a href="#进入bin目录" class="headerlink" title="进入bin目录"></a>进入bin目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> bin</span><br></pre></td></tr></table></figure>
-<h4 id="运行mysql"><a href="#运行mysql" class="headerlink" title="运行mysql"></a>运行mysql</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p>Enter password是要你输入密码，目前没有密码直接按enter即可，如图:</p>
-<p>​              <img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_6.png" alt="mg0"> </p>
-<p>现在mysql已经成功的安装到我们的linux下面了。到这里基本完成了，如果你想让以后的工作更方便，看看下面的内容。</p>
-<hr>
-<p>现在我们打开mysql非常麻烦，需要进入/home/mysql/bin目录下执行，为了减少麻烦，我们可以将这个路径配置到环境变量里面，输入命令 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  .bash_profile</span><br></pre></td></tr></table></figure>
-<p>改动如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/linux_7.png" alt="mg0"></p>
-<p>然后我们登出让配置文件生效，输入命令logout ，重新登录，现在你就可以在任意路径上运行mysql了。</p>
+        <p>以前和同事一起做过一个网站项目，当时我负责前端页面搭建，他负责后端php系统，网站放在京东云上运行，那时候对云服务器有一丝好奇，无奈复用太贵，一直没买，后来群友发我一个链接，是阿里云优惠活动，活动时间是3月28号到4月13号，新用户专享，1年99，两年189，3年279，要知道没有活动的时候阿里云一个月的费用都要70多，我毫不犹豫的买了3年的服务器，一口气便宜了3300多，买服务器为了自己以后更好的学习吧！当时我也没想到备案花了我这么多的时间，先谈谈备案流程！</p>
+<h4 id="备案流程"><a href="#备案流程" class="headerlink" title="备案流程"></a>备案流程</h4><h5 id="注册域名"><a href="#注册域名" class="headerlink" title="注册域名"></a>注册域名</h5><p>​     我们买了云服务器就自动得到一个公网ip地址，像百度的公网ip地址是</p>
+<pre><code>http://14.215.177.39/
+</code></pre><p>​    一般这个ip地址非常不利于吃瓜群众记住，所以大部分网站都会注册一个域名，然后通过DNS服务实现域名和ip地址的绑定，这就是所谓的域名解析，注册域名的地址：<a href="https://wanwang.aliyun.com/?utm_content=se_1085401" target="_blank" rel="noopener">传送门</a>，一般com域名最贵,那些很长的后缀像什么club、online等等的域名就很便宜了，六七块钱一年，我最后还是选择了cn的后缀，也不贵而且相对较短，29元一年，反正几百都出了也不在乎这几十块了。</p>
+<h5 id="填写信息初审"><a href="#填写信息初审" class="headerlink" title="填写信息初审"></a>填写信息初审</h5><p>这里一般都要写准确的信息，像电话到时候会有阿里云那边的人打电话验证是不是你本人，然后地址要具体到房间号，非常严格的哦，所以为了不麻烦我们还是写清楚一些，这里要注意网站类型千万别写论坛，基本上论坛都会被各种理由拒绝的，还有网站名称不要带有工作室等等看起来很商业化的名称，我的网站类型是博客，网站名称是学习和成长，这样相对比较好通过审核，一般初审一个工作日就有结果了，我的初审经历非常坎坷，挂了两次(捂脸)</p>
+<h5 id="上传资料"><a href="#上传资料" class="headerlink" title="上传资料"></a>上传资料</h5><p>这一步就到了大家说的幕布阶段了，不过得益于技术的发展，广东、上海、重庆、辽宁、安徽、福建这些省份不用拍幕布上传了，只需要下载阿里云app，按照指示拍摄几个表情就可以了，非常方便。其他的省份还得申请幕布，当然幕布的申请是免费的，你不用出一分钱，但是还是很麻烦，而且要求很多，背景要被幕布完全覆盖、人得在幕布正中间、要拍出上半身、不能Ps等等</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_05.png?raw=true" alt="Q图片2018052100114"></p>
+<h5 id="管局审核"><a href="#管局审核" class="headerlink" title="管局审核"></a>管局审核</h5><p>前面两次审核都是阿里云那边做的，这里就是有关部门审核的了，果然有关部门还是比较慢的，我是5月3号提交审核的，一直到5月11号才出结果，一共花了9天，还好我是一次过的，要是失败个两三次，那哭都没地方哭了，注意在管局审核这段时间，一定要保证ip地址是不能访问的哦！</p>
+<p>以上就是备案的基本流程了，现在说说我是怎么审核失败的，大家别踩我走过的这些坑哈！</p>
+<h4 id="第一次备案"><a href="#第一次备案" class="headerlink" title="第一次备案"></a>第一次备案</h4><p>初审没过，直接上图吧：</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_01.png?raw=true" alt="Q图片2018052023405"></p>
+<p>上面主要是说了三个问题：</p>
+<p>1、主要联系手机号和应急联系手机号一样。</p>
+<p>2、人脸识别失败(阿里云那边打电话说我做了一个鬼脸，黑人问号？我吃多了会在这种重要的场合做鬼脸呀！)</p>
+<p>3、身份证地址不是福建省的，需要提供居住证或者暂住证</p>
+<p>前面两个好处理，注意一下就能搞定，就是后面那个暂住证的问题真的难到我了，由于暂住证的办理非常麻烦并且备案省份不能修改，最后我还是放弃了这次备案。</p>
+<h4 id="第二次备案"><a href="#第二次备案" class="headerlink" title="第二次备案"></a>第二次备案</h4><p>这次我换了省份，由于我的省份不在上面那六个省里面，上传资料这一步还是得乖乖拍幕布上传，但是，我的初审还是失败了，心酸！还是上图：</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_02.png?raw=true" alt="Q图片2018052023592"></p>
+<p>阿里云那边打电话过来说我的身份证有反光，我真是无语了，就那么一个小光点，有没挡住字，这样也不行，好在后来我重新拍照顺利通过了初审</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_03.png?raw=true" alt="Q图片2018052100024"></p>
+<p>这里不得不感叹阿里云的效率真的很快，一个小时就有了结果。初审通过了然后就是搞幕布的流程了，这是第二次审核，很幸运，这一次我一次就过了，上图：</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/aly_04.png?raw=true" alt="Q图片2018052100062"></p>
+<p>后面的环节我也没什么可以说的了。初审通过后我好像得到了幸运女神的眷顾，审核都是一步通过，很多人在幕布环节都很容易挂，我有一个朋友在幕布里挂了3次，所以大家拍照的时候一定要仔细看要求哈，然后关于备案，阿里云有一个优惠，备多久送多久，这里我感觉阿里云还是比较有良心的，要是域名时间也送就好了(捂脸）！我的域名是ganmyds.cn，以后估计我的个人网站就用这个域名，到时候欢迎大家访问，最后在这里祝大家备案的时候都一次过，要是这篇文章对你有帮助的话就点个赞或者打赏一下哈!谢谢啦！</p>
 
       
     </div>
@@ -553,7 +520,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://ganmyds.cn/linux_mysql.html" title="linux上面安装配置mysql">http://ganmyds.cn/linux_mysql.html</a>
+    <a href="http://ganmyds.cn/AlibabaCloud.html" title="关于我的阿里云备案经历">http://ganmyds.cn/AlibabaCloud.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -580,8 +547,6 @@
           
             <a href="tags/linux/" rel="tag"># linux</a>
           
-            <a href="tags/mysql/" rel="tag"># mysql</a>
-          
         </div>
       
 
@@ -593,8 +558,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="linux_to_window.html" rel="next" title="linux和windows之间传输文件">
-                <i class="fa fa-chevron-left"></i> linux和windows之间传输文件
+              <a href="ps_start.html" rel="next" title="关于ps的一些经验">
+                <i class="fa fa-chevron-left"></i> 关于ps的一些经验
               </a>
             
           </div>
@@ -603,8 +568,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="erlang_01.html" rel="prev" title="erlang项目流程查看技巧">
-                erlang项目流程查看技巧 <i class="fa fa-chevron-right"></i>
+              <a href="hexo_realm.html" rel="prev" title="hexo博客绑定域名">
+                hexo博客绑定域名 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -757,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载mysql安装文件"><span class="nav-number">1.</span> <span class="nav-text">下载mysql安装文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解压安装文件"><span class="nav-number">2.</span> <span class="nav-text">解压安装文件:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个文件夹mysql"><span class="nav-number">3.</span> <span class="nav-text">创建一个文件夹mysql :</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动文件到mysql里，输入命令"><span class="nav-number">4.</span> <span class="nav-text">移动文件到mysql里，输入命令:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个组mysql"><span class="nav-number">5.</span> <span class="nav-text">创建一个组mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入mysql目录"><span class="nav-number">6.</span> <span class="nav-text">进入mysql目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化mysql数据库："><span class="nav-number">7.</span> <span class="nav-text">初始化mysql数据库：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改权限"><span class="nav-number">8.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后台运行mysql"><span class="nav-number">9.</span> <span class="nav-text">后台运行mysql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#看看我们的mysql是否正常运行"><span class="nav-number">10.</span> <span class="nav-text">看看我们的mysql是否正常运行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入bin目录"><span class="nav-number">11.</span> <span class="nav-text">进入bin目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#运行mysql"><span class="nav-number">12.</span> <span class="nav-text">运行mysql</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#备案流程"><span class="nav-number">1.</span> <span class="nav-text">备案流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注册域名"><span class="nav-number">1.1.</span> <span class="nav-text">注册域名</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#填写信息初审"><span class="nav-number">1.2.</span> <span class="nav-text">填写信息初审</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#上传资料"><span class="nav-number">1.3.</span> <span class="nav-text">上传资料</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#管局审核"><span class="nav-number">1.4.</span> <span class="nav-text">管局审核</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第一次备案"><span class="nav-number">2.</span> <span class="nav-text">第一次备案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二次备案"><span class="nav-number">3.</span> <span class="nav-text">第二次备案</span></a></li></ol></div>
             
 
           </div>
