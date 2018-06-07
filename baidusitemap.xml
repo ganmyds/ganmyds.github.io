@@ -4,8 +4,50 @@
 
     
   <url>
+    <loc>http://ganmyds.cn/aly_java_tomcat.html</loc>
+    <lastmod>2018-06-06T08:37:26.102Z</lastmod>
+    <data>
+        <display>
+        <title>云服务器ECS建站攻略</title>
+        <pubTime>2018-06-06T13:54:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://ganmyds.cn/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ganmyds.cn/linux_mysql.html</loc>
+    <lastmod>2018-06-03T11:12:32.595Z</lastmod>
+    <data>
+        <display>
+        <title>linux上面安装配置mysql</title>
+        <pubTime>2018-03-29T11:05:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://ganmyds.cn/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ganmyds.cn/bootstrap_summed.html</loc>
-    <lastmod>2018-06-03T10:34:58.874Z</lastmod>
+    <lastmod>2018-06-03T10:38:30.574Z</lastmod>
     <data>
         <display>
         <title>我的的bootstrap学习之路</title>
@@ -112,28 +154,6 @@
         <pubTime>2018-03-28T04:05:00.000Z</pubTime>
         
         <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="linux" url="http://ganmyds.cn/categories/linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ganmyds.cn/linux_mysql.html</loc>
-    <lastmod>2018-04-19T08:13:38.330Z</lastmod>
-    <data>
-        <display>
-        <title>linux上面安装配置mysql</title>
-        <pubTime>2018-03-29T11:05:00.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>mysql</tag>
          
          
            
