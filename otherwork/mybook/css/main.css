@@ -1,0 +1,430 @@
+body {
+    font: normal 14px/1.5 Tahoma, Helvetica, arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-transition: color 200ms;
+    -o-transition: color 200ms;
+    transition: color 200ms;
+}
+
+a{
+    text-decoration: none;
+    color: #454545;
+    display: inline-block;
+}
+
+img{
+    max-width: 100%;
+}
+
+.col-0-25,
+.col-0-5,
+.col-0-75,
+.col-1,
+.col-1-5,
+.col-1-25,
+.col-2-75,
+.col-2,
+.col-2-5,
+.col-2-85,
+.col-3,
+.col-3-5,
+.col-4,
+.col-4-25,
+.col-4-3,
+.col-4-5,
+.col-5,
+.col-5-25,
+.col-5-5,
+.col-6,
+.col-6-5,
+.col-7,
+.col-7-5,
+.col-8,
+.col-9 {
+    display: block;
+    position: relative;
+    min-height: 1px;
+    float: left;
+}
+
+.col-0-25{
+    width: 2.5%;
+}
+
+.col-0-5{
+   width: 5%;
+}
+
+.col-0-75{
+   width: 7.5%;
+}
+
+.col-1 {
+    width: 10%
+}
+
+.col-1-25{
+    width: 12.5%;
+}
+
+.col-1-5{
+    width: 15%;
+}
+
+.col-2 {
+    width: 20%
+}
+
+.col-2-5 {
+    width: 25%;
+}
+
+.col-2-75{
+    width: 27.5%;
+}
+
+.col-2-85{
+    width: 28.5%;
+}
+.col-4-3{
+    width: 43%;
+}
+
+.col-3 {
+    width: 30%
+}
+
+.col-3-5 {
+    width: 35%;
+}
+
+.col-4 {
+    width: 40%;
+}
+
+.col-4-25{
+    width: 42.5%;
+}
+
+.col-4-5 {
+    width: 45%;
+}
+
+.col-5 {
+    width: 50%
+}
+
+.col-5-25{
+    width: 52.5%
+}
+
+.col-5-5{
+    width: 55%;
+}
+
+.col-6 {
+    width: 60%
+}
+
+.col-6-5 {
+    width: 65%;
+}
+
+.col-7 {
+    width: 70%
+}
+.col-7-5{
+    width: 75%
+}
+
+.col-8 {
+    width: 80%
+}
+
+.col-9 {
+    width: 90%
+}
+/*导航栏 设置z-index让导航栏放在最外层*/
+.navigation{
+    width: 100%;
+    padding: 15px 0 10px 0;
+    border-top: 5px solid #33CCCC;
+    border-bottom: 1px solid #c4c3c3;
+    position: fixed;
+    z-index: 9999;
+    background: #fff;
+}
+
+/*导航栏隔离*/
+.border-gl{
+    width: 100%;
+    height: 120px;
+}
+
+/*清除浮动*/
+.clearf:before,
+.clearf:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*导航栏的按钮*/
+.navigation .item{
+    padding: 16px 12px;
+    font-size: 13px;
+}
+
+.navigation .item:hover{
+    color: #33CCCC;
+}
+
+/*导航栏的按钮*/
+.navigation .button{
+    font-size: 13px;
+    border: 1px solid #33CCCC;
+    border-radius: 15px;
+    padding: 3px 9px;
+    color: #33CCCC;
+    margin-left: 8px;
+}
+
+/*主体部分*/
+.content{
+    display: block;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+/*说明部分上方头部*/
+.content .head-top{
+    padding: 15px 0;
+    background-color: #459e9e;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+/*水平居中的样式 */
+.content .head-body .list-group,
+.content .head-top{
+    text-align:center;
+}
+
+.content .head-top .title{
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.content .detail{
+    color: #ffffff;
+    font-size: 13px;
+    display: block;
+    margin: 20px 0 10px;
+    font-weight: 500;
+}
+/*说明部分下方头部*/
+.content .head-bottom{
+    background-color: #ffffff;
+    padding: 15px 0;
+    font-weight: 600;
+    text-align:center;
+}
+
+.head-bottom span{
+    color: #000000;
+    font-size: 19px;
+}
+
+.head-bottom .detail-top{
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.head-bottom .detail-right{
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.content .head-body .col-2-5{
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #F7F7F7;
+}
+
+.content .head-body .title{
+    font-size: 17px;
+    font-weight: 600;
+    color: #000;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.content .head-body .list-group{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.content .head-body .list-group .item{
+    font-size: 10px;
+    display: inline-block;
+    margin-bottom: 3px;
+    display: block;
+}
+.content .head-body-bottom{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.content .head-body-bottom .title{
+   font-size: 25px;
+   font-weight: 600;
+   margin-top: 40px;
+}
+
+.content .head-body-bottom .body-datail{
+    font-size: 13px;
+}
+
+.content .col-left{
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px 0 30px;
+
+}
+
+.content .col-left:hover{
+    background-color: #33CCCC;
+}
+
+.content .left-img{
+    width: 35%;
+    padding: 37px 23px 32px;
+    margin: 20px 0 10px;
+    margin-left: 32%;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.content .col-left .title{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/*主题颜色*/
+.theme-color{
+    color: #33CCCC;
+}
+
+.content .div-jia{
+    margin-top: 100px;
+}
+
+.content .img-jia{
+    margin-left: 30%;
+}
+
+.content .zxty-div{
+    width: 100%;
+    text-align: center;
+}
+
+/*下面是我定义的工具类*/
+.zxty{
+    font-size: 25px;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.center-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px 0 60px;
+    display: inline-block;
+}
+
+.margin-b15{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.margin-b10{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.margin-b30{
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.big-title{
+    font-size: 26px;
+    font-weight: 600;
+    display: block;
+}
+
+.pad10{
+    padding: 10px;
+}
+
+.small-title{
+    font-weight: 600;
+    font-style: 16px;
+    display: block;
+}
+
+.margin-t5{
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.fz-11{
+    font-size: 10px;
+    color: #333333;
+}
+
+.the-small-title{
+    font-weight: 600;
+    font-style: 16px;
+    display: block;
+    margin: 5px 0 15px;
+}
+.margin-t30{
+    margin-top: 30px;
+}
+
+.content .out-nested{
+    height: 170px;
+}
+
+.content .center-bottom-2{
+    height: 180px;
+    width: 100%;
+    background-color: #459e9e;
+    margin-top: 45px;
+    border-radius: 3px;
+    padding: 50px 0;
+}
+
+.content .header-title{
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.content .header-title-deatail{
+    font-size: 12px;
+    color: #fff;
+}
