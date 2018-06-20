@@ -27,11 +27,13 @@ img{
 .col-1,
 .col-1-5,
 .col-1-25,
+.col-1-75,
 .col-2-75,
 .col-2,
 .col-2-5,
 .col-2-85,
 .col-3,
+.col-3-1,
 .col-3-5,
 .col-4,
 .col-4-25,
@@ -72,6 +74,10 @@ img{
     width: 12.5%;
 }
 
+.col-1-75{
+    width: 17.5%;
+}
+
 .col-1-5{
     width: 15%;
 }
@@ -96,7 +102,11 @@ img{
 }
 
 .col-3 {
-    width: 30%
+    width: 30%;
+}
+
+.col-3-1{
+    width: 31%;
 }
 
 .col-3-5 {
@@ -405,12 +415,15 @@ img{
     margin-top: 30px;
 }
 
+.margin-t45{
+    margin-top: 45px;
+}
+
 .content .out-nested{
     height: 170px;
 }
 
 .content .center-bottom-2{
-    height: 180px;
     width: 100%;
     background-color: #459e9e;
     margin-top: 45px;
@@ -418,13 +431,103 @@ img{
     padding: 50px 0;
 }
 
+.content .center-bottom-3{
+    width: 100%;
+    background-color: yellow;
+    margin-top: 10px;
+    border-radius: 3px;
+    padding: 40px 0;
+}
+
 .content .header-title{
     font-size: 25px;
     color: #ffffff;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.content .header-title-bot{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.header-title-bot{
+    font-size: 25px;
+    color: #000;
     font-weight: 600;
 }
 
 .content .header-title-deatail{
     font-size: 12px;
     color: #fff;
+}
+
+.content .header-title-deatail-bot{
+    font-size: 13px;
+    color: #000;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.color-yellow{
+    background-color: yellow;
+}
+
+.margin-b45{
+    margin-bottom: 45px;
+}
+
+.content .but-left{
+    border-radius: 4px;
+    border: 1px solid #006633;
+    padding: 8px 40px;
+    background-color: #006633;
+    font-size: 15px;
+    color: #fff;
+}
+
+.content .but-right{
+    border-radius: 4px;
+    border: 1px solid #2D8284;
+    padding: 8px 40px;
+    background-color: #2D8284;
+    font-size: 15px;
+    color: #fff;
+}
+
+.content .but-left:hover{
+    background-color: #024423;
+}
+.content .but-right:hover{
+    background-color: #287072
+}
+
+.footer{
+    text-align: center;
+    color: #999;
+    padding: 20px 0;
+    margin-top: 10px;
+}
+
+.center-bottom{
+    width: 100%;
+    background-color: #33CCCC;
+    margin-top: 20px;
+}
+
+.padding20{
+    padding: 20px 40px;
+}
+
+.small-title{
+    font-size: 17px;
+    font-weight: 400;
+    color: #fff;
+}
+.white-div{
+    background-color: #fff;
+    padding: 20px;
+    width: 90%;
+    margin-left: 5%;
 }
