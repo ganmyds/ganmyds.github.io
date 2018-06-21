@@ -573,3 +573,8 @@ img{
 .control-label{
     display: block;
 }
+
+.error_img{
+    max-width: 17px;
+    max-height: 17px;
+}
