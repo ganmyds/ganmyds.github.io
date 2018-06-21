@@ -77,7 +77,6 @@
 /*导航栏 设置z-index让导航栏放在最外层*/
 .navigation{
     border-top: 5px solid #33CCCC;
-    border-bottom: 0;
 }
 
 .form-control{
@@ -86,4 +85,16 @@
 
 .dispno{
     display: none !important;
+}
+
+.login-but{
+    width: 100% !important;
+}
+
+
+
+.logo{
+    width: 100px;
+    height: 30px;
+    background-size: 100%;
 }

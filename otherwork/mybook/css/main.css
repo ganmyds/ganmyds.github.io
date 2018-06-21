@@ -578,3 +578,12 @@ img{
     max-width: 17px;
     max-height: 17px;
 }
+
+.logo{
+    background-image: url(../img/logo.png);
+    width: 200px;
+    height: 50px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: left;
+}
