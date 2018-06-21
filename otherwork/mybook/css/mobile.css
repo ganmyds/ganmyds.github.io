@@ -80,8 +80,10 @@
     border-bottom: 0;
 }
 
-/*登录对钩图片*/
+.form-control{
+    width: 100% !important; 
+}
+
 .dispno{
-    max-width: 15px;
-    max-height: 15px;
+    display: none !important;
 }

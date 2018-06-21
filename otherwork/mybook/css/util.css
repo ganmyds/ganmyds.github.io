@@ -68,6 +68,8 @@
 
 .dispno{
     display: none;
+    max-width: 17px;
+    max-height: 17px;
 }
 
 .color-error{
