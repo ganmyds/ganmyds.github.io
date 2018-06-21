@@ -110,7 +110,16 @@
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql03.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql04.png?raw=true">
 <meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql05.png?raw=true">
-<meta property="og:updated_time" content="2018-04-17T08:47:58.735Z">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql05.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql07.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql08.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql10.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql11.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql12.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql13.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql14.png?raw=true">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql15.png?raw=true">
+<meta property="og:updated_time" content="2018-06-21T01:16:45.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Navicate for Mysql的破解">
 <meta name="twitter:description" content="navcate从安装到使用一套讲解">
@@ -407,7 +416,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  320
+                  558
                 </span>
               
 
@@ -423,7 +432,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1分钟
+                  2分钟
                 </span>
               
             </div>
@@ -463,7 +472,24 @@
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql04.png?raw=true" alt="Q图片2018041520584"></p>
 <p>选择mysql,输入如图，密码是root</p>
 <p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql05.png?raw=true" alt="Q图片2018041521003"></p>
-<p>现在我们就可以在windows上自由的使用mysql了</p>
+<h5 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h5><p>首先建立数据库users：</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql05.png?raw=true" alt="indow_mysql0"></p>
+<p>建表，首先设置id为主键，点钥匙就可以取消主键</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql07.png?raw=true" alt="Q图片2018062021524"></p>
+<p>点击添加栏位添加新列</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql08.png?raw=true" alt="Q图片2018062021540"></p>
+<p>保存，写表的名字，注意公司都是以T_ 开头，复数结尾，比如T_students，前面不能有空格</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql10.png?raw=true" alt="Q图片2018062022050"></p>
+<h5 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h5><p>注意这里不能双击表名，要右键选择设计表，假如我想删除一列，右键这里点删除栏位</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql11.png?raw=true" alt="Q图片2018062022093"></p>
+<p>如果像查看表里面有哪些数据，直接双击表名就可以了</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql12.png?raw=true" alt="Q图片2018062022111"></p>
+<p>现在啥都没有，我们插入两条数据，点击加好可以添加一行新的</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql13.png?raw=true" alt="Q图片2018062022131"></p>
+<p>基本操作就这些，然后是关于mysql的存储引擎，最常用的是InnoDB和MyISAM，MyISAM效率较高，但是不支持事务，外键约束等属性，因此一般都用InnoDB，新版本默认使用InnoDB，建表的时候想要选择引擎点击选项，如图</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql14.png?raw=true" alt="Q图片2018062022210"></p>
+<p>建完表后想要查看引擎，对表右键选择对象信息</p>
+<p><img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/window_mysql15.png?raw=true" alt="Q图片2018062022225"></p>
 
       
     </div>
@@ -620,8 +646,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -696,6 +731,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#建表"><span class="nav-number">1.</span> <span class="nav-text">建表</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改表"><span class="nav-number">2.</span> <span class="nav-text">修改表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
