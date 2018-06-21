@@ -73,3 +73,9 @@
 .content .img-jia{
     margin-left: 12%;
 }
+
+/*导航栏 设置z-index让导航栏放在最外层*/
+.navigation{
+    border-top: 5px solid #33CCCC;
+    border-bottom: 0;
+}

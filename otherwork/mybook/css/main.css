@@ -17,6 +17,10 @@ a{
     display: inline-block;
 }
 
+a:hover{
+    text-decoration: none;
+}
+
 img{
     max-width: 100%;
 }
@@ -531,4 +535,40 @@ img{
     padding: 20px;
     width: 90%;
     margin-left: 5%;
+}
+.login-but{
+    background-color: #33CCCC;
+    font-size: 16px;
+    color: #ffffff !important;
+    width: 90% !important;
+}
+
+.login-but:hover{
+    color: #ffffff;
+    background-color: #2fb8b8;
+}
+
+.login-set{
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+.login-set-zd{
+    color: #333;
+    display: inline-block;
+}
+
+.form-control{
+    width: 90%;
+    float: left;
+}
+
+.wjmm{
+    color: #3b76d8;display: block; margin-bottom: 5px;
+}
+
+.control-label{
+    display: block;
 }

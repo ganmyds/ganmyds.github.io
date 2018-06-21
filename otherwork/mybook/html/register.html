@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/util.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" media="(max-width: 800px)" href="../css/mobile.css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/register.js"></script>
+    <title>网上图书管理系统</title>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="navigation clearf">
+        <div class="col-0-75"></div>
+        <div class="col-1-5">
+            <img src="../img/logo.png" >
+        </div>
+        <div class="col-1-5"></div>
+        <div class="col-6">
+            <a href="index.html" class="item hidding">首页</a>
+            <a href="#" class="item hidding">行业方案</a>
+            <a href="#" class="item hidding">功能主题</a>
+            <a href="#" class="item hidding">产品介绍</a>
+            <a href="#" class="item hidding">客户案例</a>
+            <a href="#" class="item hidding">加入代理</a>
+            <a href="#" class="item hidding">软件下载</a>
+            <a href="login.html" class="button floatr">登录</a>
+            <a href="register.html" class="button floatr active">注册</a>
+        </div>
+    </div>
+    <!-- 主体部分 -->
+    <div class="container" style="max-width: 500px;">
+         <!-- 隔离 -->
+        <div class="border-gl mobile-gl"></div>
+        <form method="post" onsubmit="return register();">
+           <h1>注册<small class="margin-l10">已有帐号?<a href="login.html" style="color: #3b76d8;">登录</a></small></h1>
+           <div class="form-group margin-t15 clearf" id="form-group">
+               <label class="control-label" >用户名：</label>
+               <div class="clearf">
+                   <input type="text" id="username" class="form-control" placeholder="请输入用户名" onblur="check_name()" maxlength="8">
+                   <img src="../img/success.jpg" class="margin-t9l5 dispno" id="name_success">
+               </div>
+               <div class="down-title" id="title_name">
+                   <img src="../img/error.jpg">
+                   <label class="color-error">用户名不可以为空</label>
+               </div>
+           </div>
+           <div class="form-group clearf">
+               <label class="control-label">手机号码：</label>
+               <div class="clearf">
+                   <input type="number" class="form-control" placeholder="可用于登录或接收信息通知" maxlength="11" onblur="check_phone()" id="phone">
+                   <img src="../img/success.jpg" class="margin-t9l5 dispno" id="phone_success">
+               </div>
+               <div class="down-title" id="title_phone">
+                   <img src="../img/error.jpg">
+                   <label class="color-error">手机号码不可以为空</label>
+               </div>
+           </div>
+           <div class="form-group clearf">
+               <label class="control-label">登录密码：</label>
+               <div class="clearf">
+                   <input type="password" class="form-control" placeholder="设置密码，8到16位之间" maxlength="16" id="pwd" onblur="check_pwd()">
+                   <img src="../img/success.jpg" class="margin-t9l5 dispno" id="pwd_success">
+               </div>
+               <div class="down-title" id="title_pwd">
+                   <img src="../img/error.jpg">
+                   <label class="color-error" id="title_detail">密码不可以为空</label>
+               </div>
+           </div>
+           <div class="form-group clearf">
+               <label class="control-label">确认密码：</label>
+               <div class="clearf">
+                   <input type="password" class="form-control" placeholder="两次密码要保持一致" maxlength="16" id="repwd" onblur="check_repwd()">
+                   <img src="../img/success.jpg" class="margin-t9l5 dispno" id="repwd_success">
+               </div>
+               <div class="down-title" id="title_repwd">
+                   <img src="../img/error.jpg">
+                   <label class="color-error" id="title_redetail">密码不可以为空</label>
+               </div>
+           </div>
+           <input type="submit" class="btn btn-block login-but" value="注册">
+        </form>
+    </div>
+    <div class="footer">鄂ICP备18010523号-1</div>
+</body>
+</html>
