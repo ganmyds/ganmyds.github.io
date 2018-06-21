@@ -79,3 +79,9 @@
     border-top: 5px solid #33CCCC;
     border-bottom: 0;
 }
+
+/*登录对钩图片*/
+.dispno{
+    max-width: 15px;
+    max-height: 15px;
+}
