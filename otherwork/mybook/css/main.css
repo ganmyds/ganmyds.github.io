@@ -51,7 +51,8 @@ img{
 .col-7,
 .col-7-5,
 .col-8,
-.col-9 {
+.col-9,
+.col-9-5{
     display: block;
     position: relative;
     min-height: 1px;
@@ -162,6 +163,10 @@ img{
 
 .col-9 {
     width: 90%
+}
+
+.col-9-5{
+    width: 95%;
 }
 /*导航栏 设置z-index让导航栏放在最外层*/
 .navigation{
@@ -586,4 +591,53 @@ img{
     background-position: center center;
     background-repeat: no-repeat;
     float: left;
+}
+
+.phone_input{
+    width: 80% !important;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: none;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    float: left;
+    outline: 0;
+}
+
+.hqyzm{
+    width: 20%;
+    display: block;
+    float: left;
+    background-color: #33CCCC;
+    color: #fff;
+    padding: 7px 6px;
+    cursor: pointer;
+    margin-bottom: 0;
+    border-radius: 1px;
+}
+
+.hqyzm:hover{
+    background-color: #2fb8b8;
+}
+
+.border-rad{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.yzm_text{
+    font-size: 16px;
+    padding: 10px 0 0;
+    display: none;
+}
+
+.yzm_style{
+    color: #6e6e6e;
+    font-weight: 400;
+    font-size: 14px;
 }
