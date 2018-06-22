@@ -52,30 +52,12 @@
            <div class="form-group clearf">
                <label class="control-label">手机号码：</label>
                <div class="clearf">
-                   <input type="number" class="form-control" placeholder="可用于登录或接收信息通知" maxlength="11" onblur="check_phone()" id="phone" oninput="if(value.length>11)value=value.slice(0,11)">
+                   <input type="number" class="form-control" placeholder="可用于登录或接收信息通知" maxlength="11" onblur="check_phone()" id="phone">
                    <img src="../img/success.jpg" class="margin-t9l5 dispno" id="phone_success">
                </div>
                <div class="down-title" id="title_phone">
                    <img src="../img/error.jpg" class="error_img">
-                   <label class="color-error" id="phone_title">手机号码不可以为空</label>
-               </div>
-           </div>
-            <div class="form-group clearf">
-               <label class="control-label">短信认证码：</label>
-               <div class="clearf">
-                   <div class="col-9-5 clearf border-rad">
-                      <input type="number" class="phone_input" placeholder="获取认证码" maxlength="11" onblur="check_yzm()"  id="yzm" oninput="if(value.length>6)value=value.slice(0,6)">
-                      <label class="hqyzm" onclick="GetCode()">获取认证码</label>
-                   </div>
-                   <img src="../img/success.jpg" class="margin-t9l5 dispno" id="yzm_success">
-               </div>
-               <div class="yzm_text">
-                    <img src="../img/promt.jpg" class="error_yzm" id="error_yzm">
-                    <span id="yzm_show" class="yzm_style"></span>
-                </div>
-               <div class="down-title" id="title_yzm">
-                   <img src="../img/error.jpg" class="error_yzm">
-                   <label class="color-error" id="yzm_title">请输入验证码</label>
+                   <label class="color-error">手机号码不可以为空</label>
                </div>
            </div>
            <div class="form-group clearf">
