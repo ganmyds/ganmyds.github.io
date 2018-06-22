@@ -59,11 +59,12 @@
 }
 
 .content .left-img{
-    padding: 10px 0 5px;
+    padding: 5px 0 5px;
 }
 
 .content .mob-pad15-top{
-    padding-top: 18px;
+    padding-top: 8px;
+    margin-top: 30px;
 }
 
 .content .div-jia{
@@ -92,9 +93,24 @@
 }
 
 
-
 .logo{
     width: 100px;
     height: 30px;
     background-size: 100%;
 }
+
+.content .col-left{
+    padding: 10px 0;
+}
+
+.hqyzm{
+    font-size: 12px;
+    padding: 8px 3px;
+    text-align: center;
+}
+
+.border-rad{
+    width: 100%;
+}
+
+
