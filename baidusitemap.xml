@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://ganmyds.cn/java_project.html</loc>
+    <lastmod>2018-06-28T01:18:01.069Z</lastmod>
+    <data>
+        <display>
+        <title>java小项目经验</title>
+        <pubTime>2018-06-23T13:54:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ganmyds.cn/Navicate_Mysql.html</loc>
     <lastmod>2018-06-25T01:20:50.818Z</lastmod>
     <data>
@@ -17,26 +37,6 @@
            
              
               <breadCrumb title="mysql" url="http://ganmyds.cn/categories/mysql/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ganmyds.cn/java_project.html</loc>
-    <lastmod>2018-06-23T13:30:32.540Z</lastmod>
-    <data>
-        <display>
-        <title>java小项目经验</title>
-        <pubTime>2018-06-23T13:54:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
           
         </display>
     </data>
