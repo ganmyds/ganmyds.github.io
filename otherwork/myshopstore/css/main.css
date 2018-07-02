@@ -55,7 +55,6 @@ img{
 .col-8,
 .col-9{
 	display: block;
-	position: relative;
 	min-height: 1px;
 	float: left;
 }
