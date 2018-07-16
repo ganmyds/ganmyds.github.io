@@ -113,7 +113,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_yzm_06.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_yzm_07.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_yzm_07.png">
-<meta property="og:updated_time" content="2018-07-02T06:57:30.418Z">
+<meta property="og:updated_time" content="2018-07-06T08:57:04.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java发送手机短信认证码">
 <meta name="twitter:description" content="java环境调用阿里云短信服务接口给用户手机发短信认证码">
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,587
+                  1,650
                 </span>
               
 
@@ -484,10 +484,10 @@
 <p>下完将jar包导入到你的web项目中，注意要先把jar包复制到web目录里面再导入，不然上了生产环境会找不到jar包</p>
 <p>好啦，所有的准备工作都已经完成，下面我们在java里面调用，按照注释修改即可，无需修改的地方不要动</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.aliyuncs.DefaultAcsClient;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.IAcsClient;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.dysmsapi.model.v20170525.SendSmsRequest;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.exceptions.ClientException;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.exceptions.ServerException;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.http.MethodType;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.profile.DefaultProfile;</span><br><span class="line"><span class="keyword">import</span> com.aliyuncs.profile.IClientProfile;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//发送短信认证码</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Util_fsdx</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">get_code</span><span class="params">(String phone)</span> <span class="keyword">throws</span> ServerException, ClientException</span>&#123;</span><br><span class="line">        <span class="comment">//验证码</span></span><br><span class="line">        String code = <span class="string">"123456"</span>;</span><br><span class="line">    	<span class="comment">//设置超时时间-可自行调整</span></span><br><span class="line">    	System.setProperty(<span class="string">"sun.net.client.defaultConnectTimeout"</span>, <span class="string">"10000"</span>);</span><br><span class="line">    	System.setProperty(<span class="string">"sun.net.client.defaultReadTimeout"</span>, <span class="string">"10000"</span>);</span><br><span class="line">    	<span class="comment">//初始化ascClient需要的几个参数</span></span><br><span class="line">    	<span class="keyword">final</span> String product = <span class="string">"Dysmsapi"</span>;<span class="comment">//短信API产品名称（短信产品名固定，无需修改）</span></span><br><span class="line">    	<span class="keyword">final</span> String domain = <span class="string">"dysmsapi.aliyuncs.com"</span>;<span class="comment">//短信API产品域名（接口地址固定，无需修改）</span></span><br><span class="line">    	<span class="comment">//替换成你的AK</span></span><br><span class="line">    	<span class="keyword">final</span> String accessKeyId = <span class="string">"XXXX"</span>;<span class="comment">//你的accessKeyId</span></span><br><span class="line">    	<span class="keyword">final</span> String accessKeySecret = <span class="string">"XXXX"</span>;<span class="comment">//你的accessKeySecret</span></span><br><span class="line">    	<span class="comment">//初始化ascClient,暂时不支持多region（请勿修改）</span></span><br><span class="line">    	IClientProfile profile = DefaultProfile.getProfile(<span class="string">"cn-hangzhou"</span>, accessKeyId,</span><br><span class="line">    	accessKeySecret);</span><br><span class="line">    	DefaultProfile.addEndpoint(<span class="string">"cn-hangzhou"</span>, <span class="string">"cn-hangzhou"</span>, product, domain);</span><br><span class="line">    	IAcsClient acsClient = <span class="keyword">new</span> DefaultAcsClient(profile);</span><br><span class="line">    	 <span class="comment">//组装请求对象</span></span><br><span class="line">    	 SendSmsRequest request = <span class="keyword">new</span> SendSmsRequest();</span><br><span class="line">    	 <span class="comment">//使用post提交</span></span><br><span class="line">    	 request.setMethod(MethodType.POST);</span><br><span class="line">    	 <span class="comment">//必填:待发送手机号。支持以逗号分隔的形式进行批量调用，批量上限为1000个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式；发送国际/港澳台消息时，接收号码格式为00+国际区号+号码，如“0085200000000”</span></span><br><span class="line">    	 request.setPhoneNumbers(<span class="string">"XXXX"</span>);</span><br><span class="line">    	 <span class="comment">//必填:短信签名-可在短信控制台中找到</span></span><br><span class="line">    	 request.setSignName(<span class="string">"XXXX"</span>);</span><br><span class="line">    	 <span class="comment">//必填:短信模板-可在短信控制台中找到</span></span><br><span class="line">    	 request.setTemplateCode(<span class="string">"XXXXX"</span>);</span><br><span class="line">    	 <span class="comment">//可选:模板中的变量替换JSON串,如模板内容为"亲爱的$&#123;name&#125;,您的验证码为$&#123;code&#125;"时,此处的值为</span></span><br><span class="line">    	 <span class="comment">//友情提示:如果JSON中需要带换行符,请参照标准的JSON协议对换行符的要求,比如短信内容中包含\r\n的情况在JSON中需要表示成\\r\\n,否则会导致JSON在服务端解析失败</span></span><br><span class="line">    	 request.setTemplateParam(<span class="string">"&#123;\"code\":\""</span>+code+<span class="string">"\"&#125;"</span>);</span><br><span class="line">    	 <span class="comment">//可选-上行短信扩展码(扩展码字段控制在7位或以下，无特殊需求用户请忽略此字段)</span></span><br><span class="line">    	 <span class="comment">//request.setSmsUpExtendCode("90997");</span></span><br><span class="line">    	 <span class="comment">//可选:outId为提供给业务方扩展字段,最终在短信回执消息中将此值带回给调用者</span></span><br><span class="line">    	 request.setOutId(<span class="string">"yourOutId"</span>);</span><br><span class="line">    	<span class="comment">//请求失败这里会抛ClientException异常</span></span><br><span class="line">    	SendSmsResponse sendSmsResponse = acsClient.getAcsResponse(request);</span><br><span class="line">    	<span class="keyword">if</span>(sendSmsResponse.getCode() != <span class="keyword">null</span> &amp;&amp; sendSmsResponse.getCode().equals(<span class="string">"OK"</span>)) &#123;</span><br><span class="line">    	<span class="comment">//请求成功</span></span><br><span class="line">    		System.out.println(<span class="string">"请求成功，验证码是"</span> + code);</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> code;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p>####说明</p>
-<p>由于阿里云只是负责发送给用户手机，不会返回验证码给后台，所以我们需要先用java后台生成短信验证码，可以使用Math类里面的random()生成6个0到10之间的随机整数拼接为一个验证码，这个我也为你写好啦</p>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>由于阿里云只是负责发送给用户手机，不会返回验证码给后台，所以我们需要先用java后台生成短信验证码，可以使用Math类里面的random()生成6个0到10之间的随机整数拼接为一个验证码，这个我也为你写好啦</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//生成验证码</span></span><br><span class="line">    	String code = <span class="string">""</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">    		code = code + (<span class="keyword">int</span>)(Math.random()*<span class="number">10</span>);</span><br><span class="line">    	&#125;</span><br></pre></td></tr></table></figure>
 <p>由于后台很多servlet需要用到短信服务，我建议你将以上代码封装为一个静态方法，以后就可以多次调用了哦！</p>
+<p>同一个签名对同一个手机号发送验证码是有限制的，5分钟以内3条，1个小时以内5条，24个小时以内10条，这个时间间隔是以发送上限条数的时间点为准的。</p>
 
       
     </div>
@@ -585,6 +585,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="javascript_start.html" rel="prev" title="js函数深入研究">
+                js函数深入研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -669,7 +673,7 @@
               
                 <a href="http://ganmyds.cn/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +684,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -691,7 +695,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -735,7 +739,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#短信签名和短信模版"><span class="nav-number">2.</span> <span class="nav-text">短信签名和短信模版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#云服务器密钥"><span class="nav-number">3.</span> <span class="nav-text">云服务器密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tomcat以及servlet环境"><span class="nav-number">4.</span> <span class="nav-text">tomcat以及servlet环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#短信功能jar包"><span class="nav-number">5.</span> <span class="nav-text">短信功能jar包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#短信签名和短信模版"><span class="nav-number">2.</span> <span class="nav-text">短信签名和短信模版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#云服务器密钥"><span class="nav-number">3.</span> <span class="nav-text">云服务器密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tomcat以及servlet环境"><span class="nav-number">4.</span> <span class="nav-text">tomcat以及servlet环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#短信功能jar包"><span class="nav-number">5.</span> <span class="nav-text">短信功能jar包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">6.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
 
           </div>

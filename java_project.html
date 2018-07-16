@@ -109,7 +109,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro02.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_03.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_04.png">
-<meta property="og:updated_time" content="2018-06-28T01:18:01.069Z">
+<meta property="og:updated_time" content="2018-07-08T08:53:56.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java小项目经验">
 <meta name="twitter:description" content="记录做java项目踩过的小坑">
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  478
+                  1,183
                 </span>
               
 
@@ -422,7 +422,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  4分钟
                 </span>
               
             </div>
@@ -473,6 +473,29 @@
 <p>思路是在getConnection()里面增加两个设置编码的参数，useUnicode和characterEncoding</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn = DriverManager.getConnection(<span class="string">"jdbc:mysql://localhost:3306/users?useUnicode=true&amp;characterEncoding=utf8"</span>);</span><br></pre></td></tr></table></figure>
 <p>但是网上很多答案都把characterEncoding=utf8写成了characterEncoding=utf-8，搞了我好久，这里特别强调一下。</p>
+<h4 id="网站速度慢"><a href="#网站速度慢" class="headerlink" title="网站速度慢"></a>网站速度慢</h4><p>在网站注册功能，登录功能和个人主页功能完成的时候，我发现了一个问题，网站速度慢，Google了一下，才发现我的请求全部用的重定向(头疼)，当初建站的时候没注意这一点(伤心)</p>
+<p>这里说明一下请求重定向和请求转发的区别，比如说从a.servlet到b.servlet</p>
+<p>重定向走的路： 浏览器-&gt;a.servlet-&gt;浏览器-&gt;b.servlet</p>
+<p>转发走的路：浏览器 -&gt; a.servlet -&gt; b.servlet</p>
+<p>重定向明显走的路多一点，这还只是一个流程，如果有多个流程，那速度简直是天差地别啦</p>
+<p>下面总结一下重定向和转发的特点：</p>
+<h5 id="请求转发："><a href="#请求转发：" class="headerlink" title="请求转发："></a>请求转发：</h5><p>请求转发的过程全部会在服务器完成，经过多个servlet流程浏览器也看不到，明显比较安全，而且每次转发都会把当前request和response域对象传过去，所有流程都是用的同一个request和response对象，数据好取，而且由于不用通知客户端，速度明显快很多，就是不能请求外部服务器。</p>
+<h5 id="请求重定向："><a href="#请求重定向：" class="headerlink" title="请求重定向："></a>请求重定向：</h5><p>除了可以请求外部服务器没啥优点，由于我的站点不用请求别的服务器，这一点跟没有一样，可以说被请求转发全方面碾压。</p>
+<p>最后我还是绝对把所有请求改为转发，真是心酸！！！</p>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>改了请求方式后在jsp要指定meta的href的值，不然会找不到样式，因为请求转发不会通知浏览器地址改变，也就是说浏览器用的地址一直都是第一个servlet的地址，下面是解决方法：</p>
+<p>步骤一：在jsp上面加上这两句话</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String path = request.getContextPath();</span><br><span class="line">String basePath = request.getScheme()+<span class="string">"://"</span>+request.getServerName()+<span class="string">":"</span>+request.getServerPort()+path+<span class="string">"/"</span>;</span><br></pre></td></tr></table></figure>
+<p>步骤二： 在jsp的head标签里面要加<code>&lt;base href=&quot;&lt;%=basePath%&gt;&quot;&gt;</code>标签</p>
+<p>request.getScheme()表示站点使用协议</p>
+<p>request.getServerName()表示站点主机，本地就是localhost</p>
+<p>request.getServerPort()表示站点端口号</p>
+<p>request.getContextPath()表示站点项目名称</p>
+<p>最后的basePath是一个完整的url，比如我的url是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/servletPro/</span><br></pre></td></tr></table></figure>
+<p>然后将href指定为这个地址，以后写相对路径就是相对这个地址来的</p>
+<h5 id="java流换行问题"><a href="#java流换行问题" class="headerlink" title="java流换行问题"></a>java流换行问题</h5><p>使用java流操作文件的时候，发现缓冲字符流BufferedWriter里面有一个方法readLine()可以一行一行的读取数据，相比FileWriter一个字符一个字符的读取快了很多，但是不会读取换行符号，需要我们手动添加换行符，由于在不同的操作系统上换行符不同：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mac:     \r     </span><br><span class="line">linux:    \n</span><br><span class="line">window:    \r\n</span><br></pre></td></tr></table></figure>
+<p>可以使用java里面的System.getProperty(“line.separator”)自动获取空格来解决这个问题</p>
 
       
     </div>
@@ -658,7 +681,7 @@
               
                 <a href="http://ganmyds.cn/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -669,7 +692,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -680,7 +703,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -724,7 +747,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#中文乱码"><span class="nav-number">1.</span> <span class="nav-text">中文乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#导入html文件乱码"><span class="nav-number">1.1.</span> <span class="nav-text">导入html文件乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#myeclipse打开html文件缓慢"><span class="nav-number">1.2.</span> <span class="nav-text">myeclipse打开html文件缓慢</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JDBC插入数据"><span class="nav-number">1.3.</span> <span class="nav-text">JDBC插入数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#报错"><span class="nav-number">1.4.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库乱码"><span class="nav-number">1.5.</span> <span class="nav-text">数据库乱码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#中文乱码"><span class="nav-number">1.</span> <span class="nav-text">中文乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#导入html文件乱码"><span class="nav-number">1.1.</span> <span class="nav-text">导入html文件乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#myeclipse打开html文件缓慢"><span class="nav-number">1.2.</span> <span class="nav-text">myeclipse打开html文件缓慢</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JDBC插入数据"><span class="nav-number">1.3.</span> <span class="nav-text">JDBC插入数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#报错"><span class="nav-number">1.4.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库乱码"><span class="nav-number">1.5.</span> <span class="nav-text">数据库乱码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站速度慢"><span class="nav-number">2.</span> <span class="nav-text">网站速度慢</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#请求转发："><span class="nav-number">2.1.</span> <span class="nav-text">请求转发：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请求重定向："><span class="nav-number">2.2.</span> <span class="nav-text">请求重定向：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意："><span class="nav-number">2.3.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java流换行问题"><span class="nav-number">2.4.</span> <span class="nav-text">java流换行问题</span></a></li></ol></li></ol></div>
             
 
           </div>

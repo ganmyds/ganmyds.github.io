@@ -8,6 +8,7 @@
 	float: none;
 	margin-left: 0;
 }
+
 .main{
 	width: 100%;
 	margin: 0;
@@ -19,27 +20,32 @@
 }
 .side-bar .nav,
 .side-bar .tag-list{
-     text-align: center;
      display: none;
+     position: fixed;
+     text-align: center;
+}
+.side-bar .nav{
+	top: 50px;
+	right: 10px;
+}
+.side-bar .tag-list{
+	top: 150px;
+	right: 20px;
 }
 #menu-checkbox:checked ~ .nav,
 #menu-checkbox:checked ~ .tag-list{
-	display:inline-block;
+	display:block;
 }
 #menu-toggle{
 	display: block;
-	position: absolute;
+	position: fixed;
 	top: 10px;
 	right: 10px;
 	font-size: 18px;
 	font-weight: 100;
 	color: rgba(255,255,255,.7)
 }
-.side-bar .item,
-.side-bar .no-item{
-	margin-left: 10px;
-	display: inline-block;
-}
+
 #item{
 	margin-left: 0px;
 }

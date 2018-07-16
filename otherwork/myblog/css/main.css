@@ -40,6 +40,7 @@ a{
   float: right;
   width: 78%;
   color: #454545;
+  padding-top: 10px;
 }
 .header .logo{
 	line-height: 1;

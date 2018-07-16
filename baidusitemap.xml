@@ -4,8 +4,48 @@
 
     
   <url>
+    <loc>http://ganmyds.cn/javascript_start.html</loc>
+    <lastmod>2018-07-16T06:36:52.042Z</lastmod>
+    <data>
+        <display>
+        <title>js函数深入研究</title>
+        <pubTime>2018-07-16T13:54:00.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://ganmyds.cn/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ganmyds.cn/java_project.html</loc>
+    <lastmod>2018-07-08T08:53:56.632Z</lastmod>
+    <data>
+        <display>
+        <title>java小项目经验</title>
+        <pubTime>2018-06-23T13:54:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ganmyds.cn/java_yzm.html</loc>
-    <lastmod>2018-07-02T06:57:30.418Z</lastmod>
+    <lastmod>2018-07-06T08:57:04.462Z</lastmod>
     <data>
         <display>
         <title>java发送手机短信认证码</title>
@@ -37,26 +77,6 @@
            
              
               <breadCrumb title="mysql" url="http://ganmyds.cn/categories/mysql/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ganmyds.cn/java_project.html</loc>
-    <lastmod>2018-06-28T01:18:01.069Z</lastmod>
-    <data>
-        <display>
-        <title>java小项目经验</title>
-        <pubTime>2018-06-23T13:54:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
           
         </display>
     </data>

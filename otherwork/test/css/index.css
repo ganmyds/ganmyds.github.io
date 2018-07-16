@@ -1,0 +1,145 @@
+body{
+    font-size: 14px;
+    font-family: Avenir, Helvetica, Hiragino Sans GB, Microsoft JHengHei, Microsoft Sans Serif, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
+    line-height: 1.7;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: #666;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearf:after,
+.clearf:before{
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.col-1,
+.col-2,
+.col-2-5,
+.col-3,
+.col-3-5,
+.col-4,
+.col-4-5,
+.col-5,
+.col-6,
+.col-6-5,
+.col-7,
+.col-8,
+.col-9{
+    display: block;
+    min-height: 1px;
+    float: left;
+}
+
+.col-1{
+    width: 10%
+}
+
+.col-2{
+    width: 20%
+}
+.col-2-5{
+  width: 25%;
+}
+.col-3{
+    width: 30%
+}
+
+.col-3-5{
+  width: 35%;
+}
+.col-4{
+    width: 40%
+}
+.col-4-5{
+  width: 45%;
+}
+.col-5{
+    width: 50%
+}
+
+.col-6{
+    width: 60%
+}
+.col-6-5{
+  width: 65%;
+}
+.col-7{
+    width: 70%
+}
+
+.col-8{
+    width: 80%
+}
+
+.col-9{
+    width: 90%
+}
+
+.main{
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.navication{
+    background-color: #eee;
+}
+
+.home_page{
+    display: inline-block;
+    padding: 5px 0;
+    margin-left: 5px;
+}
+
+.nav_item{
+    display: inline-block;
+    padding: 5px 0;
+    margin-right: 20px;
+}
+
+.white{
+    background-color: #ffffff;
+}
+
+.logo{
+    font-size: 35px;
+    color: #dd182b;
+    padding: 20px 0;
+    letter-spacing: 2px;
+}
+
+.search{
+    width: 70%;
+    background-color: #ff00ff;
+}
+
+.search_input,
+.sea_but{
+    border: none;
+    display: inline-block;
+}
+
+.sea_but{
+    background-color: #dd182b;
+    color: #ffffff;
+    width: 30%;
+    padding: 0;
+}
+
+.search_input{
+    width: 70%;
+    padding: 0;
+}
+
+.aaaa{
+    padding: 5px 10px;
+    background-color: #dd182b;
+}
