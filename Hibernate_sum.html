@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hibernate," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="详细介绍hibernate框架的配置和使用">
+<meta name="keywords" content="hibernate">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hibernate框架配置详解">
+<meta property="og:url" content="http://ganmyds.cn/Hibernate_sum.html">
+<meta property="og:site_name" content="小小程序员">
+<meta property="og:description" content="详细介绍hibernate框架的配置和使用">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_08.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_00.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_02.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_03.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_04.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_05.png">
+<meta property="og:image" content="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hibernate_06.jpg?raw=true">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_07.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_09.jpg">
+<meta property="og:updated_time" content="2018-09-15T05:58:05.070Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hibernate框架配置详解">
+<meta name="twitter:description" content="详细介绍hibernate框架的配置和使用">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_08.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ganmyds.cn/Hibernate_sum.html"/>
+
+
+
+
+
+  <title>hibernate框架配置详解 | 小小程序员</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/ganmyds" class="github-corner" aria-label="View source on Github"><svg width="100" height="100" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小小程序员</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习过程中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="http://ganmyds.cn/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="http://ganmyds.cn/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="http://ganmyds.cn/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="http://ganmyds.cn/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            站内搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ganmyds.cn">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="甘明阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小程序员">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">hibernate框架配置详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-28T16:54:00+08:00">
+                2018-08-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="Hibernate_sum.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,515
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15分钟
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  详细介绍hibernate框架的配置和使用
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>hibernate主要封装java里面jdbc这部分，是jdbc代码的轻量级的对象封装，使用hibernate有很多好处：</p>
+<p>1、降低了代码的耦合性，程序员只需要专注业务代码即可</p>
+<p>2、换了数据库只需要改动配置文件即可</p>
+<p>3、大大提高程序员的开发效率</p>
+<p>4、支持分布式架构</p>
+<p>hibernate核心思想是ORM(object relation mapping)，官方推荐先写domain层，再写配置文件，最后生成数据库，但是实际上都是先设计好数据库，然后写配置文件，最后再写domain层，这里也是按照实际顺序配的</p>
+<p>数据库代码(使用的是mysql数据库，以employee为例):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `employee` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `name` varchar(64) NOT NULL,</span><br><span class="line">  `email` varchar(64) NOT NULL,</span><br><span class="line">  `hiredate` date NOT NULL,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+<p>我们在这张表里面设计了4列，分别是主键id（int类型），name（varchar类型），email（varchar类型），hiredate（date类型），那么我们的domain类的结构也要设计成一样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.doman;</span><br><span class="line"><span class="comment">//这个pojo对象应当按照规范序列号，目的是可以唯一标识该对象,同时可以在网络和文件上传输</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> <span class="keyword">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//添加序列版本号</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> String email;</span><br><span class="line">	<span class="keyword">private</span> java.util.Date hiredate;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> email;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.email = email;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> java.util.<span class="function">Date <span class="title">getHiredate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> hiredate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHiredate</span><span class="params">(java.util.Date hiredate)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.hiredate = hiredate;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来是hibernate与数据库的连接配置文件hibernate.cfg.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></span><br><span class="line"><span class="meta">	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"</span></span><br><span class="line"><span class="meta">	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 配置使用的Driver --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.driver_class"</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 连接数据库的，设置编码为utf-8 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.url"</span>&gt;</span></span><br><span class="line">            &lt;![CDATA[jdbc:mysql://localhost:3306/users?useUnicode=true&amp;characterEncoding=utf8]]&gt;</span><br><span class="line">       <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 用户名 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.username"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 密码 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"connection.password"</span>&gt;</span>root<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 配置dialect 方言  告诉hibernate使用的mysql数据库--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dialect"</span>&gt;</span>org.hibernate.dialect.MySQLDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 显示出对应的sql语句 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 优化sql语句格式，会自动换行，方便程序员阅读 --&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--create表示mysql如果没有该表则创建，如果有就先删掉再创建,update如果表结构没有改变则会不会删表</span></span><br><span class="line"><span class="comment">         就是没有添加新记录就不会创建--&gt;</span></span><br><span class="line">       <span class="comment">&lt;!--&lt;property name="hbm2ddl.auto"&gt;create&lt;/property&gt;--&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- 加载关系对象映射文件 com/ganmy/doman/指的是这个文件所在的包--&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"com/ganmy/doman/Employee.hbm.xml"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后是对象关系映射文件，mvc模型的设计理念是一张表对应一个类，表里面一行对应一个对象，hibernate也是这样设计的，实现对象与数据库表的映射关系的核心文件是类名.hbm.xml，一般这个类名和表名一样，只是首字母大写，我们的表名是employee，那么对应的文件就是Employee.hbm.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="comment">&lt;!--该文件要清楚地表述出 类 和 表 的对应关系--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC</span></span><br><span class="line"><span class="meta">	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></span><br><span class="line"><span class="meta">	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span> <span class="attr">package</span>=<span class="string">"com.ganmy.doman"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"Employee"</span> <span class="attr">table</span>=<span class="string">"employee"</span>&gt;</span></span><br><span class="line">	    <span class="comment">&lt;!-- id元素用于指定主键属性 --&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"java.lang.Integer"</span>&gt;</span></span><br><span class="line">	        <span class="comment">&lt;!-- generator用于指定主键值生成的策略  使用increment自增长策略--&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">	    <span class="comment">&lt;!-- 除了主键的其他属性 property里面的name表示类的属性名，type表示这个属性的类型</span></span><br><span class="line"><span class="comment">         ， column里面的name表示表对应的一列，一般设计的时候数据库的结构和类的属性设计一样--&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">not-null</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">not-null</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hiredate"</span> <span class="attr">type</span>=<span class="string">"java.util.Date"</span>&gt;</span></span><br><span class="line">	        <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"hiredate"</span> <span class="attr">not-null</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最后是我们的调用，主要是main方法的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//将configuration configuration主要用来读取配置文件 默认找hibernate.cfg.xml文件 完成初始化</span></span><br><span class="line">	Configuration configuration = <span class="keyword">new</span> Configuration().configure();</span><br><span class="line">	<span class="comment">//创建sessionfactory 是一个重量级的接口</span></span><br><span class="line">	SessionFactory sessionFactory = configuration.buildSessionFactory();</span><br><span class="line">	<span class="comment">//创建一个和数据库的会话</span></span><br><span class="line">	Session session = sessionFactory.openSession();</span><br><span class="line">	<span class="comment">//对于hibernate而言，做增删改的时候要使用事务提交</span></span><br><span class="line">	Transaction transaction = session.beginTransaction();</span><br><span class="line">	<span class="comment">//创建一个雇员对象</span></span><br><span class="line">	Employee employee = <span class="keyword">new</span> Employee();</span><br><span class="line">	employee.setName(<span class="string">"zhangsan"</span>);</span><br><span class="line">	employee.setEmail(<span class="string">"1556254@123.com"</span>);</span><br><span class="line">	employee.setHiredate(<span class="keyword">new</span> Date());</span><br><span class="line">	<span class="comment">//保存</span></span><br><span class="line">	session.save(employee);</span><br><span class="line">	<span class="comment">//提交事务</span></span><br><span class="line">	transaction.commit();</span><br><span class="line">	session.clear();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里说明一下：</p>
+<p>1、sessionFactory是一个重量级的接口，会占用很多内存，我们要保证一个数据库只对应一个sessionFactory</p>
+<p>2、session指的是代码和数据库之间的会话，不是我们javaweb里面的session</p>
+<p>3、hibernate设计者设计在对表进行增删改操作的时候要使用事务提交，如果不使用事务提交将无法生效，也不报错，下面是具体的优化，由于sessionFactory是一个重量级的接口，会占用很多内存，我们要保证一个数据库只对应一个sessionFactory，使用静态代码块和单例模式来加载sessionFactory的创建，将sessionFactory封装到一个类里面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySessionFactory</span> </span>&#123;</span><br><span class="line">	<span class="comment">//一个sessionFactory对应一个数据库，sessionFactory是一个接口</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SessionFactory sessionFactory=<span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">MySessionFactory</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		sessionFactory = <span class="keyword">new</span> Configuration().configure().buildSessionFactory();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SessionFactory <span class="title">getSessionFactory</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sessionFactory;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	updateEmployee_roll();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 使用回滚的事务提交    </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">updateEmployee_roll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//修改用户</span></span><br><span class="line">	<span class="comment">//获取会话</span></span><br><span class="line">	Session session = MySessionFactory.getSessionFactory().openSession();</span><br><span class="line">	Transaction ts = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span>&#123;</span><br><span class="line">		ts = session.beginTransaction();</span><br><span class="line">		<span class="comment">//获取要修改的用户，然后修改,可以通过主键属性获取该对象实例，和表的记录对应</span></span><br><span class="line">		Employee emp=(Employee)session.load(Employee.class, <span class="number">2</span>);</span><br><span class="line">		emp.setName(<span class="string">"甘明阳11"</span>);</span><br><span class="line">		emp.setEmail(<span class="string">"123@11"</span>);</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">9</span>/<span class="number">0</span>;</span><br><span class="line">		ts.commit();</span><br><span class="line">		session.close();</span><br><span class="line">	   &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">		   <span class="keyword">if</span>(ts != <span class="keyword">null</span>)&#123;</span><br><span class="line">			   ts.rollback();</span><br><span class="line">		   &#125;</span><br><span class="line">		   <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e.getMessage());</span><br><span class="line">	   &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">		   <span class="comment">//关闭session</span></span><br><span class="line">		   <span class="keyword">if</span>(session!=<span class="keyword">null</span>&amp;&amp;session.isOpen())&#123;</span><br><span class="line">			   session.close();</span><br><span class="line">		   &#125;</span><br><span class="line">		   </span><br><span class="line">	   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用事务模版写最安全，即使报错不会提交到数据库，可以保证数据的完整性，而且能快速定位到错误。</p>
+<h5 id="session的获取"><a href="#session的获取" class="headerlink" title="session的获取"></a>session的获取</h5><p>session的获取方式有两种，分别是openSession()和getCurrentSession()，特点：</p>
+<p>1、openSession()是获取一个新的session</p>
+<p>2、getCurrentSession()获取和当前线程绑定的线程，换言之，在同一个线程中，我们获取的session是同一个session，这样可以利于事务的控制</p>
+<p>3、如果希望使用getCurrentSession()，需要配置hibernate.cfg.xml，添加：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//thread代表session可以和当前线程绑定</span><br><span class="line">&lt;property name=<span class="string">"current_session_context_class"</span>&gt;thread&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>根据实际应用选择使用那个session，如果在同一个线程中，保证要使用同一个session就使用getCurrentSession()，如果在一个线程中要使用不同的session就使用openSession()</p>
+<p>4、通过getCurrentSession()获取的session在事务提交以后会自动关闭，通过openSession()获取的session必须手动关闭</p>
+<p>5、如果是通过getCurrentSession()获取的session在进行查询的时候也要以事务的方式提交，而且在commit以后，对象获取属性会报错could not initialize proxy - no Session，要在commit之前获取属性</p>
+<h5 id="全局事务和本地事务"><a href="#全局事务和本地事务" class="headerlink" title="全局事务和本地事务"></a>全局事务和本地事务</h5><p>假如我们使用的数据库只有一个，那么控制这个数据库的事务就是本地事务，假如我们连接多个数据库，比如银行的转账系统，从工行转账到农行，那么控制这个跨数据库的事务就被成为全局事务(jta)，全局事务的价值更高</p>
+<h5 id="session获取对象的两种方法"><a href="#session获取对象的两种方法" class="headerlink" title="session获取对象的两种方法"></a>session获取对象的两种方法</h5><p>session获取对象的两种方法分别是get()和load()，他们的区别是：</p>
+<p>1、查询没有的数据返回不同，例如一个表只有10行数据，我们去第100行的数据，那么使用get()会返回null，而使用load()会报错ObjectNotFoundExpcetion</p>
+<p>2、使用get查询数据会先到session缓存去查然后去二级缓存去查，如果没有立即向数据库发出sql语句，查询到了不会发sql语句。</p>
+<p>使用load()去查询，也是先到session缓存去查然后去二级缓存去查，如果没有找到就返回一个代理对象，不会立即向数据库去查，等到后面使用这个代理对象操作的时候，才到DB中去查，这个现象我们称为lazy load(懒加载)，如果用户后来真的要用到这个对象，那么load()回到数据库去查，然后把查询的的结果存放到二级缓存里面，下一次再用这个sql语句去查询还是按照一级缓存、二级缓存的顺序去找，这个时候二级缓存已经有这个数据就不会到数据库去查了，如果二级缓存的命中率很高就会将这个结果放到一级缓存里面。</p>
+<p>3、通过修改配置文件可以取消懒加载，在<code>*</code>.hbm.xml里面的class标签添加一个属性laze=”false”就行了</p>
+<p>4、如果确定数据库一定有这个对象就使用load()，效率比较高，如果不确定就使用get()，防止报错</p>
+<h5 id="一级缓存和二级缓存"><a href="#一级缓存和二级缓存" class="headerlink" title="一级缓存和二级缓存"></a>一级缓存和二级缓存</h5><p>一级缓存就是sessionfactory的缓存，又叫session级缓存，二级缓存是介于文件和内存之间的缓存，一级缓存不需要配置就可以用，二级缓存需要配置启用才能用，缓存的机制可以减少对数据库的频繁访问，由于hibernate的缓存机制实现的很好，使用hibernate可以优化对数据库查询的次数</p>
+<h5 id="线程局部变量模式"><a href="#线程局部变量模式" class="headerlink" title="线程局部变量模式"></a>线程局部变量模式</h5><p>一般我们的变量范围是一个函数域，但是其实变量是可以和一个线程绑定的，这就是线程局部变量模式，还是以session为例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.util;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.Session;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.cfg.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HibernateUtil</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SessionFactory sessionFactory = <span class="keyword">null</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//threadLocal是本地线程</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Session&gt; threadLocal = <span class="keyword">new</span> ThreadLocal&lt;Session&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//将构造方法私有化</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">HibernateUtil</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		sessionFactory = <span class="keyword">new</span> Configuration().configure().buildSessionFactory();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//获取全新的session</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">OpenSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sessionFactory.openSession();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//获取与当前线程绑定的session</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Session <span class="title">getCurrentSession</span><span class="params">()</span></span>&#123;</span><br><span class="line">		Session session = threadLocal.get();</span><br><span class="line">		<span class="keyword">if</span>(session == <span class="keyword">null</span>)&#123;</span><br><span class="line">			session = sessionFactory.openSession();</span><br><span class="line">			threadLocal.set(session);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> session;</span><br><span class="line">	&#125;		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>将session放到本地线程threadLocal里面，以后可以直接从threadLocal获取，这样写就不需要配置thread了。</p>
+<h5 id="Query接口"><a href="#Query接口" class="headerlink" title="Query接口"></a>Query接口</h5><p>在hibernate里面的查询使用hql语句，使用hibernate我们只需要写hql语句查询，不需要分数据库，因为hibernate会根据不同的数据库将hql语句翻译成对应的sql语句，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Session session = HibernateUtil.getCurrentSession();</span><br><span class="line">		Transaction ts = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			ts = session.beginTransaction();</span><br><span class="line">            <span class="comment">//使用hql语句查询，Employee表示对应的domain对象，id表示domain里面的id属性，不是数据库表里面的列名称</span></span><br><span class="line">            <span class="comment">//where后面的条件可以是类的属性名，也可以是表的字段，最好使用类的属性名称</span></span><br><span class="line">			Query query = session.createQuery(<span class="string">"from Employee where id = 100"</span>);</span><br><span class="line">			<span class="comment">//通过list方法获取结果，这个list会自动通过反射机制封装成对应的domain对象，不需要进行二次封装</span></span><br><span class="line">			List&lt;Employee&gt; list = query.list();</span><br><span class="line">			<span class="keyword">for</span>(Employee e:list)&#123;</span><br><span class="line">				System.out.println(e.getName()+e.getEmail());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			<span class="keyword">if</span>(ts != <span class="keyword">null</span>)&#123;</span><br><span class="line">                ts.rollback();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="使用逆向工程生成配置文件"><a href="#使用逆向工程生成配置文件" class="headerlink" title="使用逆向工程生成配置文件"></a>使用逆向工程生成配置文件</h5><p>一、使用数据库浏览器连接数据库</p>
+<p>1、创建数据库表</p>
+<p>2、创建java项目</p>
+<p>3、通过myeclipse的数据库浏览器连接到mysql数据库</p>
+<p>打开数据库浏览器 -&gt;windows -&gt; open persective -&gt; Myeclipse Database Explorer-&gt;在DB Brower点击右键-&gt;</p>
+<p>选择new，创建数据库浏览器连接，然后再到项目，右键 -&gt;myeclipse -&gt; Add Hibernate Annotations</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_08.jpg" alt="535521275"></p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_00.png" alt="Q图片2018082716190"></p>
+<p>点击Test Driver弹框success表示连接成功</p>
+<p>然后在打开右边的项目，找到table，右键，Edit data就可以了</p>
+<p>注意mysql5.6的版本不能用5.0的jar包连接，会报错，要用支持5.6的jar包需要使用5.1.25版本的驱动，而且貌似数据库浏览器好像有缓存的样子，我换了一个高版本的jar包还是报错，然后我以为是jar版本不对，陆陆续续在网上找了很多版本的jar包，但是无一例外全部报错，我真的被搞的头都大了，搞了一天没找到原因，后来我思路一转，是不是数据库的问题不是jar包的问题呢，连接我云服务器的mysql，结果可以，然后再连接本地的mysql也都可以了，真的是一脸懵逼的解决了问题。</p>
+<p>二、引入hibernate开发包</p>
+<p>项目右键-&gt;myeclipse-&gt;add hibernate capabilities，按照如图所示填写</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_02.png" alt="Q图片2018082811070"></p>
+<p>点击Next</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_03.png" alt="Q图片2018082811115"></p>
+<p>点击Next</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_04.png" alt="Q图片2018082811161"></p>
+<p>点击Next</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_05.png" alt="Q图片2018082811193"></p>
+<p>如果希望把hibernate开发包升级，我们可以重新引入包，到文件路径把自动引入的jar包删掉，然后将我们自己的jar包引入</p>
+<p>然后我们到数据库浏览器这一边，右键点击表，选择hibernate reverse engineering<img src="https://github.com/ganmyxh/ganmyxh.io/blob/master/img/hibernate_06.jpg?raw=true" alt="Q图片2018082811425"></p>
+<p>点击browse选择包，将domian对象所在的包引入，下一步</p>
+<p>、<img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_07.png" alt="Q图片2018082813325"></p>
+<p>下一步</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/hibernate_09.jpg" alt="535522887(1"></p>
+<p>然后下一步下一步点finally就可以了</p>
+<p>最后：感觉hibernate真的大大提高了程序员的效率，不用写jdbc代码了，是一个值得学习的框架</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/wechatpay.jpg" alt="甘明阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/alipay.jpg" alt="甘明阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    甘明阳
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://ganmyds.cn/Hibernate_sum.html" title="hibernate框架配置详解">http://ganmyds.cn/Hibernate_sum.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="" rel="external nofollow" target="_blank">CC 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <div>
+        
+            <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="tags/hibernate/" rel="tag"># hibernate</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="radio_sum.html" rel="next" title="使用jquery做图形单选框">
+                <i class="fa fa-chevron-left"></i> 使用jquery做图形单选框
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="hibernate_hql.html" rel="prev" title="hibernate里的HQL使用详解">
+                hibernate里的HQL使用详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/head.jpg"
+                alt="甘明阳" />
+            
+              <p class="site-author-name" itemprop="name">甘明阳</p>
+              <p class="site-description motion-element" itemprop="description">技术与生活，与我融为一体</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="http://ganmyds.cn/archives/">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="tags/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ganmyds/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#session的获取"><span class="nav-number">1.</span> <span class="nav-text">session的获取</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全局事务和本地事务"><span class="nav-number">2.</span> <span class="nav-text">全局事务和本地事务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#session获取对象的两种方法"><span class="nav-number">3.</span> <span class="nav-text">session获取对象的两种方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一级缓存和二级缓存"><span class="nav-number">4.</span> <span class="nav-text">一级缓存和二级缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程局部变量模式"><span class="nav-number">5.</span> <span class="nav-text">线程局部变量模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Query接口"><span class="nav-number">6.</span> <span class="nav-text">Query接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用逆向工程生成配置文件"><span class="nav-number">7.</span> <span class="nav-text">使用逆向工程生成配置文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  <span class="author" itemprop="copyrightHolder">鄂ICP备18010523号-1</span>
+  
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytD8ivSl';
+      var conf = 'f4765bfd2f697859b8d9d87636e5a2e4';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"haruto","mobileShow":false,"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="http://7u2ss1.com1.z0.glb.clouddn.com/love.js"></script>
+</html>

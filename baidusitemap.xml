@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://ganmyds.cn/hibernate_hql.html</loc>
+    <lastmod>2018-09-15T06:05:54.535Z</lastmod>
+    <data>
+        <display>
+        <title>hibernate里的HQL使用详解</title>
+        <pubTime>2018-09-05T08:54:00.000Z</pubTime>
+        
+        <tag>hibernate</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ganmyds.cn/Hibernate_sum.html</loc>
+    <lastmod>2018-09-15T05:58:05.070Z</lastmod>
+    <data>
+        <display>
+        <title>hibernate框架配置详解</title>
+        <pubTime>2018-08-28T08:54:00.000Z</pubTime>
+        
+        <tag>hibernate</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ganmyds.cn/java_project.html</loc>
+    <lastmod>2018-08-23T02:32:30.886Z</lastmod>
+    <data>
+        <display>
+        <title>记录建站遇到的各种问题</title>
+        <pubTime>2018-06-23T01:54:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ganmyds.cn/radio_sum.html</loc>
     <lastmod>2018-08-22T05:49:11.859Z</lastmod>
     <data>
@@ -41,26 +101,6 @@
            
              
               <breadCrumb title="js" url="http://ganmyds.cn/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ganmyds.cn/java_project.html</loc>
-    <lastmod>2018-07-08T08:53:56.632Z</lastmod>
-    <data>
-        <display>
-        <title>java小项目经验</title>
-        <pubTime>2018-06-23T13:54:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="http://ganmyds.cn/categories/java/"/>
           
         </display>
     </data>

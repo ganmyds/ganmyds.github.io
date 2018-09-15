@@ -28,4 +28,4 @@ function pageScroll() {
     if (document.body.scrollTop == 0) {
         clearTimeout(scrolldelay);
     }
-};
+}

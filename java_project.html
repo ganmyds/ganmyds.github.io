@@ -97,22 +97,22 @@
 
 
 
-<meta name="description" content="记录做java项目踩过的小坑">
+<meta name="description" content="各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java小项目经验">
+<meta property="og:title" content="记录建站遇到的各种问题">
 <meta property="og:url" content="http://ganmyds.cn/java_project.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="记录做java项目踩过的小坑">
+<meta property="og:description" content="各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_01.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro02.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_03.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_04.png">
-<meta property="og:updated_time" content="2018-07-08T08:53:56.632Z">
+<meta property="og:updated_time" content="2018-08-23T02:32:30.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java小项目经验">
-<meta name="twitter:description" content="记录做java项目踩过的小坑">
+<meta name="twitter:title" content="记录建站遇到的各种问题">
+<meta name="twitter:description" content="各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_01.png">
 
 
@@ -149,7 +149,7 @@
 
 
 
-  <title>java小项目经验 | 小小程序员</title>
+  <title>记录建站遇到的各种问题 | 小小程序员</title>
   
 
 
@@ -329,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java小项目经验</h1>
+          <h1 class="post-title" itemprop="name headline">记录建站遇到的各种问题</h1>
         
 
         <div class="post-meta">
@@ -341,7 +341,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T21:54:00+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T09:54:00+08:00">
                 2018-06-23
               </time>
             
@@ -406,7 +406,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,183
+                  1,187
                 </span>
               
 
@@ -430,7 +430,7 @@
 
           
               <div class="post-description">
-                  记录做java项目踩过的小坑
+                  各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行
               </div>
           
 
@@ -447,8 +447,7 @@
       
 
       
-        <p>这段时间复习java，想通过做项目的方式回忆，结果还真发现了不少坑呢，下面记录一下</p>
-<h4 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h4><h5 id="导入html文件乱码"><a href="#导入html文件乱码" class="headerlink" title="导入html文件乱码"></a>导入html文件乱码</h5><p>用过sublime text3后我就迷上了sublime的快捷键，相比之下用myeclipse写感觉好慢，所以一般前端代码我都是用sublime写完后再导入到myeclipse里面，但是有的时候会有中文乱码的现象，由于myeclipse默认使用GBK的编码，我们需要改为</p>
+        <h4 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h4><h5 id="导入html文件乱码"><a href="#导入html文件乱码" class="headerlink" title="导入html文件乱码"></a>导入html文件乱码</h5><p>用过sublime text3后我就迷上了sublime的快捷键，相比之下用myeclipse写感觉好慢，所以一般前端代码我都是用sublime写完后再导入到myeclipse里面，但是有的时候会有中文乱码的现象，由于myeclipse默认使用GBK的编码，我们需要改为</p>
 <p>utf-8才能正常使用，有两处地方要改</p>
 <p>1、改变servlet项目的编码为utf-8</p>
 <p>右键项目，选择Priperties，搜索Resource，改变编码为utf-8</p>
@@ -480,8 +479,8 @@
 <p>重定向明显走的路多一点，这还只是一个流程，如果有多个流程，那速度简直是天差地别啦</p>
 <p>下面总结一下重定向和转发的特点：</p>
 <h5 id="请求转发："><a href="#请求转发：" class="headerlink" title="请求转发："></a>请求转发：</h5><p>请求转发的过程全部会在服务器完成，经过多个servlet流程浏览器也看不到，明显比较安全，而且每次转发都会把当前request和response域对象传过去，所有流程都是用的同一个request和response对象，数据好取，而且由于不用通知客户端，速度明显快很多，就是不能请求外部服务器。</p>
-<h5 id="请求重定向："><a href="#请求重定向：" class="headerlink" title="请求重定向："></a>请求重定向：</h5><p>除了可以请求外部服务器没啥优点，由于我的站点不用请求别的服务器，这一点跟没有一样，可以说被请求转发全方面碾压。</p>
-<p>最后我还是绝对把所有请求改为转发，真是心酸！！！</p>
+<h5 id="请求重定向："><a href="#请求重定向：" class="headerlink" title="请求重定向："></a>请求重定向：</h5><p>可以请求外部服务器，由于我的站点不用请求别的服务器，这一点跟没有一样，可以说被请求转发全方面碾压。</p>
+<p>浏览器上方url会改变，由于浏览器url改变我们的servlet不会暴露出来，对于服务器安全性有很大的提高，建议后台的最后一个请求使用重定向，前面所有请求用转发</p>
 <h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>改了请求方式后在jsp要指定meta的href的值，不然会找不到样式，因为请求转发不会通知浏览器地址改变，也就是说浏览器用的地址一直都是第一个servlet的地址，下面是解决方法：</p>
 <p>步骤一：在jsp上面加上这两句话</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String path = request.getContextPath();</span><br><span class="line">String basePath = request.getScheme()+<span class="string">"://"</span>+request.getServerName()+<span class="string">":"</span>+request.getServerPort()+path+<span class="string">"/"</span>;</span><br></pre></td></tr></table></figure>
@@ -545,7 +544,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://ganmyds.cn/java_project.html" title="java小项目经验">http://ganmyds.cn/java_project.html</a>
+    <a href="http://ganmyds.cn/java_project.html" title="记录建站遇到的各种问题">http://ganmyds.cn/java_project.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -681,7 +680,7 @@
               
                 <a href="http://ganmyds.cn/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -703,7 +702,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
