@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="spring," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="详细介绍spring关于bean的生命周期、注入等原理">
+<meta name="keywords" content="spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于spring的bean的理解">
+<meta property="og:url" content="http://ganmyds.cn/spring_ioc.html">
+<meta property="og:site_name" content="小小程序员">
+<meta property="og:description" content="详细介绍spring关于bean的生命周期、注入等原理">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_04.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_05.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_03.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_06.png">
+<meta property="og:updated_time" content="2018-10-15T08:23:35.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于spring的bean的理解">
+<meta name="twitter:description" content="详细介绍spring关于bean的生命周期、注入等原理">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_04.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ganmyds.cn/spring_ioc.html"/>
+
+
+
+
+
+  <title>关于spring的bean的理解 | 小小程序员</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/ganmyds" class="github-corner" aria-label="View source on Github"><svg width="100" height="100" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小小程序员</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习过程中的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="http://ganmyds.cn/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="http://ganmyds.cn/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="http://ganmyds.cn/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="http://ganmyds.cn/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            站内搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ganmyds.cn">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="甘明阳">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/head.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小小程序员">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于spring的bean的理解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T16:54:00+08:00">
+                2018-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="spring_ioc.html" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4,802
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23分钟
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  详细介绍spring关于bean的生命周期、注入等原理
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="获取bean的三种方法"><a href="#获取bean的三种方法" class="headerlink" title="获取bean的三种方法"></a>获取bean的三种方法</h5><p>1、从applicationContext(应用上下文容器)中获取bean：</p>
+<p>​    如果bean的配置是singleton(默认值)，那么调用new ClassPathXmlApplicationContext()的时候，不管有没有getbean都会将对象实例化</p>
+<p>2、从beanFactory中获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BeanFactory bf = <span class="keyword">new</span> XmlBeanFactory(<span class="keyword">new</span> ClassPathResource(<span class="string">"com/ganmy/ioc/beans.xml"</span>));</span><br><span class="line">Student s = (Student) bf.getBean(<span class="string">"student"</span>);</span><br></pre></td></tr></table></figure>
+<p>创建BeanFactory的时候，配置文件里面的bean不会被实例化，只有当我们get某个bean的时候才会实例化这个对象，有点像hibernate里面的lazyload，然后在结合单例模式的创建，用户体验更好，缺点是耗内存</p>
+<p>一般情况都是使用第一种方法获取bean，因为这样程序的速度比较快，如果是在移动设备使用的情况才会考虑使用BeanFactory创建，可以减少一点内存的使用，缺点是用户体验没有第一种好</p>
+<p>3、XmlWebApplicationContext()，从web应用上下文中载入定义文件</p>
+<h5 id="获取ApplicationContext的三种方法"><a href="#获取ApplicationContext的三种方法" class="headerlink" title="获取ApplicationContext的三种方法"></a>获取ApplicationContext的三种方法</h5><p>1、ClassPathXmlApplicationContext()适用于桌面开发，通过类路径来加载</p>
+<p>2、FileSystemXmlApplicationContext()通过文件路径来加载的，只能是绝对路径，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext ac = <span class="keyword">new</span> FileSystemXmlApplicationContext(<span class="string">"E:\\xiangmu\\myspring\\src\\com\\ganmy\\ioc\\beans.xml"</span>);</span><br></pre></td></tr></table></figure>
+<p>3、XmlWebApplicationContext()，从web系统加载，当tomcat启动的时候就会去加载，在web中用的比较多。</p>
+<h5 id="bean的生命周期"><a href="#bean的生命周期" class="headerlink" title="bean的生命周期"></a>bean的生命周期</h5><p>1、实例化，当我们的程序加载beans.xml文件的时候就开始实例化到内存中，前提是scope为singleton</p>
+<p>2、调用set方法注入属性</p>
+<p>3、如果该class实现了BeanNameAware接口，那么会调用setBeanName()方法，我们可以通过setBeanName()获取id号</p>
+<p>4、如果实现了BeanFactoryAware接口，我们就可以通过setBeanFactory()方法获取BeanFactory</p>
+<p>5、如果实现了ApplicationContextAware接口，我们就可以通过setApplicationContext()获取ApplicationContext</p>
+<p>6、如果bean与一个后置处理器关联了，则会自动调用后缀处理器的postProcessBeforeInitialization()方法，postProcessAfterInitialization()暂时还不执行</p>
+<p>7、如果实现了InitializingBean接口，那么就会调用afterPropertiesSet()方法</p>
+<p>8、如果bean里面配置了init-method，则可以在bean中定义自己的初始化方法</p>
+<p>9、如果与后置处理器管理才调用postProcessAfterInitialization()方法</p>
+<p>10、使用我们的bean对象</p>
+<p>11、spring容器关闭</p>
+<p>12、通过实现DisposableBean接口来调用destory方法，这个方法和postProcessAfterInitialization()相对应</p>
+<p>13、可以在beans.xml里面给bean配置destroy-method=”xxx()”调用我们定制的方法</p>
+<p>下面是一个比较全面的例子，我们可以根据打印的顺序来判断执行过程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.beanlife;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.BeanFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.BeanFactoryAware;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.BeanNameAware;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.DisposableBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.InitializingBean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContextAware;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersionService</span> <span class="keyword">implements</span> <span class="title">BeanNameAware</span>,<span class="title">BeanFactoryAware</span>,<span class="title">ApplicationContextAware</span>,<span class="title">InitializingBean</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PersionService</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"构造方法被调用"</span>);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PersionService</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"setName()被调用"</span>);</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHi</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"hi"</span>+name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//该方法可以传送正在被实例化的id的值</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBeanName</span><span class="params">(String arg0)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"setBeanName()被调用，值是"</span>+arg0);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//可以传递beanFactory</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBeanFactory</span><span class="params">(BeanFactory arg0)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"setBeanFactory()被调用"</span>+arg0);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//可以调用ApplicationContext</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext arg0)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"setApplicationContext()被调用"</span>+arg0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"afterPropertiesSet()被调用"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我自己的init方法"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//bean销毁的时候调用的</span></span><br><span class="line"><span class="comment">//	public void destroy() throws Exception &#123;</span></span><br><span class="line"><span class="comment">//		// TODO Auto-generated method stub</span></span><br><span class="line"><span class="comment">//		//我们可以去关闭数据连接,socket，释放改bean占用的资源</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//定制我们的销毁方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mydestory</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"释放各种资源"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>beans.xml文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"persionService"</span> <span class="attr">scope</span>=<span class="string">"prototype"</span> <span class="attr">init-method</span>=<span class="string">"init"</span> <span class="attr">destroy-method</span>=<span class="string">"mydestory"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.beanlife.PersionService"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"小明"</span> /&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"persionService2"</span> <span class="attr">scope</span>=<span class="string">"prototype"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.beanlife.PersionService"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"小明"</span> /&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置我们的后置处理器，有点类似Fileter --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myBeanPostProcessor"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.beanlife.MyBeanPostProcessor"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>后置处理器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.beanlife;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.BeansException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.config.BeanPostProcessor;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanPostProcessor</span> <span class="keyword">implements</span> <span class="title">BeanPostProcessor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">postProcessAfterInitialization</span><span class="params">(Object arg0, String arg1)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"postProcessAfterInitialization()函数被调用"</span>);</span><br><span class="line">		System.out.println(arg0+<span class="string">"被调用的时间是"</span>+<span class="keyword">new</span> Date());</span><br><span class="line">		<span class="keyword">return</span> arg0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Object <span class="title">postProcessBeforeInitialization</span><span class="params">(Object arg0, String arg1)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"postProcessBeforeInitialization()被调用"</span>);</span><br><span class="line">		System.out.println(arg0+<span class="string">"被调用的时间是"</span>+<span class="keyword">new</span> Date());</span><br><span class="line">		<span class="keyword">return</span> arg0;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_04.png" alt="Q图片2018091919252"></p>
+<p>小结：在实际开发中往往没有用到这么多的过程，常见的过程是1、2、6、9、10、11</p>
+<p>图解：</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_05.png" alt="Q图片2018091919551"></p>
+<h5 id="beanFactory生命周期"><a href="#beanFactory生命周期" class="headerlink" title="beanFactory生命周期"></a>beanFactory生命周期</h5><p>我们将ApplicationContext对象的创建方式改为XmlBeanFactory()的方式创建，结果如图所示：</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_03.png" alt="Q图片2018091919235"></p>
+<p>和上图相比，少了3步，分别是ApplicationContext对象的创建、后置处理器的创建(before()和after())，那个打印的时间是在before()和after()里面打印的，用于判断执行的持续时间</p>
+<p>图解：</p>
+<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_06.png" alt="Q图片2018091919563"></p>
+<h5 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h5><p>AOP是Aspect Oriented Programming的缩写，翻译就是面向切面编程，在spring里面很好的体现了这种思想，例如我们使用后置处理器的时候，所有的bean都会进入postProcessBeforeInitialization()方法和postProcessAfterInitialization()方法AOP是面向所有或者一类对象编程，核心是在不增加代码的基础上还增加相应功能的一种编程思想，AOP在开发框架本身用得多，在实际项目中用的不多，但是AOP用得越来越多是一个趋势，AOP是通过代理对象来实现的。</p>
+<p>spring有两种代理方式</p>
+<p>一、目标对象实现了某些接口，spring用JDK的java.lang.reflect.Proxy类代理，让spring动态产生一个新类，他实现所需的接口，织入通知，可以调用被代理对象的所有函数，获取的动态代理对象类型不是Proxy类而是被代理对象的类型</p>
+<p>下面是一个比较全面的代理对象例子，两个接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.aop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TestServiceInter</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayGo</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.aop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TestServiceInter2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayBye</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现这两个接口的对象Test1Service</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.aop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1Service</span> <span class="keyword">implements</span> <span class="title">TestServiceInter</span>,<span class="title">TestServiceInter2</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"h1"</span>+name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayBye</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Bye"</span>+name);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayGo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Go"</span>+name);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>前置通知对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.aop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.aop.MethodBeforeAdvice;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMethodBeforeAdvice</span> <span class="keyword">implements</span> <span class="title">MethodBeforeAdvice</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * method: 被调用方法名，调用的被代理对象的方法名 </span></span><br><span class="line"><span class="comment">	 * args: 被代理对象方法的参数</span></span><br><span class="line"><span class="comment">	 * target: 被代理对象</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">(Method method, Object[] args, Object target)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"记录日志"</span>+method.getName());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置文件beans.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"</span></span></span><br><span class="line"><span class="tag">				&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 配置被代理的对象 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"test1Service"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.aop.Test1Service"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"明阳"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置前置通知 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myMethodBeforeAdvice"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.aop.MyMethodBeforeAdvice"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置代理对象,将被代理对象和通知联系起来 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"proxyFactoryBean"</span> <span class="attr">class</span>=<span class="string">"org.springframework.aop.framework.ProxyFactoryBean"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 配置代理接口集，这个name不能写错，一定要是proxyInterfaces，因为会调用相应的get和set方法 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"proxyInterfaces"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- 由于可能代理多个接口，所以用list列起来 --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.ganmy.aop.TestServiceInter<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.ganmy.aop.TestServiceInter2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 把通知织入到代理对象 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"interceptorNames"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- 把myMethodBeforeAdvice前置通知和代理对象关联起来 ，我们也可以把通知看成拦截器--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">value</span>&gt;</span>myMethodBeforeAdvice<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 指定被代理对象--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"target"</span> <span class="attr">ref</span>=<span class="string">"test1Service"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是一个比较全面的配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"</span></span></span><br><span class="line"><span class="tag">				&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- 配置被代理的对象 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"test1Service"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.aop.Test1Service"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"明阳"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置前置通知 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myMethodBeforeAdvice"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.aop.MyMethodBeforeAdvice"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置后置通知 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myAfterReturningAdvice"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.aop.MyAfterReturningAdvice"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置环绕通知 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myMethodInterceptor"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.aop.MyMethodInterceptor"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置异常通知 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myThrowsAdvice"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.aop.MyThrowsAdvice"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 选择某些函数不通知 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"MyMethodBeforeAdviceFilter"</span> <span class="attr">class</span>=<span class="string">"org.springframework.aop.support.NameMatchMethodPointcutAdvisor"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 指向myMethodBeforeAdvice，表示对这个通知起作用 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"advice"</span> <span class="attr">ref</span>=<span class="string">"myMethodBeforeAdvice"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mappedNames"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- 设置哪些函数可以使用前置通知 ，可以使用正则表达式来匹配,例如say*表示匹配所有函数say的方法--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">value</span>&gt;</span>sayGo<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- &lt;value&gt;say*&lt;/value&gt; --&gt;</span> </span><br><span class="line">          <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 配置代理对象,将被代理对象和通知联系起来 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"proxyFactoryBean"</span> <span class="attr">class</span>=<span class="string">"org.springframework.aop.framework.ProxyFactoryBean"</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 配置代理接口集 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"proxyInterfaces"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- 由于可能代理多个接口，所以用list列起来 --&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.ganmy.aop.TestServiceInter<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.ganmy.aop.TestServiceInter2<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 把通知织入到代理对象 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"interceptorNames"</span>&gt;</span></span><br><span class="line">          <span class="comment">&lt;!-- 把myMethodBeforeAdvice前置通知和代理对象关联起来 ，我们也可以把通知看成拦截器--&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- 织入前置通知,使用自定义切入点来控制前置通知 --&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>MyMethodBeforeAdviceFilter<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- 织入后置通知 --&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>myAfterReturningAdvice<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- 织入环绕通知 --&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>myMethodInterceptor<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="comment">&lt;!-- 织入异常通知 --&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>myThrowsAdvice<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 指定被代理对象--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"target"</span> <span class="attr">ref</span>=<span class="string">"test1Service"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>测试文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.aop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"com/ganmy/aop/beans.xml"</span>);</span><br><span class="line">		TestServiceInter ts = (TestServiceInter) ac.getBean(<span class="string">"proxyFactoryBean"</span>);</span><br><span class="line">		ts.sayHello();</span><br><span class="line">		System.out.println(<span class="string">"*******过渡方法**********"</span>);</span><br><span class="line"><span class="comment">//		TestServiceInter2 ts2 = (TestServiceInter2) ac.getBean("proxyFactoryBean");</span></span><br><span class="line"><span class="comment">//		ts2.sayBye();</span></span><br><span class="line">        <span class="comment">//更加简洁的转换</span></span><br><span class="line">		((TestServiceInter2)ts).sayBye();</span><br><span class="line">		System.out.println(<span class="string">"*******过渡**********"</span>);</span><br><span class="line">		ts.sayGo();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代理对象实现了代理接口集，通知被织入代理对象，所以我们调用的代理对象转换为对应接口类型就可以调用相应的方法了，代理接口集的所有方法都会被织入前置通知。</p>
+<p>连接点和织入点的关系，通知没有调用的时候是连接点(静态)，通知调用后就变成织入点了(动态)</p>
+<p>通知一共有五种接口，根据功能不同区分的：</p>
+<p>1、前置通知：MethodBeforeAdvice</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * method: 被调用方法名 </span></span><br><span class="line"><span class="comment">	 * args: 给方法传递的参数</span></span><br><span class="line"><span class="comment">	 * target: 目标对象</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">(Method method, Object[] args, Object target)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"**********************"</span>);</span><br><span class="line">		System.out.println(<span class="string">"记录日志"</span>+method.getName()+<span class="string">","</span>+args.length+<span class="string">","</span>+target);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>2、后置通知：AfterReturningAdvice</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * returnValue表示返回值</span></span><br><span class="line"><span class="comment">     * method表示被代理对象被调用的方法</span></span><br><span class="line"><span class="comment">     * args表示被代理对象的被调用方法的参数</span></span><br><span class="line"><span class="comment">     * target表示表示被代理对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">(Object returnValue, Method method, Object[] args,</span></span></span><br><span class="line"><span class="function"><span class="params">			Object target)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"关闭资源"</span>);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>3、环绕通知：MyMethodInterceptor，环绕通知在前置通知后开始调用，可以在方法执行前和方法执行后调用，一定要执行arg0.proceed()的方法并且返回一个object对象，否则就不会进入方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(MethodInvocation arg0)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"调用方法前执行"</span>);</span><br><span class="line">		Object obj = arg0.proceed();</span><br><span class="line">		System.out.println(<span class="string">"调用方法后执行"</span>);</span><br><span class="line">		<span class="keyword">return</span> obj;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>4、异常通知：MyThrowsAdvice，异常通知在被代理对象的方法出现异常的时候调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThrowsAdvice</span> <span class="keyword">implements</span> <span class="title">ThrowsAdvice</span> </span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> m表示出现异常的方法名</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> os表示出现异常的参数</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> target表示被代理对象</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> e表示出现的异常名称</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">(Method m, Object[] os, Object target, Exception e )</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"出现异常了"</span> + e.getMessage());</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5、引入通知：不是一个独立的通知，是在beans.xml文件里面通过包装其他的通知来作用对象的，可以看上面的配置文件，另外配置的各种通知可以使用正则匹配。</p>
+<p>二、目标对象没有实现任何接口，spring使用CGLIB生成目标对象的子类</p>
+<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p>一般写在某个方法上面用来指定这个方法在bean的生命周期的什么步骤执行，例如：</p>
+<p><code>@PostConstruct</code>表示在init-method的时候执行</p>
+<p><code>@PreDestroy</code>表示在destory-method的时候执行</p>
+<p>注解写起来很方便，但是如果我想要改动业务逻辑还是得到代码里面去改，达不到解耦的目的，感觉有些情况下没有写在配置文件里面好</p>
+<h5 id="装配bean"><a href="#装配bean" class="headerlink" title="装配bean"></a>装配bean</h5><p>实际上就是指定bean的生命周期的各个阶段使用什么方法的一个过程，一般可以实现接口的方式也可以在文件里面指定，建议不要使用实现接口的方式，因为这个我们的程序就和spring的API绑定在一起了</p>
+<h5 id="注入bean"><a href="#注入bean" class="headerlink" title="注入bean"></a>注入bean</h5><p>给集合类型注入值，例如我的domain类里面有一个数组属性empName：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Department</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> String[] empName;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String[] getEmpName() &#123;</span><br><span class="line">		<span class="keyword">return</span> empName;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmpName</span><span class="params">(String[] empName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.empName = empName;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"department"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.collection.Department"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"财务部"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 给数组注入值 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"empName"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>小米<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>大米<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>老米<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"com/ganmy/collection/beans.xml"</span>);</span><br><span class="line">	    Department dt = (Department) ac.getBean(<span class="string">"department"</span>);</span><br><span class="line">	    <span class="keyword">for</span>(String name:dt.getEmpName())&#123;</span><br><span class="line">	    	System.out.println(name);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="通过集合获取"><a href="#通过集合获取" class="headerlink" title="通过集合获取"></a>通过集合获取</h5><p>配置文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd</span></span></span><br><span class="line"><span class="tag"><span class="string">				http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"department"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.collection.Department"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"财务部"</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 给数组注入值 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"empName"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>小米<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>大米<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">value</span>&gt;</span>老米<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 给list注入值 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"emplist"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp1"</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp2"</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp2"</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp2"</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp1"</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 给set注入值 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"empset"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp1"</span>/&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp2"</span>/&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp2"</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp2"</span>/&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"emp1"</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 给map注入值 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"empMaps"</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">map</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"1"</span> <span class="attr">value-ref</span>=<span class="string">"emp1"</span>/&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">"2"</span> <span class="attr">value-ref</span>=<span class="string">"emp2"</span>/&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"emp1"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.collection.Employee"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"阿发"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"1"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"emp2"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.collection.Employee"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"阿呆"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"2"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>domain类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.collection;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Department</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> String[] empName;</span><br><span class="line">	<span class="keyword">private</span> Employee emp;</span><br><span class="line">	<span class="keyword">private</span> List&lt;Employee&gt; emplist;</span><br><span class="line">	<span class="keyword">private</span> Set&lt;Employee&gt; empset;</span><br><span class="line">	<span class="keyword">private</span> Map&lt;String,Employee&gt; empMaps;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Map&lt;String, Employee&gt; <span class="title">getEmpMaps</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> empMaps;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmpMaps</span><span class="params">(Map&lt;String, Employee&gt; empMaps)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.empMaps = empMaps;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Set&lt;Employee&gt; <span class="title">getEmpset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> empset;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmpset</span><span class="params">(Set&lt;Employee&gt; empset)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.empset = empset;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> List&lt;Employee&gt; <span class="title">getEmplist</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> emplist;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmplist</span><span class="params">(List&lt;Employee&gt; emplist)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.emplist = emplist;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String[] getEmpName() &#123;</span><br><span class="line">		<span class="keyword">return</span> empName;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmpName</span><span class="params">(String[] empName)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.empName = empName;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Employee <span class="title">getEmp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> emp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmp</span><span class="params">(Employee emp)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.emp = emp;</span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>取数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext ac = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"com/ganmy/collection/beans.xml"</span>);</span><br><span class="line">	    Department dt = (Department) ac.getBean(<span class="string">"department"</span>);</span><br><span class="line">	    Map&lt;String,Employee&gt; map = dt.getEmpMaps();</span><br><span class="line">	    System.out.println(<span class="string">"**********通过数组取出数据*********"</span>);</span><br><span class="line">	    <span class="keyword">for</span>(String name:dt.getEmpName())&#123;</span><br><span class="line">	    	System.out.println(name);</span><br><span class="line">	    &#125;</span><br><span class="line">	    System.out.println(<span class="string">"**********通过list集合取出数据*********"</span>);</span><br><span class="line">	    <span class="keyword">for</span>(Employee emp:dt.getEmplist())&#123;</span><br><span class="line">	    	System.out.println(emp.getName()+<span class="string">"，编号是"</span>+emp.getId());</span><br><span class="line">	    &#125;</span><br><span class="line">	    System.out.println(<span class="string">"**********通过set集合取出数据*********"</span>);</span><br><span class="line">	    <span class="keyword">for</span>(Employee emp:dt.getEmpset())&#123;</span><br><span class="line">	    	System.out.println(emp.getName()+<span class="string">"，编号是"</span>+emp.getId());</span><br><span class="line">	    &#125;</span><br><span class="line">	    System.out.println(<span class="string">"**********通过map集合取出数据的三种方式*********"</span>);</span><br><span class="line">	    <span class="comment">//使用迭代器取出数据</span></span><br><span class="line">	    System.out.println(<span class="string">"**********使用keySet迭代器取出数据**********"</span>);</span><br><span class="line">	    Iterator&lt;String&gt; it = map.keySet().iterator();</span><br><span class="line">	    <span class="keyword">while</span>(it.hasNext())&#123;</span><br><span class="line">	    	String key = it.next();</span><br><span class="line">	    	System.out.println(map.get(key).getName());</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="comment">//通过for-each循环取出数据</span></span><br><span class="line">	    System.out.println(<span class="string">"**********通过for-each循环取出数据**********"</span>);</span><br><span class="line">	    Set&lt;Entry&lt;String, Employee&gt;&gt; entrys = map.entrySet();</span><br><span class="line">	    <span class="keyword">for</span>(Entry&lt;String, Employee&gt; entry:entrys)&#123;</span><br><span class="line">			System.out.println(entry.getValue().getName());</span><br><span class="line">		&#125;</span><br><span class="line">	    <span class="comment">//通过keySet取出map数据[for-each循环]</span></span><br><span class="line">		System.out.println(<span class="string">"**********for-each循环遍历]通过keySet取出map数据**********"</span>);</span><br><span class="line">		<span class="keyword">for</span>(String key:map.keySet())&#123;</span><br><span class="line">			System.out.println(map.get(key).getName());</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：list集合里面可以放相同的对象，但是set集合如果有相同的对象，后面的对象会覆盖前面的对象，和j2se里面一样,然后在map里面如果有相同的key，那么后面的key对应的value会覆盖前面的key对应的对象。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/wechatpay.jpg" alt="甘明阳 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/alipay.jpg" alt="甘明阳 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    甘明阳
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://ganmyds.cn/spring_ioc.html" title="关于spring的bean的理解">http://ganmyds.cn/spring_ioc.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="" rel="external nofollow" target="_blank">CC 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <div>
+        
+            <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+        
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="tags/spring/" rel="tag"># spring</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="spring_start.html" rel="next" title="spring的基本使用">
+                <i class="fa fa-chevron-left"></i> spring的基本使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://raw.githubusercontent.com/ganmyds/markdown_img_test/master/img/head.jpg"
+                alt="甘明阳" />
+            
+              <p class="site-author-name" itemprop="name">甘明阳</p>
+              <p class="site-description motion-element" itemprop="description">技术与生活，与我融为一体</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="http://ganmyds.cn/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ganmyds/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取bean的三种方法"><span class="nav-number">1.</span> <span class="nav-text">获取bean的三种方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取ApplicationContext的三种方法"><span class="nav-number">2.</span> <span class="nav-text">获取ApplicationContext的三种方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bean的生命周期"><span class="nav-number">3.</span> <span class="nav-text">bean的生命周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#beanFactory生命周期"><span class="nav-number">4.</span> <span class="nav-text">beanFactory生命周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AOP"><span class="nav-number">5.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注解"><span class="nav-number">6.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#装配bean"><span class="nav-number">7.</span> <span class="nav-text">装配bean</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注入bean"><span class="nav-number">8.</span> <span class="nav-text">注入bean</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#通过集合获取"><span class="nav-number">9.</span> <span class="nav-text">通过集合获取</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  <span class="author" itemprop="copyrightHolder">鄂ICP备18010523号-1</span>
+  
+</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cytD8ivSl';
+      var conf = 'f4765bfd2f697859b8d9d87636e5a2e4';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  undefined
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":"haruto","mobileShow":false,"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/"});</script></body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="http://7u2ss1.com1.z0.glb.clouddn.com/love.js"></script>
+</html>
