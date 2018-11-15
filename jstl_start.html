@@ -97,23 +97,18 @@
 
 
 
-<meta name="description" content="各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行">
+<meta name="description" content="记录jstl标签的使用">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记录建站遇到的各种问题">
-<meta property="og:url" content="http://ganmyds.cn/java_project.html">
+<meta property="og:title" content="jstl标签的使用">
+<meta property="og:url" content="http://ganmyds.cn/jstl_start.html">
 <meta property="og:site_name" content="小小程序员">
-<meta property="og:description" content="各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行">
+<meta property="og:description" content="记录jstl标签的使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_01.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro02.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_03.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_04.png">
-<meta property="og:updated_time" content="2018-10-10T07:49:35.637Z">
+<meta property="og:updated_time" content="2018-11-06T02:23:11.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记录建站遇到的各种问题">
-<meta name="twitter:description" content="各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_01.png">
+<meta name="twitter:title" content="jstl标签的使用">
+<meta name="twitter:description" content="记录jstl标签的使用">
 
 
 
@@ -143,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://ganmyds.cn/java_project.html"/>
+  <link rel="canonical" href="http://ganmyds.cn/jstl_start.html"/>
 
 
 
 
 
-  <title>记录建站遇到的各种问题 | 小小程序员</title>
+  <title>jstl标签的使用 | 小小程序员</title>
   
 
 
@@ -329,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">记录建站遇到的各种问题</h1>
+          <h1 class="post-title" itemprop="name headline">jstl标签的使用</h1>
         
 
         <div class="post-meta">
@@ -341,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-23T09:54:00+08:00">
-                2018-06-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T16:54:00+08:00">
+                2018-11-06
               </time>
             
 
@@ -364,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="categories/jstl/" itemprop="url" rel="index">
+                    <span itemprop="name">jstl</span>
                   </a>
                 </span>
 
@@ -384,7 +379,7 @@
               </span>
               
                 <a href="#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="java_project.html" itemprop="commentsCount"></span>
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="jstl_start.html" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -406,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,415
+                  1,802
                 </span>
               
 
@@ -422,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5分钟
+                  8分钟
                 </span>
               
             </div>
@@ -430,7 +425,7 @@
 
           
               <div class="post-description">
-                  各种问题，包括html乱码、数据库乱码、服务器速度优化、java流的换行
+                  记录jstl标签的使用
               </div>
           
 
@@ -447,64 +442,215 @@
       
 
       
-        <h4 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h4><h5 id="导入html文件乱码"><a href="#导入html文件乱码" class="headerlink" title="导入html文件乱码"></a>导入html文件乱码</h5><p>用过sublime text3后我就迷上了sublime的快捷键，相比之下用myeclipse写感觉好慢，所以一般前端代码我都是用sublime写完后再导入到myeclipse里面，但是有的时候会有中文乱码的现象，由于myeclipse默认使用GBK的编码，我们需要改为</p>
-<p>utf-8才能正常使用，有两处地方要改</p>
-<p>1、改变servlet项目的编码为utf-8</p>
-<p>右键项目，选择Priperties，搜索Resource，改变编码为utf-8</p>
-<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_01.png" alt="Q图片2018062321051"></p>
-<p>2、改变myeclisp的编码为utf-8 ，找到window -&gt; preference -&gt;general -&gt;workspace，将编码改为utf-8</p>
-<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro02.png" alt="Q图片2018062321051"></p>
-<p>这里也顺便解决了另外一个问题，就是js文件报错的问题</p>
-<h5 id="myeclipse打开html文件缓慢"><a href="#myeclipse打开html文件缓慢" class="headerlink" title="myeclipse打开html文件缓慢"></a>myeclipse打开html文件缓慢</h5><p>由于myeclipse默认使用可视化打开，所以会消耗不少时间，我们需要改变打开方式</p>
-<p>有两种方式</p>
-<p>1、右键文件openwith -&gt;MyEclipse HTML Editor</p>
-<p>2、改变默认打开方式 </p>
-<p>window -&gt; preference -&gt; 搜索file 找到File Associations,如图</p>
-<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_03.png" alt="Q图片2018062321184"></p>
-<p>选中html文件，然后在下方框框里面选择MyEclipse HTML Editor,点击Default，就可以啦</p>
-<p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/java_pro_04.png" alt="Q图片2018062321204"></p>
-<p>其他的文件觉得慢也可以按照这种思路做相应的改动</p>
-<h5 id="JDBC插入数据"><a href="#JDBC插入数据" class="headerlink" title="JDBC插入数据"></a>JDBC插入数据</h5><h5 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h5><p>查询的时候使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stmt.executeQuery(sql);</span><br></pre></td></tr></table></figure>
-<p>update或者insert操作的时候，使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stmt.execute(sql);</span><br></pre></td></tr></table></figure>
-<h5 id="数据库乱码"><a href="#数据库乱码" class="headerlink" title="数据库乱码"></a>数据库乱码</h5><p>我之前插入数据的时候，数据的中文数据变成了？？？，在网上找了半天，发现网上很多答案有错误，这里指正一下</p>
-<p>思路是在getConnection()里面增加两个设置编码的参数，useUnicode和characterEncoding</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn = DriverManager.getConnection(<span class="string">"jdbc:mysql://localhost:3306/users?useUnicode=true&amp;characterEncoding=utf8"</span>);</span><br></pre></td></tr></table></figure>
-<p>但是网上很多答案都把characterEncoding=utf8写成了characterEncoding=utf-8，搞了我好久，这里特别强调一下。</p>
-<h4 id="网站速度慢"><a href="#网站速度慢" class="headerlink" title="网站速度慢"></a>网站速度慢</h4><p>在网站注册功能，登录功能和个人主页功能完成的时候，我发现了一个问题，网站速度慢，Google了一下，才发现我的请求全部用的重定向(头疼)，当初建站的时候没注意这一点(伤心)</p>
-<p>这里说明一下请求重定向和请求转发的区别，比如说从a.servlet到b.servlet</p>
-<p>重定向走的路： 浏览器-&gt;a.servlet-&gt;浏览器-&gt;b.servlet</p>
-<p>转发走的路：浏览器 -&gt; a.servlet -&gt; b.servlet</p>
-<p>重定向明显走的路多一点，这还只是一个流程，如果有多个流程，那速度简直是天差地别啦</p>
-<p>下面总结一下重定向和转发的特点：</p>
-<h5 id="请求转发："><a href="#请求转发：" class="headerlink" title="请求转发："></a>请求转发：</h5><p>请求转发的过程全部会在服务器完成，经过多个servlet流程浏览器也看不到，明显比较安全，而且每次转发都会把当前request和response域对象传过去，所有流程都是用的同一个request和response对象，数据好取，而且由于不用通知客户端，速度明显快很多，就是不能请求外部服务器。</p>
-<h5 id="请求重定向："><a href="#请求重定向：" class="headerlink" title="请求重定向："></a>请求重定向：</h5><p>可以请求外部服务器，由于我的站点不用请求别的服务器，这一点跟没有一样，可以说被请求转发全方面碾压。</p>
-<p>浏览器上方url会改变，由于浏览器url改变我们的servlet不会暴露出来，对于服务器安全性有很大的提高，建议后台的最后一个请求使用重定向，前面所有请求用转发</p>
-<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>改了请求方式后在jsp要指定meta的href的值，不然会找不到样式，因为请求转发不会通知浏览器地址改变，也就是说浏览器用的地址一直都是第一个servlet的地址，下面是解决方法：</p>
-<p>步骤一：在jsp上面加上这两句话</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String path = request.getContextPath();</span><br><span class="line">String basePath = request.getScheme()+<span class="string">"://"</span>+request.getServerName()+<span class="string">":"</span>+request.getServerPort()+path+<span class="string">"/"</span>;</span><br></pre></td></tr></table></figure>
-<p>步骤二： 在jsp的head标签里面要加<code>&lt;base href=&quot;&lt;%=basePath%&gt;&quot;&gt;</code>标签</p>
-<p>request.getScheme()表示站点使用协议</p>
-<p>request.getServerName()表示站点主机，本地就是localhost</p>
-<p>request.getServerPort()表示站点端口号</p>
-<p>request.getContextPath()表示站点项目名称</p>
-<p>最后的basePath是一个完整的url，比如我的url是：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8080/servletPro/</span><br></pre></td></tr></table></figure>
-<p>然后将href指定为这个地址，以后写相对路径就是相对这个地址来的</p>
-<h5 id="java流换行问题"><a href="#java流换行问题" class="headerlink" title="java流换行问题"></a>java流换行问题</h5><p>使用java流操作文件的时候，发现缓冲字符流BufferedWriter里面有一个方法readLine()可以一行一行的读取数据，相比FileWriter一个字符一个字符的读取快了很多，但是不会读取换行符号，需要我们手动添加换行符，由于在不同的操作系统上换行符不同：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mac:     \r     </span><br><span class="line">linux:    \n</span><br><span class="line">window:    \r\n</span><br></pre></td></tr></table></figure>
-<p>可以使用java里面的System.getProperty(“line.separator”)自动获取空格来解决这个问题</p>
-<h5 id="myeclipse优化"><a href="#myeclipse优化" class="headerlink" title="myeclipse优化"></a>myeclipse优化</h5><p>一直感觉myeclipse很卡，后来发现原来，myeclipse开启了很多不必要的插件和语法检查，记录一下优化方法</p>
-<p>1、去掉js语法检查</p>
-<p>window-&gt;Preferences，在搜索栏输入Validation，把javascript的两个勾去掉</p>
-<p>2、去掉启动插件选项</p>
-<p>window-&gt;Preferences，在搜索栏输入Startup and Shutdown ,这里以MyEclipse  EASIE开头的都是myeclipse支持的服务器插件，由于我只用tomcat，把除了tomcat的服务器插件都关掉</p>
-<p>WTP ：一个跟myeclipse差不多的东西，主要差别是 WTP 是免费的，如果使用myeclipse，这个可以取消 </p>
-<p>Mylyn：组队任务管理工具，类似于 CVS ，以任务为单位管理项目进度，没用到的可以取消<br>Derby：一种保存成 jar 形式的数据库，我没用到，取消 </p>
-<p>3、取消拼写检查</p>
-<p>没什么用处，可以去掉</p>
-<p>windows–&gt;perferences，搜索spelling  </p>
+        <p>jstl全称jsp standard tag library，翻译成中文就是jsp标准标签库。由于jsp文件中有大量的java片段会让文件变得很混乱，于是使用jstl标签替换这些java片段。可以让代码变得更加简洁且提高开发速度。下面详细介绍：</p>
+<h5 id="lt-c-out-gt-标签"><a href="#lt-c-out-gt-标签" class="headerlink" title="&lt;c:out&gt;标签"></a><code>&lt;c:out&gt;</code>标签</h5><h6 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h6><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ taglib prefix=<span class="string">"c"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/core"</span>%&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h6><p>作用是用来输入信息的，例如下面输入hello world：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:out value="hello world"&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="域对象变量"><a href="#域对象变量" class="headerlink" title="域对象变量"></a>域对象变量</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:out value="$&#123;abc&#125;" default="没找到值"&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+<p>如果有四个域对象里面都有相同的变量，那么优先级是：</p>
+<p>pageContext &gt; request &gt; session &gt; application</p>
+<p>并且如果在在域对象里面找不到对应的变量名则会打印default的值，也可以输出对象，同时也可以用el表达式替换，例如</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:out value="$&#123;user1.name&#125;"&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+<p>等同于</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;user1.name&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="escapeXml"><a href="#escapeXml" class="headerlink" title="escapeXml"></a>escapeXml</h6><p>escapeXml属性表示是否解析跳过html标签，默认值为true</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageContext.setAttribute(<span class="string">"abc"</span>,<span class="string">"你好1&lt;h1&gt;哈哈&lt;/h1&gt;"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:out value="$&#123;abc&#125;" default="没找到值" escapeXml="false"&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="lt-c-set-gt-标签"><a href="#lt-c-set-gt-标签" class="headerlink" title="&lt;c:set&gt;标签"></a><code>&lt;c:set&gt;</code>标签</h5><p>用来设置属性，和<code>&lt;c:out&gt;</code>标签差不多的用法</p>
+<p>例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:set var="abc" value="行号" scope="request"&gt;&lt;/c:set&gt;</span><br></pre></td></tr></table></figure>
+<p>等同于：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"abc"</span>,<span class="string">"行号"</span>);</span><br></pre></td></tr></table></figure>
+<h5 id="lt-c-remove-gt-标签"><a href="#lt-c-remove-gt-标签" class="headerlink" title="&lt;c:remove&gt;标签"></a><code>&lt;c:remove&gt;</code>标签</h5><p>用来删除属性的</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:remove var=<span class="string">"abc"</span> scope=<span class="string">"session"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>表示在session作用域里面删除变量abc，如果不写scope则会在所有作用域里面删除abc</p>
+<h5 id="lt-c-catch-gt-标签"><a href="#lt-c-catch-gt-标签" class="headerlink" title="&lt;c:catch&gt;标签"></a><code>&lt;c:catch&gt;</code>标签</h5><p>用来抛异常的，例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:<span class="keyword">catch</span> var=<span class="string">"exception"</span>&gt;</span><br><span class="line"> &lt;%<span class="keyword">int</span> i = <span class="number">9</span>/<span class="number">0</span>; %&gt;</span><br><span class="line">&lt;/c:catch&gt;</span><br><span class="line">&lt;c:out value="$&#123;exception.message&#125;"&gt;&lt;/c:out&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="lt-c-if-gt-标签"><a href="#lt-c-if-gt-标签" class="headerlink" title="&lt;c:if&gt;标签"></a><code>&lt;c:if&gt;</code>标签</h5><p>单分支判断，例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    User u = <span class="keyword">new</span> User();</span><br><span class="line">    u.setName(<span class="string">"小明"</span>);</span><br><span class="line">    u.setAge(<span class="number">30</span>);</span><br><span class="line">    request.setAttribute(<span class="string">"user1"</span>, u);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">"$&#123;user1.name=='小明'&#125;"</span>&gt;</span><br><span class="line">   测试通过</span><br><span class="line">&lt;/c:if&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="lt-c-choose-gt-标签"><a href="#lt-c-choose-gt-标签" class="headerlink" title="&lt;c:choose&gt;标签"></a><code>&lt;c:choose&gt;</code>标签</h5><p>多分支判断</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    User u = <span class="keyword">new</span> User();</span><br><span class="line">    u.setName(<span class="string">"小明"</span>);</span><br><span class="line">    u.setAge(<span class="number">40</span>);</span><br><span class="line">    request.setAttribute(<span class="string">"user1"</span>, u);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">     &lt;c:when test=<span class="string">"$&#123;user1.age &lt; 32&#125;"</span>&gt;</span><br><span class="line">         年龄小于<span class="number">32</span>岁</span><br><span class="line">     &lt;/c:when&gt;</span><br><span class="line">     &lt;c:when test=<span class="string">"$&#123;user1.age &lt; 50&#125;"</span>&gt;</span><br><span class="line">         年龄小于<span class="number">50</span>岁</span><br><span class="line">     &lt;/c:when&gt;</span><br><span class="line">     &lt;c:otherwise&gt;</span><br><span class="line">         年龄大于<span class="number">50</span>岁</span><br><span class="line">     &lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="lt-c-forEach-gt-标签"><a href="#lt-c-forEach-gt-标签" class="headerlink" title="&lt;c:forEach&gt;标签"></a><code>&lt;c:forEach&gt;</code>标签</h5><h6 id="替换for-each"><a href="#替换for-each" class="headerlink" title="替换for:each"></a>替换for:each</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    ArrayList&lt;User&gt; list = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">    User u = <span class="keyword">new</span> User(<span class="string">"小明"</span>,<span class="number">40</span>);</span><br><span class="line">    User u1 = <span class="keyword">new</span> User(<span class="string">"历史"</span>,<span class="number">20</span>);</span><br><span class="line">    User u2 = <span class="keyword">new</span> User(<span class="string">"小红"</span>,<span class="number">18</span>);</span><br><span class="line">    User u3 = <span class="keyword">new</span> User(<span class="string">"小李"</span>,<span class="number">30</span>);</span><br><span class="line">    list.add(u);</span><br><span class="line">    list.add(u1);</span><br><span class="line">    list.add(u2);</span><br><span class="line">    list.add(u3);</span><br><span class="line">    request.setAttribute(<span class="string">"list"</span>, list);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">"$&#123;list&#125;"</span> var=<span class="string">"user"</span>&gt;</span><br><span class="line">    &lt;c:out value="$&#123;user.name&#125;"&gt;&lt;/c:out&gt;</span><br><span class="line">    &lt;c:out value="$&#123;user.age&#125;"&gt;&lt;/c:out&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<p>items表示去迭代的变量，相当于下面的list1，var表示迭代后赋值的变量，相当于下面的user2</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(User user2: list1)&#123;</span><br><span class="line">       System.out.println(user2.getName() + <span class="string">","</span> + user2.getAge());</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h6 id="替换普通for循环"><a href="#替换普通for循环" class="headerlink" title="替换普通for循环"></a>替换普通for循环</h6><p>例如打印1到10</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach var=<span class="string">"i"</span> begin=<span class="string">"1"</span> end=<span class="string">"10"</span>&gt;</span><br><span class="line">    &lt;c:out value="$&#123;i&#125;"&gt;&lt;/c:out&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<p>可以间隔打印，指定step属性，例如下面打印1到10的所有奇数</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach var=<span class="string">"i"</span> begin=<span class="string">"1"</span> end=<span class="string">"10"</span> step=<span class="string">"2"</span>&gt;</span><br><span class="line">    &lt;c:out value="$&#123;i&#125;"&gt;&lt;/c:out&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="lt-c-forTokens-gt-标签"><a href="#lt-c-forTokens-gt-标签" class="headerlink" title="&lt;c:forTokens&gt;标签"></a><code>&lt;c:forTokens&gt;</code>标签</h5><p>用来拆分字符串的，items表示目标字符串，delims表示根据什么来拆分，var表示拆分出来的字段， 例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forTokens items=<span class="string">"12;56;78;你好"</span> delims=<span class="string">";"</span> var=<span class="string">"temp"</span>&gt;</span><br><span class="line">    $&#123;temp&#125;</span><br><span class="line">&lt;/c:forTokens&gt;</span><br></pre></td></tr></table></figure>
+<p>在jstl标签里面使用el表达式是非常重要的，在el表达式里面判断某个变量是否为null或者””或者{}都可以用</p>
+<p>empty 变量的形式来判断，而且el表达式可以获取a标签传过去的参数，例如${param.id}就是获取上个页面传过来的id</p>
+<h5 id="lt-c-fn-gt-标签"><a href="#lt-c-fn-gt-标签" class="headerlink" title="&lt;c:fn&gt;标签"></a><code>&lt;c:fn&gt;</code>标签</h5><p>el表达式也支持函数的使用，不过需要引用jstl函数库，不然会报错，下面是一个拆分手机号码的例子：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引入jstl函数库 --&gt;</span><br><span class="line">&lt;%@ taglib prefix=<span class="string">"fn"</span> uri=<span class="string">"http://java.sun.com/jsp/jstl/functions"</span>%&gt;</span><br><span class="line">&lt;div class="m_t10 style_dan"&gt;手机号：&lt;span&gt;$&#123;fn:substring(user.phone, 0,3) &#125;****$&#123;fn:substring(user.phone, 7, 11) &#125;&lt;/span&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>下面是所有函数表格</p>
+<table>
+<thead>
+<tr>
+<th><strong>函数名</strong></th>
+<th><strong>函数说明</strong></th>
+<th><strong>使用举例</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fn:contains</td>
+<td>判断字符串是否包含另外一个字符串</td>
+<td><code>&lt;c:if test=&quot;${fn:contains(name, searchString)}&quot;&gt;</code></td>
+</tr>
+<tr>
+<td>fn:containsIgnoreCase</td>
+<td>判断字符串是否包含另外一个字符串(大小写无关)</td>
+<td><code>&lt;c:if test=&quot;${fn:containsIgnoreCase(name, searchString)}&quot;&gt;</code></td>
+</tr>
+<tr>
+<td>fn:endsWith</td>
+<td>判断字符串是否以另外字符串结束</td>
+<td><code>&lt;c:if test=&quot;${fn:endsWith(filename, &quot;.txt&quot;)}&quot;&gt;</code></td>
+</tr>
+<tr>
+<td>fn:escapeXml</td>
+<td>把一些字符转成XML表示，例如&lt;字符应该转为&lt;</td>
+<td>${fn:escapeXml(param:info)}</td>
+</tr>
+<tr>
+<td>fn:indexOf</td>
+<td>子字符串在母字符串中出现的位置</td>
+<td>${fn:indexOf(name, “-“)}</td>
+</tr>
+<tr>
+<td>fn:join</td>
+<td>将数组中的数据联合成一个新字符串，并使用指定字符格开</td>
+<td>${fn:join(array, “;”)}</td>
+</tr>
+<tr>
+<td>fn:length</td>
+<td>获取字符串的长度，或者数组的大小</td>
+<td>${fn:length(shoppingCart.products)}</td>
+</tr>
+<tr>
+<td>fn:replace</td>
+<td>替换字符串中指定的字符</td>
+<td>${fn:replace(text, “-“, “&#149;”)}</td>
+</tr>
+<tr>
+<td>fn:split</td>
+<td>把字符串按照指定字符切分</td>
+<td>${fn:split(customerNames, “;”)}</td>
+</tr>
+<tr>
+<td>fn:startsWith</td>
+<td>判断字符串是否以某个子串开始</td>
+<td><code>&lt;c:if test=&quot;${fn:startsWith(product.id, &quot;100-&quot;)}&quot;&gt;</code></td>
+</tr>
+<tr>
+<td>fn:substring</td>
+<td>获取子串</td>
+<td>${fn:substring(zip, 6, -1)}</td>
+</tr>
+<tr>
+<td>fn:substringAfter</td>
+<td>获取从某个字符所在位置开始的子串</td>
+<td>${fn:substringAfter(zip, “-“)}</td>
+</tr>
+<tr>
+<td>fn:substringBefore</td>
+<td>获取从开始到某个字符所在位置的子串</td>
+<td>${fn:substringBefore(zip, “-“)}</td>
+</tr>
+<tr>
+<td>fn:toLowerCase</td>
+<td>转为小写</td>
+<td>${fn.toLowerCase(product.name)}</td>
+</tr>
+<tr>
+<td>fn:toUpperCase</td>
+<td>转为大写字符</td>
+<td>${fn.UpperCase(product.name)}</td>
+</tr>
+<tr>
+<td>fn:trim</td>
+<td>去除字符串前后的空格</td>
+<td>${fn.trim(name)}</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fn:contains(string, substring)</td>
+<td>如果参数string中包含参数substring，返回true</td>
+</tr>
+<tr>
+<td>fn:containsIgnoreCase(string, substring)</td>
+<td>如果参数string中包含参数substring（忽略大小写），返回true</td>
+</tr>
+<tr>
+<td>fn:endsWith(string, suffix)</td>
+<td>如果参数 string 以参数suffix结尾，返回true</td>
+</tr>
+<tr>
+<td>fn:escapeXml(string)</td>
+<td>将有特殊意义的XML (和HTML)转换为对应的XML character entity code，并返回</td>
+</tr>
+<tr>
+<td>fn:indexOf(string, substring)</td>
+<td>返回参数substring在参数string中第一次出现的位置</td>
+</tr>
+<tr>
+<td>fn:join(array, separator)</td>
+<td>将一个给定的数组array用给定的间隔符separator串在一起，组成一个新的字符串并返回。</td>
+</tr>
+<tr>
+<td>fn:length(item)</td>
+<td>返回参数item中包含元素的数量。参数Item类型是数组、collection或者String。如果是String类型,返回值是String中的字符数。</td>
+</tr>
+<tr>
+<td>fn:replace(string, before, after)</td>
+<td>返回一个String对象。用参数after字符串替换参数string中所有出现参数before字符串的地方，并返回替换后的结果</td>
+</tr>
+<tr>
+<td>fn:split(string, separator)</td>
+<td>返回一个数组，以参数separator 为分割符分割参数string，分割后的每一部分就是数组的一个元素</td>
+</tr>
+<tr>
+<td>fn:startsWith(string, prefix)</td>
+<td>如果参数string以参数prefix开头，返回true</td>
+</tr>
+<tr>
+<td>fn:substring(string, begin, end)</td>
+<td>返回参数string部分字符串, 从参数begin开始到参数end位置，包括end位置的字符</td>
+</tr>
+<tr>
+<td>fn:substringAfter(string, substring)</td>
+<td>返回参数substring在参数string中后面的那一部分字符串</td>
+</tr>
+<tr>
+<td>fn:substringBefore(string, substring)</td>
+<td>返回参数substring在参数string中前面的那一部分字符串</td>
+</tr>
+<tr>
+<td>fn:toLowerCase(string)</td>
+<td>将参数string所有的字符变为小写，并将其返回</td>
+</tr>
+<tr>
+<td>fn:toUpperCase(string)</td>
+<td>将参数string所有的字符变为大写，并将其返回</td>
+</tr>
+<tr>
+<td>fn:trim(string)</td>
+<td>去除参数string 首尾的空格，并将其返回</td>
+</tr>
+</tbody>
+</table>
+<p>在jsp页面里面最好不要出现java代码块，但是那个<code>&lt;base href=&quot;&lt;%=basePath%&gt;&quot;&gt;</code>我一直有点头疼，最近终于找到替换方案了，如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;base href=<span class="string">"$&#123;pageContext.request.scheme&#125;://$&#123;pageContext.request.serverName&#125;:$&#123;pageContext.request.serverPort&#125;$&#123;pageContext.request.contextPath&#125;/"</span>&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -554,7 +700,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://ganmyds.cn/java_project.html" title="记录建站遇到的各种问题">http://ganmyds.cn/java_project.html</a>
+    <a href="http://ganmyds.cn/jstl_start.html" title="jstl标签的使用">http://ganmyds.cn/jstl_start.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -592,8 +738,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="aly_java_tomcat.html" rel="next" title="云服务器ECS建站攻略">
-                <i class="fa fa-chevron-left"></i> 云服务器ECS建站攻略
+              <a href="spring_ioc.html" rel="next" title="关于spring的bean的理解">
+                <i class="fa fa-chevron-left"></i> 关于spring的bean的理解
               </a>
             
           </div>
@@ -602,8 +748,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="java_yzm.html" rel="prev" title="java发送手机短信认证码">
-                java发送手机短信认证码 <i class="fa fa-chevron-right"></i>
+              <a href="ssh_start.html" rel="prev" title="ssh框架整合">
+                ssh框架整合 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -752,7 +898,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#中文乱码"><span class="nav-number">1.</span> <span class="nav-text">中文乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#导入html文件乱码"><span class="nav-number">1.1.</span> <span class="nav-text">导入html文件乱码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#myeclipse打开html文件缓慢"><span class="nav-number">1.2.</span> <span class="nav-text">myeclipse打开html文件缓慢</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JDBC插入数据"><span class="nav-number">1.3.</span> <span class="nav-text">JDBC插入数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#报错"><span class="nav-number">1.4.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库乱码"><span class="nav-number">1.5.</span> <span class="nav-text">数据库乱码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网站速度慢"><span class="nav-number">2.</span> <span class="nav-text">网站速度慢</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#请求转发："><span class="nav-number">2.1.</span> <span class="nav-text">请求转发：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请求重定向："><span class="nav-number">2.2.</span> <span class="nav-text">请求重定向：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意："><span class="nav-number">2.3.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java流换行问题"><span class="nav-number">2.4.</span> <span class="nav-text">java流换行问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#myeclipse优化"><span class="nav-number">2.5.</span> <span class="nav-text">myeclipse优化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-out-gt-标签"><span class="nav-number">1.</span> <span class="nav-text">&lt;c:out&gt;标签</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#引用"><span class="nav-number">1.1.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#基本使用"><span class="nav-number">1.2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#域对象变量"><span class="nav-number">1.3.</span> <span class="nav-text">域对象变量</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#escapeXml"><span class="nav-number">1.4.</span> <span class="nav-text">escapeXml</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-set-gt-标签"><span class="nav-number">2.</span> <span class="nav-text">&lt;c:set&gt;标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-remove-gt-标签"><span class="nav-number">3.</span> <span class="nav-text">&lt;c:remove&gt;标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-catch-gt-标签"><span class="nav-number">4.</span> <span class="nav-text">&lt;c:catch&gt;标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-if-gt-标签"><span class="nav-number">5.</span> <span class="nav-text">&lt;c:if&gt;标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-choose-gt-标签"><span class="nav-number">6.</span> <span class="nav-text">&lt;c:choose&gt;标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-forEach-gt-标签"><span class="nav-number">7.</span> <span class="nav-text">&lt;c:forEach&gt;标签</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#替换for-each"><span class="nav-number">7.1.</span> <span class="nav-text">替换for:each</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#替换普通for循环"><span class="nav-number">7.2.</span> <span class="nav-text">替换普通for循环</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-forTokens-gt-标签"><span class="nav-number">8.</span> <span class="nav-text">&lt;c:forTokens&gt;标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-c-fn-gt-标签"><span class="nav-number">9.</span> <span class="nav-text">&lt;c:fn&gt;标签</span></a></li></ol></div>
             
 
           </div>
