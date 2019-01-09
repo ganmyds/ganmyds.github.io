@@ -107,7 +107,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_01.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_02.png">
-<meta property="og:updated_time" content="2018-10-09T02:58:30.080Z">
+<meta property="og:updated_time" content="2018-12-11T11:13:38.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring的基本使用">
 <meta name="twitter:description" content="详细介绍spring的基本使用">
@@ -404,7 +404,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,713
+                  3,752
                 </span>
               
 
@@ -481,7 +481,7 @@
 <h5 id="scope属性"><a href="#scope属性" class="headerlink" title="scope属性"></a>scope属性</h5><p>在配置文件</p>
 <p>当scope的值为singleton的时候，是单例模式，只会调用一次，可以验证</p>
 <p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_01.png" alt="Q图片2018091620115"></p>
-<p>如图所示，构造方法只调用一次并且s1和s2的地址是相同的</p>
+<p>如图所示，构造方法只调用一次并且s1和s2的地址是相同的 而且创建容器的时候就把所有对象创建了</p>
 <p>接下来我将scope改为prototype</p>
 <p><img src="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_02.png" alt="Q图片2018091620140"></p>
 <p>我们会发现构造方法被调用了两次而且对象的地址不同，说明创建了两个对象，然后我将getbean()去掉，发现没有调用构造方法，所以scope的值为prototype的时候也是类似懒加载的模式</p>
@@ -496,6 +496,7 @@
 <p>2、spring会自动匹配对应的constructor-arg类型的构造方法，例如上面会调用Employee(String name)的构造方法，如果我按下面所示配置：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"employee"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.constructor.Employee"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"0"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span> <span class="attr">value</span>=<span class="string">"大明"</span>/&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">index</span>=<span class="string">"1"</span> <span class="attr">type</span>=<span class="string">"int"</span> <span class="attr">value</span>=<span class="string">"23"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>则会调用Employee(String name, int age)的构造方法。</p>
+<p>3、还可以添加第三个参数 name=”name”表示指定参数名称</p>
 <p>set注入和构造函数注入的对比：</p>
 <p>使用set注入，我们可以只注入某个属性，对程序的限制更加宽松，如果使用构造函数注入要根据构造函数的规定来严格参数的选择，假如我只提供一个两个参数的构造函数，那么必须根据这两个参数的顺序类型来注入参数，不然就会报错，一般还是set用得更多。</p>
 <h5 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h5><p>例如：</p>
@@ -707,7 +708,7 @@
               
                 <a href="http://ganmyds.cn/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -718,7 +719,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -729,7 +730,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -111,7 +111,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_add_03.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_add_04.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ganmyxh/ganmyxh.io/master/img/spring_add_05.png">
-<meta property="og:updated_time" content="2018-10-17T06:07:58.221Z">
+<meta property="og:updated_time" content="2018-12-12T06:31:29.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring补充">
 <meta name="twitter:description" content="spring里面一些知识点补充说明">
@@ -408,7 +408,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  487
+                  1,390
                 </span>
               
 
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  6分钟
                 </span>
               
             </div>
@@ -483,6 +483,42 @@
 <p>3、如果没有指定id但是指定了name则默认将name的值赋给id。</p>
 <h5 id="关于模块化"><a href="#关于模块化" class="headerlink" title="关于模块化"></a>关于模块化</h5><p>可以通过import属性导入其他配置文件</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 导入其他配置文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">import</span> <span class="attr">resource</span>=<span class="string">"com/ganmy/aop/beans.xml"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="p名称空间注入"><a href="#p名称空间注入" class="headerlink" title="p名称空间注入"></a>p名称空间注入</h5><p>p名称注入是spring新添加的注入方式，需要改写xsd配置，在applicationContext.xml文件里面添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xmlns:p=<span class="string">"http://www.springframework.org/schema/p"</span></span><br></pre></td></tr></table></figure>
+<p>这样就可以使用p名称空间注入的方式</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- p名称空间注入 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"user1"</span> <span class="attr">class</span>=<span class="string">"com.ganmy.bean.User"</span> <span class="attr">p:name</span>=<span class="string">"hhh"</span> <span class="attr">p:age</span>=<span class="string">"18"</span> <span class="attr">p:car-ref</span>=<span class="string">"#"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意当注入引用类型的时候，在配置文件里面引用要用 p-属性-ref的格式，还是走的set方法</p>
+<h5 id="spel注入"><a href="#spel注入" class="headerlink" title="spel注入"></a>spel注入</h5><p>全称是spring Expression Language 翻译是spring表达式语言，类似el表达式，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> &lt;bean name=<span class="string">"user"</span> class=<span class="string">"com.ganmy.bean.User"</span>&gt;</span><br><span class="line">     &lt;property name=<span class="string">"name"</span> value=<span class="string">"张三111"</span>/&gt;</span><br><span class="line">     &lt;property name=<span class="string">"age"</span> value=<span class="string">"12"</span>/&gt;</span><br><span class="line"> &lt;/bean&gt;</span><br><span class="line">&lt;bean name=<span class="string">"user4"</span> class=<span class="string">"com.ganmy.bean.User"</span> &gt;</span><br><span class="line">    &lt;property name=<span class="string">"name"</span> value=<span class="string">"#&#123;user.name&#125;"</span>/&gt;</span><br><span class="line">    &lt;property name=<span class="string">"age"</span> value=<span class="string">"#&#123;user.age&#125;"</span>/&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>这样user4的name和age都是引用user的name和age，但是引用类型不能用这种方式引用</p>
+<h5 id="将spring容器用servletContext对象监听"><a href="#将spring容器用servletContext对象监听" class="headerlink" title="将spring容器用servletContext对象监听"></a>将spring容器用servletContext对象监听</h5><p>web.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 让spring容器随着项目的启动而创建，项目的关闭而销毁 --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- 通过context-param指定spring配置文件的位置 --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 指定监听器 --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 指定配置文件位置 --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>strtus的action类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//从Application域获得spring容器</span></span><br><span class="line"><span class="comment">//获取ServletContext对象</span></span><br><span class="line">ServletContext sc = ServletActionContext.getServletContext();</span><br><span class="line"><span class="comment">//从sc获取ac对象</span></span><br><span class="line">WebApplicationContext ac =  WebApplicationContextUtils.getWebApplicationContext(sc);</span><br></pre></td></tr></table></figure>
+<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><p>1、@controller 控制器（web层）</p>
+<p>2、@service （service层）</p>
+<p>3、@repository （dao层）</p>
+<p>4、@component （把普通pojo实例化到spring容器中，相当于配置文件中的<bean id="" class="">）</bean></p>
+<p>下面写这个是引入component的扫描组件 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;context:component-scan base-package=”com.mmnc”&gt;</span><br></pre></td></tr></table></figure>
+<p> 其中base-package为需要扫描的包（含所有子包） </p>
+<p>1、@Service用于标注业务层组件<br>2、@Controller用于标注控制层组件(如struts中的action)<br>3、@Repository用于标注数据访问组件，即DAO组件.<br>4、@Component泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。 </p>
+<p>getBean的默认名称是类名（头字母小写），如果想自定义，可以@Service(“***”)这样来指定，这种bean默认是单例的，如果想改变，可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Service(“beanName”)</span><br><span class="line">@Scope(“prototype”)</span><br><span class="line">public class User &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来改变。可以使用以下方式指定初始化方法和销毁方法（方法名任意）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@PostConstruct //在对象被创建后调用，相当于init-method</span><br><span class="line">public void init() &#123;</span><br><span class="line">   System.out.println(&quot;初始化方法&quot;);</span><br><span class="line">&#125;   </span><br><span class="line">@PostDestory //在对象被销毁前调用，相当于destory-method</span><br><span class="line">public void destory() &#123;</span><br><span class="line">  System.out.println(&quot;销毁方法&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>scope默认类型是singleton，可以通过注解改成prototype</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Scope</span>(<span class="string">"prototype"</span>)</span><br></pre></td></tr></table></figure>
+<p>属性值的注入使用@Value()</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"张三"</span>)</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以放到set方法上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Value</span>(<span class="string">"张三"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这两种是有差别的</p>
+<p>前者是通过反射的Field赋值，后者是通过set方法赋值</p>
+<p>一般用后者，前者破坏了面向对象的封装性，反射机制直接访问了private属性，但是日常使用的时候，还是前者多</p>
+<p>可以使用@Autowired 自动装配来注入对象，就是有多个对象的时候不好</p>
+<p>也可以使用@Qualifier(“car2”) 告诉spring容器自动装配哪个名称的对象</p>
+<p>还可以使用@Resource(name=”car2”)手动注入，指定注入哪个名称的bean对象 推荐使用手动注入</p>
 
       
     </div>
@@ -668,7 +704,7 @@
               
                 <a href="http://ganmyds.cn/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -679,7 +715,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -690,7 +726,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -730,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#引入约束操作"><span class="nav-number">1.</span> <span class="nav-text">引入约束操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring创建对象的三种方法"><span class="nav-number">2.</span> <span class="nav-text">spring创建对象的三种方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于bean的id属性和name属性"><span class="nav-number">3.</span> <span class="nav-text">关于bean的id属性和name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于模块化"><span class="nav-number">4.</span> <span class="nav-text">关于模块化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#引入约束操作"><span class="nav-number">1.</span> <span class="nav-text">引入约束操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spring创建对象的三种方法"><span class="nav-number">2.</span> <span class="nav-text">spring创建对象的三种方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于bean的id属性和name属性"><span class="nav-number">3.</span> <span class="nav-text">关于bean的id属性和name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于模块化"><span class="nav-number">4.</span> <span class="nav-text">关于模块化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#p名称空间注入"><span class="nav-number">5.</span> <span class="nav-text">p名称空间注入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#spel注入"><span class="nav-number">6.</span> <span class="nav-text">spel注入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将spring容器用servletContext对象监听"><span class="nav-number">7.</span> <span class="nav-text">将spring容器用servletContext对象监听</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注解"><span class="nav-number">8.</span> <span class="nav-text">注解</span></a></li></ol></div>
             
 
           </div>

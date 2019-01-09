@@ -105,7 +105,7 @@
 <meta property="og:site_name" content="小小程序员">
 <meta property="og:description" content="将struts、hibernate和spring三大框架整合起来">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T07:49:01.295Z">
+<meta property="og:updated_time" content="2018-11-28T05:44:33.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh框架整合">
 <meta name="twitter:description" content="将struts、hibernate和spring三大框架整合起来">
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,596
+                  2,694
                 </span>
               
 
@@ -442,7 +442,7 @@
       
 
       
-        <p>这段时间主要在看ssh，发现有了框架之后开发效率有了飞快的提升，尽管struts现在有的人很少了，但是ssh的思想依然值得学习，由于使用ssh整合，hibernate的hibernate.cfg.xml文件被spring接管，sessionFaction在spring配置文件里面配置即可</p>
+        <p>这段时间主要在看ssh，发现有了框架之后开发效率有了飞快的提升，尽管struts现在有的人很少了，但是ssh的思想依然值得学习，由于使用ssh整合，hibernate的hibernate.cfg.xml文件被spring接管，sessionFaction在spring配置文件里面配置即可。</p>
 <p>先说一下hibernate和spring的整合</p>
 <p>首先创建domain对象Employee</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ganmy.domain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> Integer id;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> String email;</span><br><span class="line">	<span class="keyword">private</span> java.util.Date hiredate;</span><br><span class="line">	<span class="keyword">private</span> Float salary;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">()</span></span>&#123;&#125;;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(String name, String email, Date hiredate, Float salary)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.email = email;</span><br><span class="line">		<span class="keyword">this</span>.hiredate = hiredate;</span><br><span class="line">		<span class="keyword">this</span>.salary = salary;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(Integer id, String name, String email, Date hiredate,Float salary)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.email = email;</span><br><span class="line">		<span class="keyword">this</span>.hiredate = hiredate;</span><br><span class="line">		<span class="keyword">this</span>.salary = salary;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> email;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.email = email;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> java.util.<span class="function">Date <span class="title">getHiredate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> hiredate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHiredate</span><span class="params">(java.util.Date hiredate)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.hiredate = hiredate;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Float <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> salary;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSalary</span><span class="params">(Float salary)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.salary = salary;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -492,6 +492,10 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置opensessioninview解决懒加载,本质一个过滤器. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>OpenSessionInViewFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>OpenSessionInViewFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>该方法可以减少使用sql的次数，缺点是会延长和数据库保持的session的生命周期</p>
 <h5 id="基础接口"><a href="#基础接口" class="headerlink" title="基础接口"></a>基础接口</h5><p>通过在web层和业务层添加一层基础接口BasicService来提高代码的复用性，简单的说就是将所有service里面的通用的方法写到基础接口里面，然后通过继承的方式来获取这些方法，然后自己独特的方法就放到自己的接口里面，然后实现这个接口</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>spring的注解扫描和很多配置信息都是在服务器启动的时候注入的，也就是说项目一定要和tomcat关联，在启动tomcat的时候加载配置信息，不然这些配置信息都用不了。</p>
+<h5 id="struts一个actio跳到另一个action方法"><a href="#struts一个actio跳到另一个action方法" class="headerlink" title="struts一个actio跳到另一个action方法"></a>struts一个actio跳到另一个action方法</h5><p>通过struts-config.xml跳转</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">return</span> mapping.findForward(<span class="string">"pageTurn"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;forward name=<span class="string">"pageTurn"</span> path=<span class="string">"/user.do?flag=pageTurn"</span> /&gt;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -589,6 +593,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="mybaties_imp.html" rel="prev" title="mybaties进阶">
+                mybaties进阶 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -673,7 +681,7 @@
               
                 <a href="http://ganmyds.cn/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -684,7 +692,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -695,7 +703,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -735,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#测试："><span class="nav-number">1.</span> <span class="nav-text">测试：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用注解的方式配置属性"><span class="nav-number">2.</span> <span class="nav-text">使用注解的方式配置属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#懒加载的问题"><span class="nav-number">3.</span> <span class="nav-text">懒加载的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基础接口"><span class="nav-number">4.</span> <span class="nav-text">基础接口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#测试："><span class="nav-number">1.</span> <span class="nav-text">测试：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用注解的方式配置属性"><span class="nav-number">2.</span> <span class="nav-text">使用注解的方式配置属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#懒加载的问题"><span class="nav-number">3.</span> <span class="nav-text">懒加载的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基础接口"><span class="nav-number">4.</span> <span class="nav-text">基础接口</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注意"><span class="nav-number">5.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#struts一个actio跳到另一个action方法"><span class="nav-number">6.</span> <span class="nav-text">struts一个actio跳到另一个action方法</span></a></li></ol></div>
             
 
           </div>
